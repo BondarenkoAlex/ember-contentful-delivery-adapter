@@ -1,0 +1,13 @@
+<b>entryquery</b><br/>
+title:{{model.title}}<br/>
+numberFeildMy:{{model.numberFeildMy}}<br/>
+name:{{model.sysSpace.name}}<br/>
+mediaFieldMy:{{model.mediaFieldMy.title}}<br/>
+referenceFieldToOneMy:{{model.referenceFieldToOneMy.numberFeildMy}}<br/>
+
+{{#each model.referenceFieldToManyMyCards as |ref| }}
+    title:{{ref.title}}<br/>
+    mydescriptions:{{ref.mydescriptions}}<br/>
+    <hr />
+{{/each}}
+{{outlet}}

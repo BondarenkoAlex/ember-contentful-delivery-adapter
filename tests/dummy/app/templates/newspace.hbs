@@ -1,0 +1,13 @@
+New Space
+
+<form>
+    <p>
+      {{input value=model.sysName placeholder="name space"}}
+      {{input value=space.name placeholder="name space"}}
+    </p>
+    <p>
+        <button {{action "updateSpace" model }} class="btn btn-submit">Update space</button>
+    </p>
+</form>
+
+{outlet}}

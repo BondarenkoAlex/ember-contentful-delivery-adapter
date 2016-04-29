@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'dummy',
     environment: environment,
     baseURL: '/',
+	//baseURL : '/ember-contentful-adapter/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -16,6 +17,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      contentful: {
+        namespace     : 'spaces/m21hvnsjmt8a',
+        access_token  : '0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb'
+      }
     }
   };
 
@@ -40,7 +45,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.locationType = 'auto';
+    ENV.baseURL = '/ember-contentful-adapter/';
   }
 
   return ENV;
