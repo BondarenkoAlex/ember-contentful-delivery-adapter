@@ -181,7 +181,7 @@ export default DS.JSONSerializer.extend({
 
     modelClass.eachAttribute((key) => {
       attributeKey = this.keyForAttribute(key, 'deserialize');
-      attributes[key] = this._extractAttributes(attributeKey, resourceHash);
+      attributes[key] = this._extractAttributes(modelClass, resourceHash, attributeKey);
 
       // if (resourceHash.hasOwnProperty(attributeKey)) {
       //   attributes[key] = resourceHash[attributeKey];
@@ -197,69 +197,41 @@ export default DS.JSONSerializer.extend({
     return key;
   },
 
-  _extractAttributes(attributeKey, resourceHash) {
-    let value;
+  _extractAttributes(modelClass, resourceHash, attributeKey) {
+    let _this = this;
+    let keys = ['sys', 'fields', 'other'],
+        value,
+        attributes;
     
-    
-    let sys = this._extractSys(resourceHash);
-    value = this._getValueAttributeByAttributeKey(attributeKey, sys, true);
-    if ( value ) {
-      return value;
-    }
-    else {
-      let fields = this._extractFields(resourceHash);
-      value = this._getValueAttributeByAttributeKey(attributeKey, fields);
-
-    }
-
-    // for(let key in sys) {
-    //   if ( 'sys' + Ember.String.classify(key) === attributeKey ){
-    //     value = sys[key];
-    //     return value;
-    //     //break;
-    //   }
-    // }
-    let fields = this._extractFields(resourceHash);
-    for(let key in fields) {
-      if ( key === attributeKey ){
-        value = fields[key];
-        return value;
-        //break;
+    for (let val of keys) {
+      attributes = _this._extractAttributesByKey(resourceHash, val);
+      
+      let isSys = false;
+      if ( val === 'sys' ) {
+        isSys = true;
       }
-    }
-    let other = this._extractAllWithOutSysAndFields(resourceHash);
-    for(let key in other) {
-      if ( key === attributeKey ){
-        value = other[key];
-        return value;
-        //break;
+
+      value = _this._getValueAttributeByAttributeKey(attributeKey, attributes, isSys);
+      if ( value ) {
+        break;
       }
     }
     return value;
-  
   },
 
-  _extractSys(resourceHash) {
-    let sys;
-    if ( resourceHash.hasOwnProperty('sys') ) {
-      sys = resourceHash['sys'];
+  _extractAttributesByKey(resourceHash, key){
+    let attributes;
+    if ( key !== 'other' ) {
+      if ( resourceHash.hasOwnProperty(key) ) {
+        attributes = resourceHash[key];
+      }
     }
-    return sys;
-  },
+    else {
+      for(let k in resourceHash) {
+        if ( k !== 'sys' && k !== 'fields' )
+          attributes[k] = resourceHash[k];
+      }
 
-  _extractFields(resourceHash){
-    let fields;
-    if (resourceHash.hasOwnProperty('fields')){
-      fields = resourceHash['fields'];
-    }
-    return resourceHash;
-  },
-
-  _extractAllWithOutSysAndFields(resourceHash){
-    let attributes = {};
-    for(let key in resourceHash) {
-      if ( key !== 'sys' && key !== 'fields' )
-        attributes[key] = resourceHash[key];
     }
     return attributes;
   },
@@ -267,18 +239,19 @@ export default DS.JSONSerializer.extend({
   _getValueAttributeByAttributeKey(attributeKey, attributes, isSys=false){
     let value;
     let key;
-    for(let k in attributes) {
-      key = k;
+    let k;
+    for(let key in attributes) {
+      k = key;
       if ( isSys ) {
-        key = 'sys' + Ember.String.classify(key);
+        k = 'sys' + Ember.String.classify(key);
       }
-      if ( key === attributeKey ){
+      if ( k === attributeKey ){
         value = attributes[key];
         break;
       }
     }
     return value;
-  }
+  },
 
 
 
