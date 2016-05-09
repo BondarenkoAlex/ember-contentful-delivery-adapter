@@ -10,9 +10,9 @@ export default DS.JSONSerializer.extend({
   /*
    * @override
    * */
-  //primaryKey: 'sysId',
+  primaryKey: 'sysId',
 
-  //typeKey: 'type',
+  typeKey: 'sysType',
   /*
    * @override
    * */
@@ -125,15 +125,15 @@ export default DS.JSONSerializer.extend({
    * */
   normalize(modelClass, resourceHash) {
     let data = null;
-    //let normalize = this.normalizeResourceHash(modelClass, resourceHash);
-    //modelClass = normalize.modelClass;
-    //resourceHash = normalize.resourceHash;
-    if (resourceHash) {
+    
+    let responseAttributes = this._extractAttributes(modelClass, resourceHash);
+
+    if (responseAttributes) {
       data = {
-        id:            this.extractId(modelClass, resourceHash),
-        type:          this.extractType(modelClass, resourceHash),
-        attributes:    this.extractAttributes(modelClass, resourceHash),
-        relationships: this.extractRelationships(modelClass, resourceHash)
+        id:            this.extractId(modelClass, responseAttributes),
+        type:          this.extractType(modelClass, responseAttributes),
+        attributes:    this.extractAttributes(modelClass, responseAttributes),
+        relationships: this.extractRelationships(modelClass, responseAttributes)
       };
 
       this.applyTransforms(modelClass, data.attributes);
@@ -141,33 +141,76 @@ export default DS.JSONSerializer.extend({
 
     return { data };
   },
+
+  _extractAttributes(modelClass, resourceHash) {
+    let keys = ['sys', 'fields', 'other'];
+    let attributes = {};
+    
+    for (let value of keys) {
+      let attributesByVal = this._extractAttributesByKey(modelClass, resourceHash, value);
+      attributes = Ember.$.extend(attributes, attributesByVal)
+    }
+    return attributes;
+  },
+
+  _extractAttributesByKey(modelClass, resourceHash, key ){
+    let attributes = {};
+    if ( key === 'sys' ){
+      if ( resourceHash.hasOwnProperty(key) ) {
+        let sys = resourceHash[key];
+        attributes = this._renameSys(sys);
+      }
+    } 
+    else if ( key === 'fields' ) {
+      if ( resourceHash.hasOwnProperty(key) ) {
+        if ( modelClass.modelName == 'content-type' ){
+          attributes = {
+            fields: resourceHash[key]
+          }
+        }
+        else {
+          attributes = resourceHash[key];
+        }
+        
+      }
+    }   
+    else if ( key === 'other' ){
+      for(let k in resourceHash) {
+        if ( k !== 'sys' && k !== 'fields' ){
+          attributes[k] = resourceHash[k];
+        }
+      }
+    }
+    return attributes;
+  },
+
+  _renameSys(sys){
+    let attributes = {};
+    for (let key in sys) {
+      let sysKey = 'sys' + Ember.String.classify(key);
+      attributes[sysKey] = sys[key];
+    }
+    return attributes;
+  },
     /*
    * @override
    * */
-  extractId(modelClass, resourceHash) {
-    let id;
-    let sys = resourceHash['sys'];
-    if ( sys.type !== 'Entry' ){
-      let primaryKey = Ember.get(this, 'primaryKey');  
-      id = sys[primaryKey];
-    }
+  extractId(modelClass, responseAttributes) {
+    let primaryKey = Ember.get(this, 'primaryKey');  
+    let id = responseAttributes[primaryKey];
     return coerceId(id);
-/*
-    modelName.toLowerCase() === 'Space'.toLowerCase()
-    modelName.toLowerCase() === 'Entry'.toLowerCase()
-    modelName.toLowerCase() === 'Asset'.toLowerCase() 
-    modelName.toLowerCase() === 'Content-type'.toLowerCase()
-*/
   },
-  extractType(modelClass, resourceHash) {
+
+  extractType(modelClass, responseAttributes) {
     let type;
-    let sys = resourceHash['sys'];
+    let typeKey = Ember.get(this, 'typeKey'); 
+    //let sys = resourceHash['sys'];
     //let typeKey = Ember.get(this, 'typeKey');
-    if ( sys.type !== 'Entry' ){
-      type = sys['type'];
+    if ( responseAttributes[typeKey] !== 'Entry' ){
+      type = responseAttributes[typeKey];
     }
     else {
-      let contentType = sys['contentType'];
+      let contentType = responseAttributes['sysContentType'];
       type = contentType.sys['id'];
     }
     return type;
@@ -175,17 +218,15 @@ export default DS.JSONSerializer.extend({
   /*
    * @override
    * */
-  extractAttributes(modelClass, resourceHash) {
-    var attributeKey;
-    var attributes = {};
+  extractAttributes(modelClass, responseAttributes) {
+    let attributeKey;
+    let attributes = {};
 
     modelClass.eachAttribute((key) => {
       attributeKey = this.keyForAttribute(key, 'deserialize');
-      attributes[key] = this._extractAttributes(modelClass, resourceHash, attributeKey);
-
-      // if (resourceHash.hasOwnProperty(attributeKey)) {
-      //   attributes[key] = resourceHash[attributeKey];
-      // }
+      if ( responseAttributes.hasOwnProperty(attributeKey) ) {
+        attributes[key] = responseAttributes[attributeKey];
+      }
     });
 
     return attributes;
@@ -197,114 +238,54 @@ export default DS.JSONSerializer.extend({
     return key;
   },
 
-  _extractAttributes(modelClass, resourceHash, attributeKey) {
-    let _this = this;
-    let keys = ['sys', 'fields', 'other'],
-        value,
-        attributes;
-    
-    for (let val of keys) {
-      attributes = _this._extractAttributesByKey(resourceHash, val);
-      
-      let isSys = false;
-      if ( val === 'sys' ) {
-        isSys = true;
+
+
+
+
+
+ /*
+   * @override
+   * */
+
+  extractRelationships(modelClass, responseAttributes) {
+    let relationships = {};
+
+    modelClass.eachRelationship((key, relationshipMeta) => {
+      let relationship = null;
+      let relationshipKey = this.keyForRelationship(key, relationshipMeta.kind, 'deserialize');
+
+      if (responseAttributes.hasOwnProperty(relationshipKey)) {
+        let data = null;
+        let relationshipHash = responseAttributes[relationshipKey];
+        
+        if (relationshipMeta.kind === 'belongsTo') {
+          data = this.extractRelationship(relationshipMeta.type, relationshipHash);
+        } 
+        else if (relationshipMeta.kind === 'hasMany') {
+          if (!Ember.isNone(relationshipHash)) {
+            data = new Array(relationshipHash.length);
+            for (let i = 0, l = relationshipHash.length; i < l; i++) {
+              let item = relationshipHash[i];
+              data[i] = this.extractRelationship(relationshipMeta.type, item);
+            }
+          }
+        }
+        relationship = { data };
       }
 
-      value = _this._getValueAttributeByAttributeKey(attributeKey, attributes, isSys);
-      if ( value ) {
-        break;
-      }
-    }
-    return value;
-  },
-
-  _extractAttributesByKey(resourceHash, key){
-    let attributes;
-    if ( key !== 'other' ) {
-      if ( resourceHash.hasOwnProperty(key) ) {
-        attributes = resourceHash[key];
-      }
-    }
-    else {
-      for(let k in resourceHash) {
-        if ( k !== 'sys' && k !== 'fields' )
-          attributes[k] = resourceHash[k];
+      let linkKey = this.keyForLink(key, relationshipMeta.kind);
+      if (responseAttributes.links && responseAttributes.links.hasOwnProperty(linkKey)) {
+        let related = responseAttributes.links[linkKey];
+        relationship = relationship || {};
+        relationship.links = { related };
       }
 
-    }
-    return attributes;
-  },
-
-  _getValueAttributeByAttributeKey(attributeKey, attributes, isSys=false){
-    let value;
-    let key;
-    let k;
-    for(let key in attributes) {
-      k = key;
-      if ( isSys ) {
-        k = 'sys' + Ember.String.classify(key);
+      if (relationship) {
+        relationships[key] = relationship;
       }
-      if ( k === attributeKey ){
-        value = attributes[key];
-        break;
-      }
-    }
-    return value;
-  },
+    });
 
-
-
-
-
-
-
-
-
-
-  normalizeResourceHash(modelClass, resourceHash){
-    resourceHash = this.renameSys(resourceHash);
-    let normalize = this.detectType(modelClass, resourceHash);
-    return normalize;
-  },
-  renameSys(resourceHash){
-    if (resourceHash.hasOwnProperty('sys')) {
-      let sys = resourceHash['sys'] ;
-      let sysNew = {};
-      for (let key in sys) {
-        let keyNormalize = Ember.String.camelize('sys-' + key);
-        sysNew[keyNormalize] = sys[key];
-        //
-      }
-      Ember.$.extend(resourceHash, sysNew);
-      delete resourceHash['sys'];
-    }
-    return resourceHash;
-  },
-  detectType(modelClass, resourceHash){
-    var typeKey = Ember.get(this, 'typeKey');
-    if ( resourceHash[typeKey] === 'Entry' ) {
-      if (resourceHash.hasOwnProperty('sysContentType')){
-        let type = resourceHash.sysContentType.sys.id;
-        resourceHash[typeKey] = type;
-        modelClass = this.store.modelFor( type );
-        resourceHash = this.extractFields(resourceHash);
-        delete resourceHash['sysContentType'];
-      }
-    }
-    else if ( resourceHash[typeKey] === 'Asset' ){
-      resourceHash = this.extractFields(resourceHash);
-    }
-    return { modelClass : modelClass, resourceHash : resourceHash }
-  },
-  extractFields(resourceHash){
-    let fields;
-    if (resourceHash.hasOwnProperty('fields')){
-      fields = resourceHash['fields'];
-      delete resourceHash['fields'];
-    }
-    Ember.$.extend(resourceHash,fields);
-    return resourceHash;
+    return relationships;
   },
   /*
    * @override
@@ -327,5 +308,11 @@ export default DS.JSONSerializer.extend({
       delete relationshipHash['sys'];
     }
     return this._super(relationshipModelName, relationshipHash);
-  }
+  },
+    /*
+   * @override
+   * */
+  keyForRelationship(key, typeClass, method) {
+    return key;
+  },
 });
