@@ -8,7 +8,7 @@ export default function spaceRes() {
           "id": "m21hvnsjmt8a"
       },
       "name": "BlankTest",
-        "locales": [
+      "locales": [
         {
           "code": "en-US",
           "default": true,

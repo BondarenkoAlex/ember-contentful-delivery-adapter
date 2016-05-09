@@ -22,6 +22,9 @@ export default RESTAdapter.extend({
       modelName = null;
       id = null;
     }
+    else if ( modelName.toLowerCase() === 'Entry'.toLowerCase() ){
+     throw new Ember.Error("You may not call `findRecord` for model 'Entry'. Use 'id' Content-type as model name");
+    }
     else if ( modelName.toLowerCase() !== 'Asset'.toLowerCase() &&
               modelName.toLowerCase() !== 'Content-type'.toLowerCase()) {
       modelName = 'Entry';
@@ -47,12 +50,12 @@ export default RESTAdapter.extend({
     if ( modelName.toLowerCase() === 'Space'.toLowerCase() ){
       throw new Ember.Error("You may not call `findAll` for model 'Space'. Use 'findRecord'");
     }
-    //else if ( modelName.toLowerCase() === 'Entry'.toLowerCase() ){
-    //  throw new Ember.Error("You may not call `findAll` for model 'Entry'");
-    //}
+    else if ( modelName.toLowerCase() === 'Entry'.toLowerCase() ){
+     throw new Ember.Error("You may not call `findAll` for model 'Entry'");
+    }
     else if (modelName.toLowerCase() !== 'Asset'.toLowerCase() &&
-              modelName.toLowerCase() !== 'Content-type'.toLowerCase() &&
-              modelName.toLowerCase() !== 'Entry'.toLowerCase() ) {
+              modelName.toLowerCase() !== 'Content-type'.toLowerCase() /*&&
+              modelName.toLowerCase() !== 'Entry'.toLowerCase()*/ ) {
       query = Ember.$.extend(query, {
         'content_type': Ember.String.camelize(modelName)
       });

@@ -68,14 +68,10 @@ moduleFor('serializer:contentful-delivery', 'Serializer | contentful delivery', 
 //  assert.ok(1);
 //});
 
-test('normalizeMeta', function (assert) {
+/*test('normalizeMeta', function (assert) {
   let rezult;
   rezult = serializer.normalizeMeta( contentTypesResponse );
-  assert.deepEqual(rezult.meta, {
-    limit: 100,
-    skip : 0,
-    total: 2
-  },'contentTypesResponse');
+  assert.deepEqual(rezult.meta, contentTypesResponseApi.meta,'contentTypesResponse');
 
   rezult = serializer.normalizeMeta(assetsResponse);
   assert.deepEqual(rezult.meta, {
@@ -97,7 +93,7 @@ test('normalizeMeta', function (assert) {
     skip : 0,
     total: 1
   },'queryIdResponse');
-});
+});*/
 
 test('_normalizeResponse - findAll for model:content-type', function (assert) {
   let rezult,

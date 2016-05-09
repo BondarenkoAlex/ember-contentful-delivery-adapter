@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('posts');
   this.route('commentPost');
   this.route('post');
+  this.route('path');
 });
 
 export default Router;

@@ -1,17 +1,18 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
-//import coerceId from "ember-data/-private/system/coerce-id";
 import coerceId from "ember-data/-private/system/coerce-id";
 import normalizeModelName from "ember-data/-private/system/normalize-model-name";
 import { modelHasAttributeOrRelationshipNamedType } from "ember-data/-private/utils";
+
 
 export default DS.JSONSerializer.extend({
   /*
    * @override
    * */
-  primaryKey: 'sysId',
+  //primaryKey: 'sysId',
 
-  typeKey: 'sysType',
+  //typeKey: 'type',
   /*
    * @override
    * */
@@ -53,33 +54,11 @@ export default DS.JSONSerializer.extend({
    * @override
    * */
   normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
-    payload = this.normalizeMeta(payload);
+    // payload = this.normalizeMeta(payload);
     return this._normalizeResponse(store, primaryModelClass, payload, id, requestType, false);
   },
-  normalizeMeta(payload){
-    if (payload && payload.hasOwnProperty('sys')) {
-      let sys = payload['sys'];
-      if (sys.hasOwnProperty('type')) {
-        let type = sys['type'];
-        let payloadNew = {};
-        if (type === 'Array' ) {
-          let meta = {};
-          meta.limit = payload.limit;
-          meta.skip = payload.skip;
-          meta.total = payload.total;
-
-          return {
-            meta : meta,
-            items: payload.items,
-            includes: payload.includes
-          };
-        }
-      }
-    }
-    return payload;
-  },
   /*
-   * @override
+   * @override !!!
    * */
   _normalizeResponse(store, primaryModelClass, payload, id, requestType, isSingle) {
     let documentHash = {
@@ -118,14 +97,37 @@ export default DS.JSONSerializer.extend({
 
     return documentHash;
   },
+    /*
+   * @override
+   * */
+  extractMeta(store, modelClass, payload) {
+    let meta = this._extractMeta(payload);
+    return meta;
+  },
+  _extractMeta(payload){
+    let meta = {};
+    if (payload && payload.hasOwnProperty('sys')) {
+      let sys = payload['sys'];
+      if (sys.hasOwnProperty('type')) {
+        let type = sys['type'];
+        let payloadNew = {};
+        if (type === 'Array' ) {
+          meta.limit = payload.limit;
+          meta.skip = payload.skip;
+          meta.total = payload.total;
+        }
+      }
+    }
+    return meta;
+  },
   /*
    * @override
    * */
   normalize(modelClass, resourceHash) {
     let data = null;
-    let normalize = this.normalizeResourceHash(modelClass, resourceHash);
-    modelClass = normalize.modelClass;
-    resourceHash = normalize.resourceHash;
+    //let normalize = this.normalizeResourceHash(modelClass, resourceHash);
+    //modelClass = normalize.modelClass;
+    //resourceHash = normalize.resourceHash;
     if (resourceHash) {
       data = {
         id:            this.extractId(modelClass, resourceHash),
@@ -139,6 +141,154 @@ export default DS.JSONSerializer.extend({
 
     return { data };
   },
+    /*
+   * @override
+   * */
+  extractId(modelClass, resourceHash) {
+    let id;
+    let sys = resourceHash['sys'];
+    if ( sys.type !== 'Entry' ){
+      let primaryKey = Ember.get(this, 'primaryKey');  
+      id = sys[primaryKey];
+    }
+    return coerceId(id);
+/*
+    modelName.toLowerCase() === 'Space'.toLowerCase()
+    modelName.toLowerCase() === 'Entry'.toLowerCase()
+    modelName.toLowerCase() === 'Asset'.toLowerCase() 
+    modelName.toLowerCase() === 'Content-type'.toLowerCase()
+*/
+  },
+  extractType(modelClass, resourceHash) {
+    let type;
+    let sys = resourceHash['sys'];
+    //let typeKey = Ember.get(this, 'typeKey');
+    if ( sys.type !== 'Entry' ){
+      type = sys['type'];
+    }
+    else {
+      let contentType = sys['contentType'];
+      type = contentType.sys['id'];
+    }
+    return type;
+  },
+  /*
+   * @override
+   * */
+  extractAttributes(modelClass, resourceHash) {
+    var attributeKey;
+    var attributes = {};
+
+    modelClass.eachAttribute((key) => {
+      attributeKey = this.keyForAttribute(key, 'deserialize');
+      attributes[key] = this._extractAttributes(attributeKey, resourceHash);
+
+      // if (resourceHash.hasOwnProperty(attributeKey)) {
+      //   attributes[key] = resourceHash[attributeKey];
+      // }
+    });
+
+    return attributes;
+  },
+  /*
+   * @override
+   * */
+  keyForAttribute(key, method) {
+    return key;
+  },
+
+  _extractAttributes(attributeKey, resourceHash) {
+    let value;
+    
+    
+    let sys = this._extractSys(resourceHash);
+    value = this._getValueAttributeByAttributeKey(attributeKey, sys, true);
+    if ( value ) {
+      return value;
+    }
+    else {
+      let fields = this._extractFields(resourceHash);
+      value = this._getValueAttributeByAttributeKey(attributeKey, fields);
+
+    }
+
+    // for(let key in sys) {
+    //   if ( 'sys' + Ember.String.classify(key) === attributeKey ){
+    //     value = sys[key];
+    //     return value;
+    //     //break;
+    //   }
+    // }
+    let fields = this._extractFields(resourceHash);
+    for(let key in fields) {
+      if ( key === attributeKey ){
+        value = fields[key];
+        return value;
+        //break;
+      }
+    }
+    let other = this._extractAllWithOutSysAndFields(resourceHash);
+    for(let key in other) {
+      if ( key === attributeKey ){
+        value = other[key];
+        return value;
+        //break;
+      }
+    }
+    return value;
+  
+  },
+
+  _extractSys(resourceHash) {
+    let sys;
+    if ( resourceHash.hasOwnProperty('sys') ) {
+      sys = resourceHash['sys'];
+    }
+    return sys;
+  },
+
+  _extractFields(resourceHash){
+    let fields;
+    if (resourceHash.hasOwnProperty('fields')){
+      fields = resourceHash['fields'];
+    }
+    return resourceHash;
+  },
+
+  _extractAllWithOutSysAndFields(resourceHash){
+    let attributes = {};
+    for(let key in resourceHash) {
+      if ( key !== 'sys' && key !== 'fields' )
+        attributes[key] = resourceHash[key];
+    }
+    return attributes;
+  },
+
+  _getValueAttributeByAttributeKey(attributeKey, attributes, isSys=false){
+    let value;
+    let key;
+    for(let k in attributes) {
+      key = k;
+      if ( isSys ) {
+        key = 'sys' + Ember.String.classify(key);
+      }
+      if ( key === attributeKey ){
+        value = attributes[key];
+        break;
+      }
+    }
+    return value;
+  }
+
+
+
+
+
+
+
+
+
+
   normalizeResourceHash(modelClass, resourceHash){
     resourceHash = this.renameSys(resourceHash);
     let normalize = this.detectType(modelClass, resourceHash);
@@ -182,11 +332,6 @@ export default DS.JSONSerializer.extend({
     }
     Ember.$.extend(resourceHash,fields);
     return resourceHash;
-  },
-  extractType(modelClass, resourceHash) {
-    var typeKey = Ember.get(this, 'typeKey');
-    var type = resourceHash[typeKey];
-    return Ember.String.dasherize(type);
   },
   /*
    * @override

@@ -93,13 +93,13 @@ test('findRecord', function(assert) {
 
   type = store.modelFor( 'entry' );
   id = '3eOlNEHDpmgsgMmMwgKo2K';
-  adapter.ajax = function(url, type, options) {
-    assert.equal( url, 'https://cdn.contentful.com/spaces/m21hvnsjmt8a/entries/3eOlNEHDpmgsgMmMwgKo2K', 'URL - model:entry');
-    assert.deepEqual(options.data, {
-      'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
-    }, 'QUERY - model:entry');
-  };
-  adapter.findRecord(store, type, id, null);
+  assert.throws(
+    function() {
+      adapter.findRecord(store, type, id, null);
+    },
+    new Ember.Error("You may not call `findRecord` for model 'Entry'. Use 'id' Content-type as model name"),
+    "You may not call `findRecord` for model 'entry'. Use 'id' Content-type as model name"
+  );
 });
 
 test('findAll', function(assert) {
@@ -143,14 +143,13 @@ test('findAll', function(assert) {
   adapter.findAll(store, type, null, null);
 
   type = store.modelFor( 'entry' );
-  adapter.ajax = function(url, type, options) {
-    assert.equal( url, 'https://cdn.contentful.com/spaces/m21hvnsjmt8a/entries', 'URL - model:entry');
-    assert.deepEqual(options.data, {
-      'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
-    }, 'QUERY - model:entry');
-  };
-  adapter.findAll(store, type, null, null);
-
+  assert.throws(
+    function() {
+      adapter.findAll(store, type, null, null);
+    },
+    new Ember.Error("You may not call `findAll` for model 'Entry'"),
+    "You may not call `findAll` for model 'entry'"
+  );
 });
 
 test('query', function(assert) {
