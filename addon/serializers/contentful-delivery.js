@@ -3,7 +3,7 @@ import Ember from 'ember';
 
 import coerceId from "ember-data/-private/system/coerce-id";
 import normalizeModelName from "ember-data/-private/system/normalize-model-name";
-import { modelHasAttributeOrRelationshipNamedType } from "ember-data/-private/utils";
+//import { modelHasAttributeOrRelationshipNamedType } from "ember-data/-private/utils";
 
 
 export default DS.JSONSerializer.extend({
@@ -126,14 +126,14 @@ export default DS.JSONSerializer.extend({
   normalize(modelClass, resourceHash) {
     let data = null;
     
-    let responseAttributes = this._extractAttributes(modelClass, resourceHash);
+    let responseObjNormalize = this._normalizeResourceHash(modelClass, resourceHash);
 
-    if (responseAttributes) {
+    if (responseObjNormalize) {
       data = {
-        id:            this.extractId(modelClass, responseAttributes),
-        type:          this.extractType(modelClass, responseAttributes),
-        attributes:    this.extractAttributes(modelClass, responseAttributes),
-        relationships: this.extractRelationships(modelClass, responseAttributes)
+        id:            this.extractId(modelClass, responseObjNormalize),
+        type:          this.extractType(modelClass, responseObjNormalize),
+        attributes:    this.extractAttributes(modelClass, responseObjNormalize),
+        relationships: this.extractRelationships(modelClass, responseObjNormalize)
       };
 
       this.applyTransforms(modelClass, data.attributes);
@@ -142,7 +142,7 @@ export default DS.JSONSerializer.extend({
     return { data };
   },
 
-  _extractAttributes(modelClass, resourceHash) {
+  _normalizeResourceHash(modelClass, resourceHash) {
     let keys = ['sys', 'fields', 'other'];
     let attributes = {};
     
@@ -195,22 +195,22 @@ export default DS.JSONSerializer.extend({
     /*
    * @override
    * */
-  extractId(modelClass, responseAttributes) {
+  extractId(modelClass, responseObjNormalize) {
     let primaryKey = Ember.get(this, 'primaryKey');  
-    let id = responseAttributes[primaryKey];
+    let id = responseObjNormalize[primaryKey];
     return coerceId(id);
   },
 
-  extractType(modelClass, responseAttributes) {
+  extractType(modelClass, responseObjNormalize) {
     let type;
     let typeKey = Ember.get(this, 'typeKey'); 
     //let sys = resourceHash['sys'];
     //let typeKey = Ember.get(this, 'typeKey');
-    if ( responseAttributes[typeKey] !== 'Entry' ){
-      type = responseAttributes[typeKey];
+    if ( responseObjNormalize[typeKey] !== 'Entry' ){
+      type = responseObjNormalize[typeKey];
     }
     else {
-      let contentType = responseAttributes['sysContentType'];
+      let contentType = responseObjNormalize['sysContentType'];
       type = contentType.sys['id'];
     }
     return type;
@@ -218,14 +218,14 @@ export default DS.JSONSerializer.extend({
   /*
    * @override
    * */
-  extractAttributes(modelClass, responseAttributes) {
+  extractAttributes(modelClass, responseObjNormalize) {
     let attributeKey;
     let attributes = {};
 
     modelClass.eachAttribute((key) => {
       attributeKey = this.keyForAttribute(key, 'deserialize');
-      if ( responseAttributes.hasOwnProperty(attributeKey) ) {
-        attributes[key] = responseAttributes[attributeKey];
+      if ( responseObjNormalize.hasOwnProperty(attributeKey) ) {
+        attributes[key] = responseObjNormalize[attributeKey];
       }
     });
 
@@ -247,16 +247,16 @@ export default DS.JSONSerializer.extend({
    * @override
    * */
 
-  extractRelationships(modelClass, responseAttributes) {
+  extractRelationships(modelClass, responseObjNormalize) {
     let relationships = {};
 
     modelClass.eachRelationship((key, relationshipMeta) => {
       let relationship = null;
       let relationshipKey = this.keyForRelationship(key, relationshipMeta.kind, 'deserialize');
 
-      if (responseAttributes.hasOwnProperty(relationshipKey)) {
+      if (responseObjNormalize.hasOwnProperty(relationshipKey)) {
         let data = null;
-        let relationshipHash = responseAttributes[relationshipKey];
+        let relationshipHash = responseObjNormalize[relationshipKey];
         
         if (relationshipMeta.kind === 'belongsTo') {
           data = this.extractRelationship(relationshipMeta.type, relationshipHash);
@@ -271,13 +271,6 @@ export default DS.JSONSerializer.extend({
           }
         }
         relationship = { data };
-      }
-
-      let linkKey = this.keyForLink(key, relationshipMeta.kind);
-      if (responseAttributes.links && responseAttributes.links.hasOwnProperty(linkKey)) {
-        let related = responseAttributes.links[linkKey];
-        relationship = relationship || {};
-        relationship.links = { related };
       }
 
       if (relationship) {
@@ -314,5 +307,5 @@ export default DS.JSONSerializer.extend({
    * */
   keyForRelationship(key, typeClass, method) {
     return key;
-  },
+  }
 });
