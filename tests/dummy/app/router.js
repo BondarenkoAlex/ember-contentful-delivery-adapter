@@ -6,20 +6,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('spaces');
-  this.route('space');
-  this.route('ContentTypes');
-  this.route('ContentType');
-  this.route('entries');
-  this.route('entry');
-  this.route('newspace');
-  this.route('entryquery');
-  this.route('asset');
-
-  this.route('posts');
-  this.route('commentPost');
-  this.route('post');
-  this.route('path');
+  this.route('courses');
+  this.route('recipes');
+  this.route('calendar');
+  this.route('chefs');
+  this.route('contacts');
+  this.route('home');
+  this.route('culinary-teachers', { path: '/culinary-teachers/:id' });
 });
 
 export default Router;

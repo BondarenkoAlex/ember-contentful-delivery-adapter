@@ -89,6 +89,10 @@ export default RESTAdapter.extend({
       throw new Ember.Error("For all models besides 'asset', 'content-type', 'space'");
     }
 
+    query = Ember.$.extend(query, {
+      'content_type': Ember.String.camelize(modelName)
+    });
+
     modelName = 'Entry';
 
     query = this.addTokenToQuery(query);

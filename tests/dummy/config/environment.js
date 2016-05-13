@@ -4,8 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dummy',
     environment: environment,
-    baseURL: '/',
-	//baseURL : '/ember-contentful-adapter/',
+    //baseURL: '/',
+    baseURL : '/ember-contentful-delivery-adapter/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -18,18 +18,18 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       contentful: {
-        namespace     : 'spaces/m21hvnsjmt8a',
-        access_token  : '0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb'
+        namespace     : 'spaces/crosqmsbfuzt',
+        access_token  : 'e2788fcfd97fd700b173511ec2527ee8759a0421106319e8e2f8f4a8b6f46a0a'
       }
     }
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+     //ENV.APP.LOG_RESOLVER = true;
+     //ENV.APP.LOG_ACTIVE_GENERATION = true;
+     //ENV.APP.LOG_TRANSITIONS = true;
+     //ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+     //ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
@@ -46,7 +46,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.locationType = 'auto';
-    ENV.baseURL = '/ember-contentful-adapter/';
+    ENV.baseURL = '/ember-contentful-delivery-adapter/';
   }
 
   return ENV;
