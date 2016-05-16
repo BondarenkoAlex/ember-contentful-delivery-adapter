@@ -9,13 +9,12 @@ export default Ember.Route.extend({
   //
   //},
   //meta: null
+  meta: "nul777l",
   model() {
     return Ember.RSVP.hash({
       courses         : this.store.findAll('course'),
-      culinaryTeachers: this.store.findAll('culinary-teacher')
-      //culinaryTeachers: this.store.query( 'culinary-teacher', { limit:2 } )
-    }).then((result) => {
-      let meta = result.get('meta');
+      //culinaryTeachers: this.store.findAll('culinary-teacher')
+      culinaryTeachers: this.store.query( 'culinary-teacher', { limit:3, skip:0 } )
     })
   }
 });

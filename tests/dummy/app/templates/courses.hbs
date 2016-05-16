@@ -40,8 +40,10 @@
             <div class="padd-1">
                 <h3>Our Teachers</h3>
             </div>
+            total: {{model.culinaryTeachers.meta.total}}
+            skip: {{model.culinaryTeachers.meta.skip}}
+            limit: {{model.culinaryTeachers.meta.limit}}
             <ul class="list-teachers">
-                <p>{{model.foto.file.url}}</p>
               {{#each model.culinaryTeachers as |teacher|}}
                   <li>
                       <figure class="box-img"><img src="{{teacher.foto.file.url}}" alt=""></figure>
@@ -49,13 +51,22 @@
                         {{#link-to "culinary-teachers" teacher (query-params direction="asc") }}
                           <h4>{{teacher.teacherName}} {{teacher.teacherLastName}}</h4>{{/link-to}}
                           <b>Levels Taught: </b>
-                          <span>{{teacher.levelsTaught}}</span>
+                          <span>{{teacher.levelsTaught}}</span><br/>
                         {{#link-to "culinary-teachers" teacher class="btn" }}Read more {{/link-to}}
                       </div>
                       <div class="clear"></div>
                   </li>
               {{/each}}
             </ul>
+            
+            {{#each pagination 
+                total=model.culinaryTeachers.meta.total
+                skip=model.culinaryTeachers.meta.skip
+                limit =model.culinaryTeachers.meta.limit  as |teacher|}}
+              <li>
+                  {{teacher.limit}}
+              </li>
+            {{/each}}
         </article>
         <div class="clear"></div>
     </div>
