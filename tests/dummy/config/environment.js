@@ -45,7 +45,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.locationType = 'auto';
-    ENV.baseURL = '/ember-contentful-delivery-adapter/';
+    ENV.baseURL = '/ember-contentful-delivery-adapter';
   }
 
   return ENV;
