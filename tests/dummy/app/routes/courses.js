@@ -14,6 +14,8 @@ export default Ember.Route.extend({
       courses         : this.store.findAll('course'),
       culinaryTeachers: this.store.findAll('culinary-teacher')
       //culinaryTeachers: this.store.query( 'culinary-teacher', { limit:2 } )
+    }).then((result) => {
+      let meta = result.get('meta');
     })
   }
 });

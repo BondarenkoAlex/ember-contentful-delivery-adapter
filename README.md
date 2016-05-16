@@ -1,3 +1,6 @@
+# DEMO
+https://github.com/Bondik/ember-contentful-delivery-adapter
+
 # Ember-contentful-delivery-adapter
 
 This README outlines the details of collaborating on this Ember addon.
