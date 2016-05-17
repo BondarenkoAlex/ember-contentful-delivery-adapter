@@ -2,8 +2,9 @@
     <div class="box-slider">
         <div class="flexslider">
             <ul class="slides">
-                <li><img alt="" src="assets/images/slide-1.jpg"></li>
-                <!--<li> <img alt="" src="assets/images/slide-2.jpg"></li>-->
+              {{#each model.sliderRotator as |image|}}
+                  <li><img alt="" src="{{image.foto.file.url}}"></li>
+              {{/each}}
             </ul>
         </div>
     </div>

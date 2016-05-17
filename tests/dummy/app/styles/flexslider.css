@@ -50,8 +50,8 @@ cursor: pointer;
  text-indent: -9999px;
 }
 .flex-direction-nav li{position:relative;float:left;width:50%;margin-right:-10px}
-.flex-direction-nav li .flex-next {background:url(../images/next.png) no-repeat 0 0;float:right;margin-right:-38px}
-.flex-direction-nav li .flex-prev {background:url(../images/prev.png) no-repeat 0 0;float:left;margin-left:-28px}
+.flex-direction-nav li .flex-next {background:url(../assets/images/next.png) no-repeat 0 0;float:right;margin-right:-38px}
+.flex-direction-nav li .flex-prev {background:url(../assets/images/prev.png) no-repeat 0 0;float:left;margin-left:-28px}
 .flex-direction-nav li .disabled {opacity: .3; filter:alpha(opacity=30); cursor: default;}
 .flex-direction-nav li a:hover{background-position: 0 bottom}
 
