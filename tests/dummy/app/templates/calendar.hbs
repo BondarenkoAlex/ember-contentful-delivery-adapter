@@ -1,1 +1,66 @@
+{{header-site}}
+<section id="content">
+    <div class="border-horiz"></div>
+    <div class="main">
+        <h3>Useful Information</h3>
+        <figure class="img-indent box-img"><img src="assets/images/page4-img1.jpg" alt=""></figure>
+        <p class="overflow padd-2">
+            Most of us learn to cook through trial and error, the Food Network, or being forced to feed ourselves when
+            no one else will do it. So naturally, no one’s born knowing how to sauté chicken, or blanch vegetables. Here
+            are some basic (but useful) cooking techniques chefs use every day, but the rest of us rarely pick up.
+        </p>
+
+        <div class="clear"></div>
+    </div>
+    <div class="border-horiz extra"></div>
+    <div class="container_12">
+        <article class="grid_4">
+            <h3>Calendar of events</h3>
+            <ul class="list-popular">
+              {{#each model.calendarEvent as |event|}}
+                  <li>
+                      <h4>{{#link-to "calendar-event" event }}  {{event.title}}  {{/link-to}}</h4>
+
+                      <p>{{event.date}}</p>
+                  </li>
+              {{/each}}
+            </ul>
+        </article>
+        <article class="grid_8">
+            <h3>Hot News</h3>
+            <ul class="list-popular news">
+              {{#each model.news as |news|}}
+                  <li>
+                    {{#link-to "news" news }}
+                      {{news.title}}{{/link-to}}
+                      <p>{{news.description}}</p>
+
+                  </li>
+              {{/each}}
+            </ul>
+        </article>
+        <div class="clear"></div>
+    </div>
+    <div class="border-horiz extra1"></div>
+    <div class="container_12">
+        <div class="main padd-1">
+            <h3>Education Calendar</h3>
+        </div>
+      {{#each model.educationCalendar as |educationCalendar|}}
+          <article class="grid_6 education">
+            {{#link-to "education-calendar" educationCalendar }}
+                <figure class="img-indent box-img"><img src="{{educationCalendar.image.file.url}}" alt=""></figure>
+            {{/link-to}}
+              <div class="overflow padd-1">
+                <h4>{{#link-to "education-calendar" educationCalendar }}
+                  {{educationCalendar.title}}
+                {{/link-to}}</h4>
+                  <p>{{educationCalendar.description}}</p>
+              </div>
+              <div class="clear"></div>
+          </article>
+      {{/each}}
+        <div class="clear"></div>
+    </div>
+</section>
 {{outlet}}

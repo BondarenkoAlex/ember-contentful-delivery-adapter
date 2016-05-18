@@ -29,27 +29,25 @@
                     <p>sadipscing elitsed diaonumy eirmod tempor duo dolores et ea rebum. Stet clita.</p></li>
             </ul>
         </article>
-        <article class="grid_8">
-            <h3>New Recipes</h3>
-            <ul class="list-recipes">
-              {{#each model as |recipe|}}
-                  <li>
-                    <h3>{{#link-to "recipe" recipe }}<span>{{recipe.title}}</span>{{/link-to}}</h3>
-                    {{#link-to "recipe" recipe }}
-                        <figure class="box-img"><img src="{{recipe.image.file.url}}" alt=""></figure>
-                    {{/link-to}}
-                      <div class="overflow">
-
-
-                          <p>{{recipe.description}}</p>
-                          {{#link-to "recipe" recipe class="btn"}}Read more{{/link-to}}
-                      </div>
-                      <div class="clear"></div>
-                  </li>
-              {{/each}}
-            </ul>
+        <article class="grid_8 recipe">
+            <h3><span>{{model.title}}</span></h3>
+            <figure class="box-img"><img src="{{model.image.file.url}}" alt=""></figure>
+            <div class="overflow">
+                <p>{{model.description}}</p>
+                <p>Cooking time:{{model.preparationTime}}</p>
+                <h4>Ingredients</h4>
+                <ul>
+                  {{#each model.ingredients as |ingredient|}}
+                      <li>{{ingredient}}</li>
+                  {{/each}}
+                </ul>
+                <h4>Preparation</h4>
+                <p>{{model.preparation}}</p>
+                <div>{{{model.video}}}</div>
+            </div>
         </article>
         <div class="clear"></div>
     </div>
 </section>
 {{outlet}}
+

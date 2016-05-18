@@ -4,7 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dummy',
     environment: environment,
-    baseURL: '/',
+    //baseURL: '/',
+    baseURL : '/ember-contentful-delivery-adapter/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {

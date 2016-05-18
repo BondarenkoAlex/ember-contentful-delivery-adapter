@@ -2,7 +2,7 @@
     <div class="box-slider">
         <div class="flexslider">
             <ul class="slides">
-                {{#each model.sliderRotators as |slider|}}
+              {{#each model.sliderRotators as |slider|}}
                   <li><img alt="" src="{{slider.image.file.url}}"></li>
               {{/each}}
             </ul>
@@ -11,23 +11,24 @@
     <div class="box-slogan">
         <h3>Welcome to Gourmet cooking school!</h3>
 
-        <p> At vero eos et <a href="#" class="link-1">accusam et</a> justo duo dolores et ea rebum. Stet clita kasd
-            gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet lorem ipsum dolor sit amet. </p>
+        <p>Different regions of the world not only offer a wide variety of places to see, but many exotic choices for
+            food as well. From spider monkeys and iguanas to shark fins, the following infographic outlines
+            international cook habits and consumption rates.</p>
     </div>
 {{/header-site}}
 <section id="content">
     <div class="border-horiz"></div>
     <div class="container_12 row-1">
-        {{#each model.recipes as |recipe|}}
-            <article class="grid_4 thumbnail-1">
-            <h3>{{#link-to "recipes.recipe" recipe }}<span>{{recipe.title}}</span>{{/link-to}}</h3>
-            {{#link-to "recipes.recipe" recipe }}
+      {{#each model.recipes as |recipe|}}
+          <article class="grid_4 thumbnail-1">
+              <h3>{{#link-to "recipe" recipe }}<span>{{recipe.title}}</span>{{/link-to}}</h3>
+            {{#link-to "recipe" recipe }}
                 <figure class="box-img main-page"><img src="{{recipe.image.file.url}}" alt=""></figure>
             {{/link-to}}
-            <p><a href="#" class="link-1">Click here</a> for more info about this free template created by
-                TemplateMonster.com team.</p>
-            </article>
-        {{/each}}
+              <p>{{recipe.description}}</p>
+            {{#link-to "recipe" recipe class="btn"}}Read more{{/link-to}}
+          </article>
+      {{/each}}
         <div class="clear"></div>
     </div>
     <div class="border-horiz"></div>

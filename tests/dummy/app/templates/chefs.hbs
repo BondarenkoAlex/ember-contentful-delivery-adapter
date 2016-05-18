@@ -1,1 +1,35 @@
-{{outlet}}
+{{header-site}}
+<section id="content">
+    <div class="border-horiz"></div>
+    <div class="container_12">
+        <article class="side-bar extra1">
+            <h3><span>aBOUT</span>oUR sCHOOL</h3>
+            <figure class="box-img img-indent1"><img src="images/page5-img1.jpg" alt=""></figure>
+            <div class="inner-1"> <a href="#" class="link-1">At vero eos et accusam et justo duo dolores et ea rebum. </a>
+                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore.</p>
+                <p>magna aliquyam erat, accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit consetetur sadipscing elitr.</p>
+                <a href="#" class="btn">Read more</a> </div>
+        </article>
+        <article class="grid_8">
+            <div class="padd-1">
+                <h3>Our Teachers</h3>
+            </div>
+            <ul class="list-teachers">
+              {{#each model as |chef|}}
+                  <li>
+                      <figure class="box-img"><img src="{{chef.foto.file.url}}" alt=""></figure>
+                      <div class="overflow">
+                        {{#link-to "culinary-teachers" chef  }}
+                            <h4>{{chef.teacherName}} {{chef.teacherLastName}}</h4>{{/link-to}}
+                          <b>Levels Taught: </b>
+                          <span>{{chef.levelsTaught}}</span><br/>
+                        {{#link-to "culinary-teachers" chef class="btn" }}Read more {{/link-to}}
+                      </div>
+                      <div class="clear"></div>
+                  </li>
+              {{/each}}
+            </ul>
+        </article>
+        <div class="clear"></div>
+    </div>
+</section>
