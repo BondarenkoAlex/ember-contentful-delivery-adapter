@@ -27,6 +27,13 @@
                   </li>
               {{/each}}
             </ul>
+          {{#pagination-comp
+                  total=model.culinaryTeachers.meta.total
+                  skip=model.culinaryTeachers.meta.skip
+                  limit =model.culinaryTeachers.meta.limit }}
+                {{#link-to "home" (query-params address='null' city='null' state='null')}}
+          {{/pagination-comp}}
+
           {{#each pagination
           total=model.culinaryTeachers.meta.total
           skip=model.culinaryTeachers.meta.skip
