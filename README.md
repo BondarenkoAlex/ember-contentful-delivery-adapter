@@ -1,5 +1,7 @@
+in working!!!
+
 # DEMO
-https://github.com/Bondik/ember-contentful-delivery-adapter
+http://bondarenkoalex.github.io/ember-contentful-delivery-adapter/ 
 
 # Ember-contentful-delivery-adapter
 
