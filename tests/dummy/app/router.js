@@ -14,7 +14,8 @@ Router.map(function() {
   this.route('calendar');
   this.route('chefs');
   this.route('contacts');
-  this.route('culinary-teachers', { path: '/culinary-teachers/:id' });
+  this.route('chefs');
+  this.route('chef', { path: '/chef/:id' });
   //this.route('recipe');
   this.route('news', { path: '/news/:id' });
   this.route('calendar-event', { path: '/calendar-event/:id' });

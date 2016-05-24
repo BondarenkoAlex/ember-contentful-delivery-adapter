@@ -746,11 +746,16 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
   margin: 0
 }
 
-iframe {
-  /*height: 182px;*/
+/*iframe {
   overflow: hidden;
   width: 630px;
+  height: 182px;
+}*/
 
+#map {
+  overflow: hidden;
+  width: 630px;
+  height: 182px;
 }
 
 /*----- adress -----*/
@@ -759,7 +764,8 @@ iframe {
   float: left;
   width: 260px;
   margin-right: 30px;
-  padding-top: 9px
+  padding-top: 9px;
+  font-size: 16px;
 }
 
 dl {

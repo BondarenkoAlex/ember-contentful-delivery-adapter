@@ -1,1 +1,21 @@
+{{header-site}}
+<section id="content">
+    <div class="border-horiz"></div>
+    <div class="main">
+        <h3>Contact Information</h3>
+        <div class="box-address">
+            <h4>{{model.company}}</h4>
+            <dl class="address">
+                <dt>{{model.address}}
+                </dt>
+                <dd><span>Freephone:</span>{{model.freephone}}</dd>
+                <dd><span>Telephone:</span>{{model.telephone}}</dd>
+                <dd><span>FAX:</span>{{model.fax}}</dd>
+                <dd> E-mail: <a class="mail-1" href="#">{{model.eMail}}</a></dd>
+            </dl>
+        </div>
+        {{ google-map lat=model.location.lat lon=model.location.lon }}
+        <div class="clear"></div>
+    </div>
+</section>
 {{outlet}}

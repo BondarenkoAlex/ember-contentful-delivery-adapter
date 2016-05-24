@@ -1,25 +1,4 @@
-{{#header-site}}
-    <div class="box-slider">
-        <div class="flexslider">
-            <ul class="slides">
-              {{#each model.sliderRotators as |slider|}}
-                  <li><img alt="" src="{{slider.image.file.url}}"></li>
-              {{/each}}
-            </ul>
-        </div>
-    </div>
-    <div class="box-slogan">
-        <h3>Welcome to Gourmet cooking school!</h3>
-
-        <p>Different regions of the world not only offer a wide variety of places to see, but many exotic choices for
-            food as well. From spider monkeys and iguanas to shark fins, the following infographic outlines
-            international cook habits and consumption rates.</p>
-    </div>
-{{/header-site}}
-{{#if 1 }}
-    Welcome to the reciiiiipes
-{{/if}}
-
+{{header-site sliders=model.sliderRotators visible=true  }}
 <section id="content">
     <div class="border-horiz"></div>
     <div class="container_12 row-1">

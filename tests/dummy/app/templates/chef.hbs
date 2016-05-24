@@ -19,31 +19,19 @@
             </div>
         </article>
         <article class="grid_8">
-            <div class="padd-1">
-                <h3>Our Teachers</h3>
-            </div>
-            <ul class="list-teachers">
-              {{#each model as |chef|}}
-                  <li>
-                      <figure class="box-img"><img src="{{chef.foto.file.url}}" alt=""></figure>
-                      <div class="overflow">
-                        {{#link-to "chef" chef  }}
-                            <h4>{{chef.teacherName}} {{chef.teacherLastName}}</h4>{{/link-to}}
-                          <b>Levels Taught: </b>
-                          <span>{{chef.levelsTaught}}</span><br/>
-                        {{#link-to "chef" chef class="btn" }}Read more {{/link-to}}
-                      </div>
-                      <div class="clear"></div>
-                  </li>
-              {{/each}}
-            </ul>
-          {{#pagination-comp  total=model.meta.total
-          skip=model.meta.skip
-          limit=model.meta.limit
-          as |pagination| }}
-            {{#link-to "chefs" (query-params limit=pagination.page.limit skip=pagination.page.skip) class=(if pagination.page.activeClass "active") }} {{pagination.page.index}} {{/link-to}}
-          {{/pagination-comp}}
+          <h3>{{model.teacherName}} {{model.teacherLastName}}</h3>
+          <figure class="box-img"><img src="{{model.foto.file.url}}" alt=""></figure>
+          <div class="overflow">
+              <b>Cooking</b>
+              <p>{{model.cooking}}</p>
+              <b>Levels Taught</b>
+              <p>{{model.levelsTaught}}</p>
+              <b>Overview</b>
+              <p>{{model.overview}}</p>
+          </div>
+          <div class="clear"></div>
         </article>
         <div class="clear"></div>
     </div>
 </section>
+

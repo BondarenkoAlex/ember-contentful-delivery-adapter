@@ -3,12 +3,6 @@ import layout from './template';
 
 export default Ember.Component.extend({
   layout,
-  name: "my name",
-  actions: {
-    click() {
-      let t = 0;
-    }
-  },
   pagination : null,
   didReceiveAttrs() {
     this._super(...arguments);
@@ -25,26 +19,10 @@ export default Ember.Component.extend({
       pagination[i] = {
         skip       : start,
         limit      : limit,
+        index      : i+1,
         activeClass: (i === start) ? true : false
       }
     }
     this.set("pagination",pagination);
-    let gf = 0;
-    debugger;
-    //let activeClass,
-    //    skipIn;
-    //for (let i = 0; i < pages; i++) {
-    //  skipIn = i * hash.limit;
-    //  activeClass = '';
-    //  if (skipIn === hash.skip) {
-    //    activeClass = 'active';
-    //  }
-    //  pagination.push({
-    //    skip       : skipIn,
-    //    limit      : hash.limit,
-    //    activeClass: activeClass
-    //  });
-    //}
-    //return pagination;
   }
 });

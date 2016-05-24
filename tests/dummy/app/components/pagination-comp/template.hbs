@@ -1,3 +1,4 @@
-{{name }}
-<button {{action "click"}}>Click</button>
-{{yield}}
+{{#each pagination as |page|}}
+    {{yield  (hash  page=page)  }}
+{{/each}}
+

@@ -2,9 +2,16 @@
 <section id="content">
     <div class="border-horiz"></div>
     <div class="container_12">
-        <article class="grid_12">
+        <article class="side-bar">
+            <h3>Short Courses</h3>
+            <p>General cooking courses cover a wide range of topics and range in length from just a few short units, to
+                more comprehensive courses that can be followed over several weeks or even months. It's all up to you
+                and your schedule. A great place to start if you are new is with our sample course, just so you can get
+                a feel for our courses. These courses are included in our general membership plan.</p>
+        </article>
+        <article class="grid_8">
             <h3>{{model.title}}</h3>
-            <img src="{{model.image.file.url}}" alt="">
+            <figure class="box-img"><img src="{{model.image.file.url}}" alt=""></figure>
 
             <p>{{model.description}}</p>
             <h4>Objectives</h4>

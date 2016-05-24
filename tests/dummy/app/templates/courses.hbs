@@ -17,7 +17,7 @@
                 graduating. If you'd prefer to follow your own path, then watching lessons might be the right path for
                 you.</p>
             <ul class="list-2">
-              {{#each model.courses as |course|}}
+              {{#each model as |course|}}
                   <li>
 
                     {{#link-to "course" course }}
@@ -27,14 +27,12 @@
                   </li>
               {{/each}}
             </ul>
-{{#pagination-comp total=model.culinaryTeachers.meta.total skip=model.culinaryTeachers.meta.skip limit =model.culinaryTeachers.meta.limit }}
-
-              {{#each pagination as |page|}}
-                <p>asdas</p>
-                {{#link-to "home" (query-params limit=page.limit skip=page.skip ) }} dsd {{/link-to}}
-              {{/each}}
-
-          {{/pagination-comp}}
+            {{#pagination-comp  total=model.meta.total
+                                skip=model.meta.skip
+                                limit=model.meta.limit
+                                as |pagination| }}
+              {{#link-to "courses" (query-params limit=pagination.page.limit skip=pagination.page.skip) class=(if pagination.page.activeClass "active") }} {{pagination.page.index}} {{/link-to}}
+            {{/pagination-comp}}
 
         </article>
         <div class="clear"></div>
