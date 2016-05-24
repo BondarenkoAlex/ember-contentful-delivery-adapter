@@ -7,13 +7,31 @@ define('dummy/tests/app.jshint', ['exports'], function (exports) {
     assert.ok(true, 'app.js should pass jshint.');
   });
 });
+define('dummy/tests/components/google-map/component.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - components/google-map/component.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'components/google-map/component.js should pass jshint.\ncomponents/google-map/component.js: line 14, col 15, \'google\' is not defined.\ncomponents/google-map/component.js: line 17, col 22, \'google\' is not defined.\ncomponents/google-map/component.js: line 21, col 26, \'google\' is not defined.\ncomponents/google-map/component.js: line 25, col 5, \'google\' is not defined.\n\n4 errors');
+  });
+});
 define('dummy/tests/components/header-site/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint - components/header-site/component.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'components/header-site/component.js should pass jshint.');
+    assert.ok(false, 'components/header-site/component.js should pass jshint.\ncomponents/header-site/component.js: line 15, col 7, Missing semicolon.\n\n1 error');
+  });
+});
+define('dummy/tests/components/pagination-comp/component.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - components/pagination-comp/component.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'components/pagination-comp/component.js should pass jshint.\ncomponents/pagination-comp/component.js: line 24, col 8, Missing semicolon.\n\n1 error');
   });
 });
 define('dummy/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
@@ -91,7 +109,7 @@ define('dummy/tests/helpers/pagination.jshint', ['exports'], function (exports) 
   QUnit.module('JSHint - helpers/pagination.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'helpers/pagination.js should pass jshint.');
+    assert.ok(false, 'helpers/pagination.js should pass jshint.\nhelpers/pagination.js: line 23, col 3, \'options\' is not defined.\n\n1 error');
   });
 });
 define('dummy/tests/helpers/resolver', ['exports', 'dummy/resolver', 'dummy/config/environment'], function (exports, _dummyResolver, _dummyConfigEnvironment) {
@@ -612,6 +630,15 @@ define('dummy/tests/routes/calendar.jshint', ['exports'], function (exports) {
     assert.ok(false, 'routes/calendar.js should pass jshint.\nroutes/calendar.js: line 9, col 7, Missing semicolon.\n\n1 error');
   });
 });
+define('dummy/tests/routes/chef.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - routes/chef.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/chef.js should pass jshint.');
+  });
+});
 define('dummy/tests/routes/chefs.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -645,16 +672,7 @@ define('dummy/tests/routes/courses.jshint', ['exports'], function (exports) {
   QUnit.module('JSHint - routes/courses.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/courses.js should pass jshint.\nroutes/courses.js: line 18, col 7, Missing semicolon.\n\n1 error');
-  });
-});
-define('dummy/tests/routes/culinary-teachers.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - routes/culinary-teachers.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/culinary-teachers.js should pass jshint.');
+    assert.ok(true, 'routes/courses.js should pass jshint.');
   });
 });
 define('dummy/tests/routes/education-calendar.jshint', ['exports'], function (exports) {

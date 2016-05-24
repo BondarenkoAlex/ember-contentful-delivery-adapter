@@ -40,9 +40,98 @@ define('dummy/components/app-version', ['exports', 'ember-cli-app-version/compon
     name: name
   });
 });
+define('dummy/components/google-map/component', ['exports', 'ember', 'dummy/components/google-map/template'], function (exports, _ember, _dummyComponentsGoogleMapTemplate) {
+  exports['default'] = _ember['default'].Component.extend({
+    layout: _dummyComponentsGoogleMapTemplate['default'],
+    didInsertElement: function didInsertElement() {
+      var map = undefined;
+      var lat = this.get("lat");
+      var lng = this.get("lon");
+      var mapOptions = {
+        zoom: 18,
+        center: { lat: lat, lng: lng }
+      };
+      map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: { lat: lat, lng: lng },
+        map: map
+      });
+      var infowindow = new google.maps.InfoWindow({
+        content: '<p>Marker Location:' + marker.getPosition() + '</p>'
+      });
+
+      google.maps.event.addListener(marker, 'click', function () {
+        infowindow.open(map, marker);
+      });
+    }
+  });
+});
+define("dummy/components/google-map/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes", "wrong-type"]
+        },
+        "revision": "Ember@2.4.5",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 0
+          }
+        },
+        "moduleName": "dummy/components/google-map/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "id", "map");
+        dom.setAttribute(el1, "class", "map box-img");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        return morphs;
+      },
+      statements: [["content", "yield", ["loc", [null, [2, 0], [2, 9]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define('dummy/components/header-site/component', ['exports', 'ember', 'dummy/components/header-site/template'], function (exports, _ember, _dummyComponentsHeaderSiteTemplate) {
   exports['default'] = _ember['default'].Component.extend({
-    layout: _dummyComponentsHeaderSiteTemplate['default']
+    layout: _dummyComponentsHeaderSiteTemplate['default'],
+    didInsertElement: function didInsertElement() {
+      _ember['default'].$('.flexslider').flexslider({
+        animation: "fade",
+        slideshow: true,
+        slideshowSpeed: 7000,
+        animationDuration: 600,
+        prevText: "",
+        nextText: "",
+        controlNav: false
+      });
+    }
   });
 });
 define("dummy/components/header-site/template", ["exports"], function (exports) {
@@ -263,6 +352,134 @@ define("dummy/components/header-site/template", ["exports"], function (exports) 
         templates: []
       };
     })();
+    var child6 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.5",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 24,
+                "column": 18
+              },
+              "end": {
+                "line": 26,
+                "column": 18
+              }
+            },
+            "moduleName": "dummy/components/header-site/template.hbs"
+          },
+          isEmpty: false,
+          arity: 1,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("                      ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("li");
+            var el2 = dom.createElement("img");
+            dom.setAttribute(el2, "alt", "");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var element0 = dom.childAt(fragment, [1, 0]);
+            var morphs = new Array(1);
+            morphs[0] = dom.createAttrMorph(element0, 'src');
+            return morphs;
+          },
+          statements: [["attribute", "src", ["concat", [["get", "slider.image.file.url", ["loc", [null, [25, 45], [25, 66]]]]]]]],
+          locals: ["slider"],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.5",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 20,
+              "column": 4
+            },
+            "end": {
+              "line": 37,
+              "column": 4
+            }
+          },
+          "moduleName": "dummy/components/header-site/template.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("        ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "box-slider");
+          var el2 = dom.createTextNode("\n            ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2, "class", "flexslider");
+          var el3 = dom.createTextNode("\n                ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("ul");
+          dom.setAttribute(el3, "class", "slides");
+          var el4 = dom.createTextNode("\n");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createComment("");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("                ");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n            ");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n        ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n        ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "box-slogan");
+          var el2 = dom.createTextNode("\n            ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("h3");
+          var el3 = dom.createTextNode("Welcome to Gourmet cooking school!");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n\n            ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("p");
+          var el3 = dom.createTextNode("Different regions of the world not only offer a wide variety of places to see, but many exotic choices for\n                food as well. From spider monkeys and iguanas to shark fins, the following infographic outlines\n                international cook habits and consumption rates.");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n        ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1, 1, 1]), 1, 1);
+          return morphs;
+        },
+        statements: [["block", "each", [["get", "sliders", ["loc", [null, [24, 26], [24, 33]]]]], [], 0, null, ["loc", [null, [24, 18], [26, 27]]]]],
+        locals: [],
+        templates: [child0]
+      };
+    })();
     return {
       meta: {
         "fragmentReason": false,
@@ -274,7 +491,7 @@ define("dummy/components/header-site/template", ["exports"], function (exports) 
             "column": 0
           },
           "end": {
-            "line": 22,
+            "line": 40,
             "column": 0
           }
         },
@@ -377,27 +594,149 @@ define("dummy/components/header-site/template", ["exports"], function (exports) 
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [0]);
-        var element1 = dom.childAt(element0, [3, 1, 3, 1]);
-        var morphs = new Array(7);
-        morphs[0] = dom.createMorphAt(dom.childAt(element1, [1]), 0, 0);
-        morphs[1] = dom.createMorphAt(dom.childAt(element1, [3]), 0, 0);
-        morphs[2] = dom.createMorphAt(dom.childAt(element1, [5]), 0, 0);
-        morphs[3] = dom.createMorphAt(dom.childAt(element1, [7]), 0, 0);
-        morphs[4] = dom.createMorphAt(dom.childAt(element1, [9]), 0, 0);
-        morphs[5] = dom.createMorphAt(dom.childAt(element1, [11]), 0, 0);
-        morphs[6] = dom.createMorphAt(element0, 5, 5);
+        var element1 = dom.childAt(fragment, [0]);
+        var element2 = dom.childAt(element1, [3, 1, 3, 1]);
+        var morphs = new Array(8);
+        morphs[0] = dom.createMorphAt(dom.childAt(element2, [1]), 0, 0);
+        morphs[1] = dom.createMorphAt(dom.childAt(element2, [3]), 0, 0);
+        morphs[2] = dom.createMorphAt(dom.childAt(element2, [5]), 0, 0);
+        morphs[3] = dom.createMorphAt(dom.childAt(element2, [7]), 0, 0);
+        morphs[4] = dom.createMorphAt(dom.childAt(element2, [9]), 0, 0);
+        morphs[5] = dom.createMorphAt(dom.childAt(element2, [11]), 0, 0);
+        morphs[6] = dom.createMorphAt(element1, 5, 5);
+        morphs[7] = dom.createMorphAt(element1, 7, 7);
         return morphs;
       },
-      statements: [["block", "link-to", ["home"], [], 0, null, ["loc", [null, [8, 24], [8, 60]]]], ["block", "link-to", ["courses"], [], 1, null, ["loc", [null, [9, 24], [9, 66]]]], ["block", "link-to", ["recipes"], [], 2, null, ["loc", [null, [10, 24], [10, 66]]]], ["block", "link-to", ["calendar"], [], 3, null, ["loc", [null, [11, 24], [11, 68]]]], ["block", "link-to", ["chefs"], [], 4, null, ["loc", [null, [12, 24], [12, 62]]]], ["block", "link-to", ["contacts"], [], 5, null, ["loc", [null, [13, 24], [13, 68]]]], ["content", "yield", ["loc", [null, [19, 4], [19, 13]]]]],
+      statements: [["block", "link-to", ["home"], [], 0, null, ["loc", [null, [8, 24], [8, 60]]]], ["block", "link-to", ["courses"], [], 1, null, ["loc", [null, [9, 24], [9, 66]]]], ["block", "link-to", ["recipes"], [], 2, null, ["loc", [null, [10, 24], [10, 66]]]], ["block", "link-to", ["calendar"], [], 3, null, ["loc", [null, [11, 24], [11, 68]]]], ["block", "link-to", ["chefs"], [], 4, null, ["loc", [null, [12, 24], [12, 62]]]], ["block", "link-to", ["contacts"], [], 5, null, ["loc", [null, [13, 24], [13, 68]]]], ["content", "yield", ["loc", [null, [19, 4], [19, 13]]]], ["block", "if", [["get", "visible", ["loc", [null, [20, 10], [20, 17]]]]], [], 6, null, ["loc", [null, [20, 4], [37, 11]]]]],
       locals: [],
-      templates: [child0, child1, child2, child3, child4, child5]
+      templates: [child0, child1, child2, child3, child4, child5, child6]
+    };
+  })());
+});
+define('dummy/components/pagination-comp/component', ['exports', 'ember', 'dummy/components/pagination-comp/template'], function (exports, _ember, _dummyComponentsPaginationCompTemplate) {
+  exports['default'] = _ember['default'].Component.extend({
+    layout: _dummyComponentsPaginationCompTemplate['default'],
+    pagination: null,
+    didReceiveAttrs: function didReceiveAttrs() {
+      this._super.apply(this, arguments);
+      var total = this.get("total");
+      var skip = this.get("skip");
+      var limit = this.get("limit");
+      if (_ember['default'].isEmpty(total) || _ember['default'].isEmpty(skip) || _ember['default'].isEmpty(limit)) {
+        return;
+      }
+
+      var pages = Math.ceil(total / limit);
+      var pagination = new Array(pages);
+      for (var i = 0; i < pagination.length; i++) {
+        var start = i * limit;
+        pagination[i] = {
+          skip: start,
+          limit: limit,
+          index: i + 1,
+          activeClass: i === start ? true : false
+        };
+      }
+      this.set("pagination", pagination);
+    }
+  });
+});
+define("dummy/components/pagination-comp/template", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": {
+            "name": "missing-wrapper",
+            "problems": ["wrong-type"]
+          },
+          "revision": "Ember@2.4.5",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 3,
+              "column": 0
+            }
+          },
+          "moduleName": "dummy/components/pagination-comp/template.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("    ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "yield", [["subexpr", "hash", [], ["page", ["get", "page", ["loc", [null, [2, 25], [2, 29]]]]], ["loc", [null, [2, 13], [2, 30]]]]], [], ["loc", [null, [2, 4], [2, 34]]]]],
+        locals: ["page"],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.4.5",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 5,
+            "column": 0
+          }
+        },
+        "moduleName": "dummy/components/pagination-comp/template.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["block", "each", [["get", "pagination", ["loc", [null, [1, 8], [1, 18]]]]], [], 0, null, ["loc", [null, [1, 0], [3, 9]]]]],
+      locals: [],
+      templates: [child0]
     };
   })());
 });
@@ -451,46 +790,31 @@ define('dummy/ember-contentful-delivery-adapter/tests/modules/ember-contentful-d
   });
 });
 define('dummy/helpers/pagination', ['exports', 'ember'], function (exports, _ember) {
-	exports.pagination = pagination;
+    exports.pagination = pagination;
 
-	function pagination(params, hash) {
-		var pages = Math.ceil(hash.total / hash.limit);
-		var pagination = [];
-		var activeClass = undefined,
-		    skipIn = undefined;
-		for (var i = 0; i < pages; i++) {
-			skipIn = i * hash.limit;
-			activeClass = '';
-			if (skipIn === hash.skip) {
-				activeClass = 'active';
-			}
-			pagination.push({
-				skip: skipIn,
-				limit: hash.limit,
-				activeClass: activeClass
-			});
-		}
-		return pagination;
-		// let total = hash.total;
-		// let skip = hash.skip;
-		// let limit = hash.limit;
-		// let pages = Math.ceil(total/limit);
-		// let html = '';
-		// for (let i=0; i<pages; i++){
-		// 	let p = i+1;
-		// 	let sk = i*limit;
-		// 	if ( sk === skip){
+    function pagination(params, hash) {
 
-		// 		html=html+'<span class="active"><b>'+p+'</b></span>';
-		// 	}
-		// 	else{
-		// 		html=html+'<span>'+p+'</span>';
-		// 	}
-		// }
-		//  	return new Ember.Handlebars.SafeString(html);
-	}
+        //let pages = Math.ceil(hash.total / hash.limit);
+        //let pagination = [];
+        //let activeClass,
+        //    skipIn;
+        //for (let i = 0; i < pages; i++) {
+        //  skipIn = i * hash.limit;
+        //  activeClass = '';
+        //  if (skipIn === hash.skip) {
+        //    activeClass = 'active';
+        //  }
+        //  pagination.push({
+        //    skip       : skipIn,
+        //    limit      : hash.limit,
+        //    activeClass: activeClass
+        //  });
+        //}
+        //return pagination;
+        options.template['yield']();
+    }
 
-	exports['default'] = _ember['default'].Helper.helper(pagination);
+    exports['default'] = _ember['default'].Helper.helper(pagination);
 });
 define('dummy/helpers/pluralize', ['exports', 'ember-inflector/lib/helpers/pluralize'], function (exports, _emberInflectorLibHelpersPluralize) {
   exports['default'] = _emberInflectorLibHelpersPluralize['default'];
@@ -687,8 +1011,17 @@ define('dummy/models/calendar-event', ['exports', 'ember-data', 'ember-contentfu
 define('dummy/models/calendar', ['exports', 'ember-data'], function (exports, _emberData) {
   exports['default'] = _emberData['default'].Model.extend({});
 });
-define('dummy/models/contact', ['exports', 'ember-data'], function (exports, _emberData) {
-  exports['default'] = _emberData['default'].Model.extend({});
+define('dummy/models/contact', ['exports', 'ember-data', 'ember-contentful-delivery-adapter/models/entry'], function (exports, _emberData, _emberContentfulDeliveryAdapterModelsEntry) {
+  exports['default'] = _emberContentfulDeliveryAdapterModelsEntry['default'].extend({
+    title: _emberData['default'].attr('string'),
+    address: _emberData['default'].attr('string'),
+    company: _emberData['default'].attr('string'),
+    freephone: _emberData['default'].attr('string'),
+    telephone: _emberData['default'].attr('string'),
+    fax: _emberData['default'].attr('string'),
+    eMail: _emberData['default'].attr('string'),
+    location: _emberData['default'].attr()
+  });
 });
 define('dummy/models/content-type', ['exports', 'ember-contentful-delivery-adapter/models/content-type'], function (exports, _emberContentfulDeliveryAdapterModelsContentType) {
   Object.defineProperty(exports, 'default', {
@@ -791,7 +1124,8 @@ define('dummy/router', ['exports', 'ember', 'dummy/config/environment'], functio
     this.route('calendar');
     this.route('chefs');
     this.route('contacts');
-    this.route('culinary-teachers', { path: '/culinary-teachers/:id' });
+    this.route('chefs');
+    this.route('chef', { path: '/chef/:id' });
     //this.route('recipe');
     this.route('news', { path: '/news/:id' });
     this.route('calendar-event', { path: '/calendar-event/:id' });
@@ -825,15 +1159,39 @@ define('dummy/routes/calendar', ['exports', 'ember'], function (exports, _ember)
     }
   });
 });
+define('dummy/routes/chef', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({
+    model: function model(param) {
+      return this.store.findRecord('culinary-teacher', param.id);
+    }
+  });
+});
 define('dummy/routes/chefs', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
-    model: function model() {
-      return this.store.findAll('culinary-teacher');
+    queryParams: {
+      limit: {
+        refreshModel: true
+      },
+      skip: {
+        refreshModel: true
+      }
+    },
+    model: function model(param, transition) {
+      var queryParams = {
+        limit: 3,
+        skip: 0
+      };
+      queryParams = _ember['default'].$.extend(queryParams, transition.queryParams);
+      return this.store.query('culinary-teacher', { limit: queryParams.limit, skip: queryParams.skip });
     }
   });
 });
 define('dummy/routes/contacts', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Route.extend({});
+  exports['default'] = _ember['default'].Route.extend({
+    model: function model() {
+      return this.store.findRecord('contact', '2o9EveNBtSc2I2EsGAciSi');
+    }
+  });
 });
 define('dummy/routes/course', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
@@ -844,28 +1202,21 @@ define('dummy/routes/course', ['exports', 'ember'], function (exports, _ember) {
 });
 define('dummy/routes/courses', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
-    //model() {
-    //
-    //    return this.store.query( 'culinary-teacher', { limit:2 } ).then((result) => {
-    //      this.meta = result.get('meta');
-    //    })
-    //
-    //},
-    //meta: null
-    meta: "nul777l",
-    model: function model() {
-      return _ember['default'].RSVP.hash({
-        courses: this.store.findAll('course'),
-        //culinaryTeachers: this.store.findAll('culinary-teacher')
-        culinaryTeachers: this.store.query('culinary-teacher', { limit: 3, skip: 0 })
-      });
-    }
-  });
-});
-define('dummy/routes/culinary-teachers', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Route.extend({
-    model: function model(param) {
-      return this.store.findRecord('culinary-teacher', param.id);
+    queryParams: {
+      limit: {
+        refreshModel: true
+      },
+      skip: {
+        refreshModel: true
+      }
+    },
+    model: function model(param, transition) {
+      var queryParams = {
+        limit: 3,
+        skip: 0
+      };
+      queryParams = _ember['default'].$.extend(queryParams, transition.queryParams);
+      return this.store.query('course', { limit: queryParams.limit, skip: queryParams.skip });
     }
   });
 });
@@ -880,7 +1231,7 @@ define('dummy/routes/home', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
     model: function model() {
       return _ember['default'].RSVP.hash({
-        sliderRotators: this.store.query('slider-rotator', { limit: 1 }),
+        sliderRotators: this.store.query('slider-rotator', { limit: 2 }),
         recipes: this.store.query('recipe', { limit: 3, skip: 4 })
       });
     }
@@ -1720,6 +2071,212 @@ define("dummy/templates/calendar", ["exports"], function (exports) {
     };
   })());
 });
+define("dummy/templates/chef", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type", "multiple-nodes"]
+        },
+        "revision": "Ember@2.4.5",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 38,
+            "column": 0
+          }
+        },
+        "moduleName": "dummy/templates/chef.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("section");
+        dom.setAttribute(el1, "id", "content");
+        var el2 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "border-horiz");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "container_12");
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("article");
+        dom.setAttribute(el3, "class", "side-bar extra1");
+        var el4 = dom.createTextNode("\n            ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("h3");
+        var el5 = dom.createElement("span");
+        var el6 = dom.createTextNode("About");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("Our school");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n            ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("figure");
+        dom.setAttribute(el4, "class", "box-img img-indent1");
+        var el5 = dom.createElement("img");
+        dom.setAttribute(el5, "src", "assets/images/page5-img1.jpg");
+        dom.setAttribute(el5, "alt", "");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n            ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("div");
+        dom.setAttribute(el4, "class", "inner-1");
+        var el5 = dom.createTextNode("\n                ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("p");
+        var el6 = dom.createTextNode("Designed for the home chef, Kitchen Window's Cooking School offers a variety of cooking classes on\n                    everything from the basics to gourmet. Some of our series include: The Fundamentals of Cooking,\n                    Baking Seminars, Market Tours, Global Cuisine, Meet the Chef, Grilling and Outdoor Entertaining,\n                    Young Chef Classes, and Special Events. There is truly something for everyone..");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n\n                ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("p");
+        var el6 = dom.createTextNode("The goal of the program is to go beyond just teaching a recipe. We strive to teach you about the\n                    tools, skills and techniques involved in the cooking process so that the knowledge learned can be\n                    applied to cooking as a whole. Once you master the techniques, you can use your creativity to\n                    confidently develop your own dishes.");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n                ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("a");
+        dom.setAttribute(el5, "href", "#");
+        dom.setAttribute(el5, "class", "btn");
+        var el6 = dom.createTextNode("Read more");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n            ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n        ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("article");
+        dom.setAttribute(el3, "class", "grid_8");
+        var el4 = dom.createTextNode("\n          ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("h3");
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode(" ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n          ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("figure");
+        dom.setAttribute(el4, "class", "box-img");
+        var el5 = dom.createElement("img");
+        dom.setAttribute(el5, "alt", "");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n          ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("div");
+        dom.setAttribute(el4, "class", "overflow");
+        var el5 = dom.createTextNode("\n              ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("b");
+        var el6 = dom.createTextNode("Cooking");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n              ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("p");
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n              ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("b");
+        var el6 = dom.createTextNode("Levels Taught");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n              ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("p");
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n              ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("b");
+        var el6 = dom.createTextNode("Overview");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n              ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("p");
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n          ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n          ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("div");
+        dom.setAttribute(el4, "class", "clear");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n        ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "clear");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element0 = dom.childAt(fragment, [2, 3, 3]);
+        var element1 = dom.childAt(element0, [1]);
+        var element2 = dom.childAt(element0, [3, 0]);
+        var element3 = dom.childAt(element0, [5]);
+        var morphs = new Array(7);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        morphs[1] = dom.createMorphAt(element1, 0, 0);
+        morphs[2] = dom.createMorphAt(element1, 2, 2);
+        morphs[3] = dom.createAttrMorph(element2, 'src');
+        morphs[4] = dom.createMorphAt(dom.childAt(element3, [3]), 0, 0);
+        morphs[5] = dom.createMorphAt(dom.childAt(element3, [7]), 0, 0);
+        morphs[6] = dom.createMorphAt(dom.childAt(element3, [11]), 0, 0);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["content", "header-site", ["loc", [null, [1, 0], [1, 15]]]], ["content", "model.teacherName", ["loc", [null, [22, 14], [22, 35]]]], ["content", "model.teacherLastName", ["loc", [null, [22, 36], [22, 61]]]], ["attribute", "src", ["concat", [["get", "model.foto.file.url", ["loc", [null, [23, 46], [23, 65]]]]]]], ["content", "model.cooking", ["loc", [null, [26, 17], [26, 34]]]], ["content", "model.levelsTaught", ["loc", [null, [28, 17], [28, 39]]]], ["content", "model.overview", ["loc", [null, [30, 17], [30, 35]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define("dummy/templates/chefs", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
@@ -1731,11 +2288,11 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 22,
+                "line": 30,
                 "column": 24
               },
               "end": {
-                "line": 23,
+                "line": 31,
                 "column": 82
               }
             },
@@ -1766,7 +2323,7 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
             morphs[1] = dom.createMorphAt(element0, 2, 2);
             return morphs;
           },
-          statements: [["content", "chef.teacherName", ["loc", [null, [23, 32], [23, 52]]]], ["content", "chef.teacherLastName", ["loc", [null, [23, 53], [23, 77]]]]],
+          statements: [["content", "chef.teacherName", ["loc", [null, [31, 32], [31, 52]]]], ["content", "chef.teacherLastName", ["loc", [null, [31, 53], [31, 77]]]]],
           locals: [],
           templates: []
         };
@@ -1779,12 +2336,12 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 26,
+                "line": 34,
                 "column": 24
               },
               "end": {
-                "line": 26,
-                "column": 84
+                "line": 34,
+                "column": 71
               }
             },
             "moduleName": "dummy/templates/chefs.hbs"
@@ -1814,11 +2371,11 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 18,
+              "line": 26,
               "column": 14
             },
             "end": {
-              "line": 30,
+              "line": 38,
               "column": 14
             }
           },
@@ -1893,9 +2450,93 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
           morphs[3] = dom.createMorphAt(element3, 8, 8);
           return morphs;
         },
-        statements: [["attribute", "src", ["concat", [["get", "chef.foto.file.url", ["loc", [null, [20, 58], [20, 76]]]]]]], ["block", "link-to", ["culinary-teachers", ["get", "chef", ["loc", [null, [22, 55], [22, 59]]]]], [], 0, null, ["loc", [null, [22, 24], [23, 94]]]], ["content", "chef.levelsTaught", ["loc", [null, [25, 32], [25, 53]]]], ["block", "link-to", ["culinary-teachers", ["get", "chef", ["loc", [null, [26, 55], [26, 59]]]]], ["class", "btn"], 1, null, ["loc", [null, [26, 24], [26, 96]]]]],
+        statements: [["attribute", "src", ["concat", [["get", "chef.foto.file.url", ["loc", [null, [28, 58], [28, 76]]]]]]], ["block", "link-to", ["chef", ["get", "chef", ["loc", [null, [30, 42], [30, 46]]]]], [], 0, null, ["loc", [null, [30, 24], [31, 94]]]], ["content", "chef.levelsTaught", ["loc", [null, [33, 32], [33, 53]]]], ["block", "link-to", ["chef", ["get", "chef", ["loc", [null, [34, 42], [34, 46]]]]], ["class", "btn"], 1, null, ["loc", [null, [34, 24], [34, 83]]]]],
         locals: ["chef"],
         templates: [child0, child1]
+      };
+    })();
+    var child1 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.5",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 44,
+                "column": 12
+              },
+              "end": {
+                "line": 44,
+                "column": 177
+              }
+            },
+            "moduleName": "dummy/templates/chefs.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode(" ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode(" ");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+            return morphs;
+          },
+          statements: [["content", "pagination.page.index", ["loc", [null, [44, 151], [44, 176]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.5",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 40,
+              "column": 10
+            },
+            "end": {
+              "line": 45,
+              "column": 10
+            }
+          },
+          "moduleName": "dummy/templates/chefs.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("            ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["block", "link-to", ["chefs", ["subexpr", "query-params", [], ["limit", ["get", "pagination.page.limit", ["loc", [null, [44, 51], [44, 72]]]], "skip", ["get", "pagination.page.skip", ["loc", [null, [44, 78], [44, 98]]]]], ["loc", [null, [44, 31], [44, 99]]]]], ["class", ["subexpr", "if", [["get", "pagination.page.activeClass", ["loc", [null, [44, 110], [44, 137]]]], "active"], [], ["loc", [null, [44, 106], [44, 147]]]]], 0, null, ["loc", [null, [44, 12], [44, 189]]]]],
+        locals: ["pagination"],
+        templates: [child0]
       };
     })();
     return {
@@ -1912,7 +2553,7 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 36,
+            "line": 50,
             "column": 0
           }
         },
@@ -1947,10 +2588,10 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
         dom.appendChild(el3, el4);
         var el4 = dom.createElement("h3");
         var el5 = dom.createElement("span");
-        var el6 = dom.createTextNode("aBOUT");
+        var el6 = dom.createTextNode("About");
         dom.appendChild(el5, el6);
         dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("oUR sCHOOL");
+        var el5 = dom.createTextNode("Our school");
         dom.appendChild(el4, el5);
         dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("\n            ");
@@ -1958,7 +2599,7 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
         var el4 = dom.createElement("figure");
         dom.setAttribute(el4, "class", "box-img img-indent1");
         var el5 = dom.createElement("img");
-        dom.setAttribute(el5, "src", "images/page5-img1.jpg");
+        dom.setAttribute(el5, "src", "assets/images/page5-img1.jpg");
         dom.setAttribute(el5, "alt", "");
         dom.appendChild(el4, el5);
         dom.appendChild(el3, el4);
@@ -1966,24 +2607,16 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
         dom.appendChild(el3, el4);
         var el4 = dom.createElement("div");
         dom.setAttribute(el4, "class", "inner-1");
-        var el5 = dom.createTextNode(" ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("a");
-        dom.setAttribute(el5, "href", "#");
-        dom.setAttribute(el5, "class", "link-1");
-        var el6 = dom.createTextNode("At vero eos et accusam et justo duo dolores et ea rebum. ");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
         var el5 = dom.createTextNode("\n                ");
         dom.appendChild(el4, el5);
         var el5 = dom.createElement("p");
-        var el6 = dom.createTextNode("Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore.");
+        var el6 = dom.createTextNode("Designed for the home chef, Kitchen Window's Cooking School offers a variety of cooking classes on\n                    everything from the basics to gourmet. Some of our series include: The Fundamentals of Cooking,\n                    Baking Seminars, Market Tours, Global Cuisine, Meet the Chef, Grilling and Outdoor Entertaining,\n                    Young Chef Classes, and Special Events. There is truly something for everyone..");
         dom.appendChild(el5, el6);
         dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
+        var el5 = dom.createTextNode("\n\n                ");
         dom.appendChild(el4, el5);
         var el5 = dom.createElement("p");
-        var el6 = dom.createTextNode("magna aliquyam erat, accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit consetetur sadipscing elitr.");
+        var el6 = dom.createTextNode("The goal of the program is to go beyond just teaching a recipe. We strive to teach you about the\n                    tools, skills and techniques involved in the cooking process so that the knowledge learned can be\n                    applied to cooking as a whole. Once you master the techniques, you can use your creativity to\n                    confidently develop your own dishes.");
         dom.appendChild(el5, el6);
         dom.appendChild(el4, el5);
         var el5 = dom.createTextNode("\n                ");
@@ -1994,7 +2627,7 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
         var el6 = dom.createTextNode("Read more");
         dom.appendChild(el5, el6);
         dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode(" ");
+        var el5 = dom.createTextNode("\n            ");
         dom.appendChild(el4, el5);
         dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("\n        ");
@@ -2028,7 +2661,11 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
         var el5 = dom.createTextNode("            ");
         dom.appendChild(el4, el5);
         dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n        ");
+        var el4 = dom.createTextNode("\n");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("        ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n        ");
@@ -2047,15 +2684,17 @@ define("dummy/templates/chefs", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(2);
+        var element4 = dom.childAt(fragment, [2, 3, 3]);
+        var morphs = new Array(3);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        morphs[1] = dom.createMorphAt(dom.childAt(fragment, [2, 3, 3, 3]), 1, 1);
+        morphs[1] = dom.createMorphAt(dom.childAt(element4, [3]), 1, 1);
+        morphs[2] = dom.createMorphAt(element4, 5, 5);
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["content", "header-site", ["loc", [null, [1, 0], [1, 15]]]], ["block", "each", [["get", "model", ["loc", [null, [18, 22], [18, 27]]]]], [], 0, null, ["loc", [null, [18, 14], [30, 23]]]]],
+      statements: [["content", "header-site", ["loc", [null, [1, 0], [1, 15]]]], ["block", "each", [["get", "model", ["loc", [null, [26, 22], [26, 27]]]]], [], 0, null, ["loc", [null, [26, 14], [38, 23]]]], ["block", "pagination-comp", [], ["total", ["subexpr", "@mut", [["get", "model.meta.total", ["loc", [null, [40, 36], [40, 52]]]]], [], []], "skip", ["subexpr", "@mut", [["get", "model.meta.skip", ["loc", [null, [41, 15], [41, 30]]]]], [], []], "limit", ["subexpr", "@mut", [["get", "model.meta.limit", ["loc", [null, [42, 16], [42, 32]]]]], [], []]], 1, null, ["loc", [null, [40, 10], [45, 30]]]]],
       locals: [],
-      templates: [child0]
+      templates: [child0, child1]
     };
   })());
 });
@@ -2065,7 +2704,7 @@ define("dummy/templates/contacts", ["exports"], function (exports) {
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["wrong-type"]
+          "problems": ["wrong-type", "multiple-nodes"]
         },
         "revision": "Ember@2.4.5",
         "loc": {
@@ -2075,7 +2714,7 @@ define("dummy/templates/contacts", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 2,
+            "line": 22,
             "column": 0
           }
         },
@@ -2091,15 +2730,134 @@ define("dummy/templates/contacts", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
+        var el1 = dom.createElement("section");
+        dom.setAttribute(el1, "id", "content");
+        var el2 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "border-horiz");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "main");
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("h3");
+        var el4 = dom.createTextNode("Contact Information");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "box-address");
+        var el4 = dom.createTextNode("\n            ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("h4");
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n            ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("dl");
+        dom.setAttribute(el4, "class", "address");
+        var el5 = dom.createTextNode("\n                ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("dt");
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n                ");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n                ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("dd");
+        var el6 = dom.createElement("span");
+        var el7 = dom.createTextNode("Freephone:");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n                ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("dd");
+        var el6 = dom.createElement("span");
+        var el7 = dom.createTextNode("Telephone:");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n                ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("dd");
+        var el6 = dom.createElement("span");
+        var el7 = dom.createTextNode("FAX:");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n                ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("dd");
+        var el6 = dom.createTextNode(" E-mail: ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createElement("a");
+        dom.setAttribute(el6, "class", "mail-1");
+        dom.setAttribute(el6, "href", "#");
+        var el7 = dom.createComment("");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n            ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n        ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "clear");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(1);
+        var element0 = dom.childAt(fragment, [2, 3]);
+        var element1 = dom.childAt(element0, [3]);
+        var element2 = dom.childAt(element1, [3]);
+        var morphs = new Array(9);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        morphs[1] = dom.createMorphAt(dom.childAt(element1, [1]), 0, 0);
+        morphs[2] = dom.createMorphAt(dom.childAt(element2, [1]), 0, 0);
+        morphs[3] = dom.createMorphAt(dom.childAt(element2, [3]), 1, 1);
+        morphs[4] = dom.createMorphAt(dom.childAt(element2, [5]), 1, 1);
+        morphs[5] = dom.createMorphAt(dom.childAt(element2, [7]), 1, 1);
+        morphs[6] = dom.createMorphAt(dom.childAt(element2, [9, 1]), 0, 0);
+        morphs[7] = dom.createMorphAt(element0, 5, 5);
+        morphs[8] = dom.createMorphAt(fragment, 4, 4, contextualElement);
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["content", "outlet", ["loc", [null, [1, 0], [1, 10]]]]],
+      statements: [["content", "header-site", ["loc", [null, [1, 0], [1, 15]]]], ["content", "model.company", ["loc", [null, [7, 16], [7, 33]]]], ["content", "model.address", ["loc", [null, [9, 20], [9, 37]]]], ["content", "model.freephone", ["loc", [null, [11, 43], [11, 62]]]], ["content", "model.telephone", ["loc", [null, [12, 43], [12, 62]]]], ["content", "model.fax", ["loc", [null, [13, 37], [13, 50]]]], ["content", "model.eMail", ["loc", [null, [14, 56], [14, 71]]]], ["inline", "google-map", [], ["lat", ["subexpr", "@mut", [["get", "model.location.lat", ["loc", [null, [17, 26], [17, 44]]]]], [], []], "lon", ["subexpr", "@mut", [["get", "model.location.lon", ["loc", [null, [17, 49], [17, 67]]]]], [], []]], ["loc", [null, [17, 8], [17, 70]]]], ["content", "outlet", ["loc", [null, [21, 0], [21, 10]]]]],
       locals: [],
       templates: []
     };
@@ -2115,11 +2873,11 @@ define("dummy/templates/course", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 12,
+              "line": 19,
               "column": 14
             },
             "end": {
-              "line": 14,
+              "line": 21,
               "column": 14
             }
           },
@@ -2146,7 +2904,7 @@ define("dummy/templates/course", ["exports"], function (exports) {
           morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
           return morphs;
         },
-        statements: [["content", "objective", ["loc", [null, [13, 22], [13, 35]]]]],
+        statements: [["content", "objective", ["loc", [null, [20, 22], [20, 35]]]]],
         locals: ["objective"],
         templates: []
       };
@@ -2165,7 +2923,7 @@ define("dummy/templates/course", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 28,
+            "line": 35,
             "column": 0
           }
         },
@@ -2195,7 +2953,26 @@ define("dummy/templates/course", ["exports"], function (exports) {
         var el3 = dom.createTextNode("\n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("article");
-        dom.setAttribute(el3, "class", "grid_12");
+        dom.setAttribute(el3, "class", "side-bar");
+        var el4 = dom.createTextNode("\n            ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("h3");
+        var el5 = dom.createTextNode("Short Courses");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n            ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("p");
+        var el5 = dom.createTextNode("General cooking courses cover a wide range of topics and range in length from just a few short units, to\n                more comprehensive courses that can be followed over several weeks or even months. It's all up to you\n                and your schedule. A great place to start if you are new is with our sample course, just so you can get\n                a feel for our courses. These courses are included in our general membership plan.");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n        ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("article");
+        dom.setAttribute(el3, "class", "grid_8");
         var el4 = dom.createTextNode("\n            ");
         dom.appendChild(el3, el4);
         var el4 = dom.createElement("h3");
@@ -2204,8 +2981,11 @@ define("dummy/templates/course", ["exports"], function (exports) {
         dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("\n            ");
         dom.appendChild(el3, el4);
-        var el4 = dom.createElement("img");
-        dom.setAttribute(el4, "alt", "");
+        var el4 = dom.createElement("figure");
+        dom.setAttribute(el4, "class", "box-img");
+        var el5 = dom.createElement("img");
+        dom.setAttribute(el5, "alt", "");
+        dom.appendChild(el4, el5);
         dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("\n\n            ");
         dom.appendChild(el3, el4);
@@ -2283,8 +3063,8 @@ define("dummy/templates/course", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [2, 3, 1]);
-        var element1 = dom.childAt(element0, [3]);
+        var element0 = dom.childAt(fragment, [2, 3, 3]);
+        var element1 = dom.childAt(element0, [3, 0]);
         var element2 = dom.childAt(element0, [17, 1]);
         var morphs = new Array(9);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
@@ -2299,7 +3079,7 @@ define("dummy/templates/course", ["exports"], function (exports) {
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["content", "header-site", ["loc", [null, [1, 0], [1, 15]]]], ["content", "model.title", ["loc", [null, [6, 16], [6, 31]]]], ["attribute", "src", ["concat", [["get", "model.image.file.url", ["loc", [null, [7, 24], [7, 44]]]]]]], ["content", "model.description", ["loc", [null, [9, 15], [9, 36]]]], ["block", "each", [["get", "model.objectives", ["loc", [null, [12, 22], [12, 38]]]]], [], 0, null, ["loc", [null, [12, 14], [14, 23]]]], ["content", "model.unit.title", ["loc", [null, [18, 22], [18, 42]]]], ["content", "model.unit.description", ["loc", [null, [20, 28], [20, 54]]]], ["attribute", "src", ["concat", [["get", "model.unit.image.file.url", ["loc", [null, [22, 34], [22, 59]]]]]]], ["content", "outlet", ["loc", [null, [27, 0], [27, 10]]]]],
+      statements: [["content", "header-site", ["loc", [null, [1, 0], [1, 15]]]], ["content", "model.title", ["loc", [null, [13, 16], [13, 31]]]], ["attribute", "src", ["concat", [["get", "model.image.file.url", ["loc", [null, [14, 48], [14, 68]]]]]]], ["content", "model.description", ["loc", [null, [16, 15], [16, 36]]]], ["block", "each", [["get", "model.objectives", ["loc", [null, [19, 22], [19, 38]]]]], [], 0, null, ["loc", [null, [19, 14], [21, 23]]]], ["content", "model.unit.title", ["loc", [null, [25, 22], [25, 42]]]], ["content", "model.unit.description", ["loc", [null, [27, 28], [27, 54]]]], ["attribute", "src", ["concat", [["get", "model.unit.image.file.url", ["loc", [null, [29, 34], [29, 59]]]]]]], ["content", "outlet", ["loc", [null, [34, 0], [34, 10]]]]],
       locals: [],
       templates: [child0]
     };
@@ -2413,6 +3193,48 @@ define("dummy/templates/courses", ["exports"], function (exports) {
       };
     })();
     var child1 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.5",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 34,
+                "column": 14
+              },
+              "end": {
+                "line": 34,
+                "column": 181
+              }
+            },
+            "moduleName": "dummy/templates/courses.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode(" ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode(" ");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+            return morphs;
+          },
+          statements: [["content", "pagination.page.index", ["loc", [null, [34, 155], [34, 180]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
       return {
         meta: {
           "fragmentReason": false,
@@ -2421,11 +3243,11 @@ define("dummy/templates/courses", ["exports"], function (exports) {
             "source": null,
             "start": {
               "line": 30,
-              "column": 10
+              "column": 12
             },
             "end": {
-              "line": 37,
-              "column": 10
+              "line": 35,
+              "column": 12
             }
           },
           "moduleName": "dummy/templates/courses.hbs"
@@ -2438,13 +3260,7 @@ define("dummy/templates/courses", ["exports"], function (exports) {
           var el0 = dom.createDocumentFragment();
           var el1 = dom.createTextNode("              ");
           dom.appendChild(el0, el1);
-          var el1 = dom.createElement("li");
-          var el2 = dom.createTextNode("\n                ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createComment("");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n              ");
-          dom.appendChild(el1, el2);
+          var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
@@ -2452,12 +3268,12 @@ define("dummy/templates/courses", ["exports"], function (exports) {
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["content", "teacher.limit", ["loc", [null, [35, 16], [35, 33]]]]],
-        locals: ["teacher"],
-        templates: []
+        statements: [["block", "link-to", ["courses", ["subexpr", "query-params", [], ["limit", ["get", "pagination.page.limit", ["loc", [null, [34, 55], [34, 76]]]], "skip", ["get", "pagination.page.skip", ["loc", [null, [34, 82], [34, 102]]]]], ["loc", [null, [34, 35], [34, 103]]]]], ["class", ["subexpr", "if", [["get", "pagination.page.activeClass", ["loc", [null, [34, 114], [34, 141]]]], "active"], [], ["loc", [null, [34, 110], [34, 151]]]]], 0, null, ["loc", [null, [34, 14], [34, 193]]]]],
+        locals: ["pagination"],
+        templates: [child0]
       };
     })();
     return {
@@ -2474,7 +3290,7 @@ define("dummy/templates/courses", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 43,
+            "line": 42,
             "column": 0
           }
         },
@@ -2555,7 +3371,7 @@ define("dummy/templates/courses", ["exports"], function (exports) {
         dom.appendChild(el3, el4);
         var el4 = dom.createComment("");
         dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("        ");
+        var el4 = dom.createTextNode("\n        ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n        ");
@@ -2582,322 +3398,9 @@ define("dummy/templates/courses", ["exports"], function (exports) {
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["content", "header-site", ["loc", [null, [1, 0], [1, 15]]]], ["block", "each", [["get", "model.courses", ["loc", [null, [20, 22], [20, 35]]]]], [], 0, null, ["loc", [null, [20, 14], [28, 23]]]], ["block", "each", [["get", "pagination", ["loc", [null, [30, 18], [30, 28]]]]], ["total", ["subexpr", "@mut", [["get", "model.culinaryTeachers.meta.total", ["loc", [null, [31, 16], [31, 49]]]]], [], []], "skip", ["subexpr", "@mut", [["get", "model.culinaryTeachers.meta.skip", ["loc", [null, [32, 15], [32, 47]]]]], [], []], "limit", ["subexpr", "@mut", [["get", "model.culinaryTeachers.meta.limit", ["loc", [null, [33, 17], [33, 50]]]]], [], []]], 1, null, ["loc", [null, [30, 10], [37, 19]]]]],
+      statements: [["content", "header-site", ["loc", [null, [1, 0], [1, 15]]]], ["block", "each", [["get", "model", ["loc", [null, [20, 22], [20, 27]]]]], [], 0, null, ["loc", [null, [20, 14], [28, 23]]]], ["block", "pagination-comp", [], ["total", ["subexpr", "@mut", [["get", "model.meta.total", ["loc", [null, [30, 38], [30, 54]]]]], [], []], "skip", ["subexpr", "@mut", [["get", "model.meta.skip", ["loc", [null, [31, 37], [31, 52]]]]], [], []], "limit", ["subexpr", "@mut", [["get", "model.meta.limit", ["loc", [null, [32, 38], [32, 54]]]]], [], []]], 1, null, ["loc", [null, [30, 12], [35, 32]]]]],
       locals: [],
       templates: [child0, child1]
-    };
-  })());
-});
-define("dummy/templates/culinary-teachers", ["exports"], function (exports) {
-  exports["default"] = Ember.HTMLBars.template((function () {
-    return {
-      meta: {
-        "fragmentReason": {
-          "name": "missing-wrapper",
-          "problems": ["wrong-type", "multiple-nodes"]
-        },
-        "revision": "Ember@2.4.5",
-        "loc": {
-          "source": null,
-          "start": {
-            "line": 1,
-            "column": 0
-          },
-          "end": {
-            "line": 48,
-            "column": 0
-          }
-        },
-        "moduleName": "dummy/templates/culinary-teachers.hbs"
-      },
-      isEmpty: false,
-      arity: 0,
-      cachedFragment: null,
-      hasRendered: false,
-      buildFragment: function buildFragment(dom) {
-        var el0 = dom.createDocumentFragment();
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("section");
-        dom.setAttribute(el1, "id", "content");
-        var el2 = dom.createTextNode("\n    ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "border-horiz");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n    ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "container_12");
-        var el3 = dom.createTextNode("\n        ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("article");
-        dom.setAttribute(el3, "class", "side-bar");
-        var el4 = dom.createTextNode("\n            ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("h3");
-        var el5 = dom.createElement("span");
-        var el6 = dom.createTextNode("Main");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode(" Courses");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n\n            ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("p");
-        var el5 = dom.createTextNode("At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata\n                sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit consetetur sadipscing elitr, sed\n                sadipscing nonumy eirmod tempor.");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n            ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("ul");
-        dom.setAttribute(el4, "class", "list-1");
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("invidunt ut labore");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("et dolore magna");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("aliquyam erat");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("sed diam voluptua");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("At vero eos et accusam");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("et justo duo");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n            ");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n            ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("p");
-        var el5 = dom.createTextNode("dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\n                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore.");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n            ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("ul");
-        dom.setAttribute(el4, "class", "list-1");
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("dolores duo eirmod");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("eos erat et nonumy sed");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("tempor et et");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("invidunt justo");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("labore Stet clita");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("ea et gubergren kasd");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("li");
-        var el6 = dom.createElement("a");
-        dom.setAttribute(el6, "href", "#");
-        var el7 = dom.createTextNode("magna no rebum");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n            ");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n        ");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n        ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("article");
-        dom.setAttribute(el3, "class", "grid_8");
-        var el4 = dom.createTextNode("\n          ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("h3");
-        var el5 = dom.createComment("");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode(" ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createComment("");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n          ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("figure");
-        dom.setAttribute(el4, "class", "box-img");
-        var el5 = dom.createElement("img");
-        dom.setAttribute(el5, "alt", "");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n          ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("div");
-        dom.setAttribute(el4, "class", "overflow");
-        var el5 = dom.createTextNode("\n              ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("b");
-        var el6 = dom.createTextNode("Cooking");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n              ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("p");
-        var el6 = dom.createComment("");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n              ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("b");
-        var el6 = dom.createTextNode("Levels Taught");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n              ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("p");
-        var el6 = dom.createComment("");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n              ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("b");
-        var el6 = dom.createTextNode("Overview");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n              ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("p");
-        var el6 = dom.createComment("");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n          ");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n          ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("div");
-        dom.setAttribute(el4, "class", "clear");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n        ");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n        ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "clear");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n    ");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
-        dom.appendChild(el0, el1);
-        return el0;
-      },
-      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [2, 3, 3]);
-        var element1 = dom.childAt(element0, [1]);
-        var element2 = dom.childAt(element0, [3, 0]);
-        var element3 = dom.childAt(element0, [5]);
-        var morphs = new Array(7);
-        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        morphs[1] = dom.createMorphAt(element1, 0, 0);
-        morphs[2] = dom.createMorphAt(element1, 2, 2);
-        morphs[3] = dom.createAttrMorph(element2, 'src');
-        morphs[4] = dom.createMorphAt(dom.childAt(element3, [3]), 0, 0);
-        morphs[5] = dom.createMorphAt(dom.childAt(element3, [7]), 0, 0);
-        morphs[6] = dom.createMorphAt(dom.childAt(element3, [11]), 0, 0);
-        dom.insertBoundary(fragment, 0);
-        return morphs;
-      },
-      statements: [["content", "header-site", ["loc", [null, [1, 0], [1, 15]]]], ["content", "model.teacherName", ["loc", [null, [32, 14], [32, 35]]]], ["content", "model.teacherLastName", ["loc", [null, [32, 36], [32, 61]]]], ["attribute", "src", ["concat", [["get", "model.foto.file.url", ["loc", [null, [33, 46], [33, 65]]]]]]], ["content", "model.cooking", ["loc", [null, [36, 17], [36, 34]]]], ["content", "model.levelsTaught", ["loc", [null, [38, 17], [38, 39]]]], ["content", "model.overview", ["loc", [null, [40, 17], [40, 35]]]]],
-      locals: [],
-      templates: []
     };
   })());
 });
@@ -3016,142 +3519,11 @@ define("dummy/templates/home", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 5,
-                "column": 14
-              },
-              "end": {
                 "line": 7,
-                "column": 14
-              }
-            },
-            "moduleName": "dummy/templates/home.hbs"
-          },
-          isEmpty: false,
-          arity: 1,
-          cachedFragment: null,
-          hasRendered: false,
-          buildFragment: function buildFragment(dom) {
-            var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("                  ");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createElement("li");
-            var el2 = dom.createElement("img");
-            dom.setAttribute(el2, "alt", "");
-            dom.appendChild(el1, el2);
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n");
-            dom.appendChild(el0, el1);
-            return el0;
-          },
-          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element2 = dom.childAt(fragment, [1, 0]);
-            var morphs = new Array(1);
-            morphs[0] = dom.createAttrMorph(element2, 'src');
-            return morphs;
-          },
-          statements: [["attribute", "src", ["concat", [["get", "slider.image.file.url", ["loc", [null, [6, 41], [6, 62]]]]]]]],
-          locals: ["slider"],
-          templates: []
-        };
-      })();
-      return {
-        meta: {
-          "fragmentReason": {
-            "name": "missing-wrapper",
-            "problems": ["multiple-nodes"]
-          },
-          "revision": "Ember@2.4.5",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 1,
-              "column": 0
-            },
-            "end": {
-              "line": 18,
-              "column": 0
-            }
-          },
-          "moduleName": "dummy/templates/home.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("    ");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("div");
-          dom.setAttribute(el1, "class", "box-slider");
-          var el2 = dom.createTextNode("\n        ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "flexslider");
-          var el3 = dom.createTextNode("\n            ");
-          dom.appendChild(el2, el3);
-          var el3 = dom.createElement("ul");
-          dom.setAttribute(el3, "class", "slides");
-          var el4 = dom.createTextNode("\n");
-          dom.appendChild(el3, el4);
-          var el4 = dom.createComment("");
-          dom.appendChild(el3, el4);
-          var el4 = dom.createTextNode("            ");
-          dom.appendChild(el3, el4);
-          dom.appendChild(el2, el3);
-          var el3 = dom.createTextNode("\n        ");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n    ");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n    ");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("div");
-          dom.setAttribute(el1, "class", "box-slogan");
-          var el2 = dom.createTextNode("\n        ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("h3");
-          var el3 = dom.createTextNode("Welcome to Gourmet cooking school!");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n\n        ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("p");
-          var el3 = dom.createTextNode("Different regions of the world not only offer a wide variety of places to see, but many exotic choices for\n            food as well. From spider monkeys and iguanas to shark fins, the following infographic outlines\n            international cook habits and consumption rates.");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n    ");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1, 1, 1]), 1, 1);
-          return morphs;
-        },
-        statements: [["block", "each", [["get", "model.sliderRotators", ["loc", [null, [5, 22], [5, 42]]]]], [], 0, null, ["loc", [null, [5, 14], [7, 23]]]]],
-        locals: [],
-        templates: [child0]
-      };
-    })();
-    var child1 = (function () {
-      var child0 = (function () {
-        return {
-          meta: {
-            "fragmentReason": false,
-            "revision": "Ember@2.4.5",
-            "loc": {
-              "source": null,
-              "start": {
-                "line": 24,
                 "column": 18
               },
               "end": {
-                "line": 24,
+                "line": 7,
                 "column": 76
               }
             },
@@ -3174,7 +3546,7 @@ define("dummy/templates/home", ["exports"], function (exports) {
             morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 0, 0);
             return morphs;
           },
-          statements: [["content", "recipe.title", ["loc", [null, [24, 53], [24, 69]]]]],
+          statements: [["content", "recipe.title", ["loc", [null, [7, 53], [7, 69]]]]],
           locals: [],
           templates: []
         };
@@ -3187,11 +3559,11 @@ define("dummy/templates/home", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 25,
+                "line": 8,
                 "column": 12
               },
               "end": {
-                "line": 27,
+                "line": 10,
                 "column": 12
               }
             },
@@ -3221,7 +3593,7 @@ define("dummy/templates/home", ["exports"], function (exports) {
             morphs[0] = dom.createAttrMorph(element0, 'src');
             return morphs;
           },
-          statements: [["attribute", "src", ["concat", [["get", "recipe.image.file.url", ["loc", [null, [26, 62], [26, 83]]]]]]]],
+          statements: [["attribute", "src", ["concat", [["get", "recipe.image.file.url", ["loc", [null, [9, 62], [9, 83]]]]]]]],
           locals: [],
           templates: []
         };
@@ -3234,11 +3606,11 @@ define("dummy/templates/home", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 29,
+                "line": 12,
                 "column": 12
               },
               "end": {
-                "line": 29,
+                "line": 12,
                 "column": 61
               }
             },
@@ -3269,11 +3641,11 @@ define("dummy/templates/home", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 22,
+              "line": 5,
               "column": 6
             },
             "end": {
-              "line": 31,
+              "line": 14,
               "column": 6
             }
           },
@@ -3325,7 +3697,7 @@ define("dummy/templates/home", ["exports"], function (exports) {
           morphs[3] = dom.createMorphAt(element1, 7, 7);
           return morphs;
         },
-        statements: [["block", "link-to", ["recipe", ["get", "recipe", ["loc", [null, [24, 38], [24, 44]]]]], [], 0, null, ["loc", [null, [24, 18], [24, 88]]]], ["block", "link-to", ["recipe", ["get", "recipe", ["loc", [null, [25, 32], [25, 38]]]]], [], 1, null, ["loc", [null, [25, 12], [27, 24]]]], ["content", "recipe.description", ["loc", [null, [28, 17], [28, 39]]]], ["block", "link-to", ["recipe", ["get", "recipe", ["loc", [null, [29, 32], [29, 38]]]]], ["class", "btn"], 2, null, ["loc", [null, [29, 12], [29, 73]]]]],
+        statements: [["block", "link-to", ["recipe", ["get", "recipe", ["loc", [null, [7, 38], [7, 44]]]]], [], 0, null, ["loc", [null, [7, 18], [7, 88]]]], ["block", "link-to", ["recipe", ["get", "recipe", ["loc", [null, [8, 32], [8, 38]]]]], [], 1, null, ["loc", [null, [8, 12], [10, 24]]]], ["content", "recipe.description", ["loc", [null, [11, 17], [11, 39]]]], ["block", "link-to", ["recipe", ["get", "recipe", ["loc", [null, [12, 32], [12, 38]]]]], ["class", "btn"], 2, null, ["loc", [null, [12, 12], [12, 73]]]]],
         locals: ["recipe"],
         templates: [child0, child1, child2]
       };
@@ -3344,7 +3716,7 @@ define("dummy/templates/home", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 88,
+            "line": 71,
             "column": 0
           }
         },
@@ -3357,6 +3729,8 @@ define("dummy/templates/home", ["exports"], function (exports) {
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createElement("section");
         dom.setAttribute(el1, "id", "content");
@@ -3632,13 +4006,13 @@ define("dummy/templates/home", ["exports"], function (exports) {
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var morphs = new Array(2);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        morphs[1] = dom.createMorphAt(dom.childAt(fragment, [1, 3]), 1, 1);
+        morphs[1] = dom.createMorphAt(dom.childAt(fragment, [2, 3]), 1, 1);
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["block", "header-site", [], [], 0, null, ["loc", [null, [1, 0], [18, 16]]]], ["block", "each", [["get", "model.recipes", ["loc", [null, [22, 14], [22, 27]]]]], [], 1, null, ["loc", [null, [22, 6], [31, 15]]]]],
+      statements: [["inline", "header-site", [], ["sliders", ["subexpr", "@mut", [["get", "model.sliderRotators", ["loc", [null, [1, 22], [1, 42]]]]], [], []], "visible", true], ["loc", [null, [1, 0], [1, 59]]]], ["block", "each", [["get", "model.recipes", ["loc", [null, [5, 14], [5, 27]]]]], [], 0, null, ["loc", [null, [5, 6], [14, 15]]]]],
       locals: [],
-      templates: [child0, child1]
+      templates: [child0]
     };
   })());
 });
@@ -4534,7 +4908,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("dummy/app")["default"].create({"contentful":{"namespace":"spaces/crosqmsbfuzt","access_token":"e2788fcfd97fd700b173511ec2527ee8759a0421106319e8e2f8f4a8b6f46a0a"},"name":"ember-contentful-delivery-adapter","version":"0.0.0+f4663063"});
+  require("dummy/app")["default"].create({"contentful":{"namespace":"spaces/crosqmsbfuzt","access_token":"e2788fcfd97fd700b173511ec2527ee8759a0421106319e8e2f8f4a8b6f46a0a"},"name":"ember-contentful-delivery-adapter","version":"0.0.0+ebf3bd59"});
 }
 
 /* jshint ignore:end */
