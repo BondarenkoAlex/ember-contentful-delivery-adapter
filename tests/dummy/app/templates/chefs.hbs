@@ -29,8 +29,10 @@
                       <div class="overflow">
                         {{#link-to "chef" chef  }}
                             <h4>{{chef.teacherName}} {{chef.teacherLastName}}</h4>{{/link-to}}
-                          <b>Levels Taught: </b>
-                          <span>{{chef.levelsTaught}}</span><br/>
+                          <p>
+                            <b>Levels Taught: </b>
+                            <span>{{chef.levelsTaught}}</span>
+                          </p>
                         {{#link-to "chef" chef class="btn" }}Read more {{/link-to}}
                       </div>
                       <div class="clear"></div>

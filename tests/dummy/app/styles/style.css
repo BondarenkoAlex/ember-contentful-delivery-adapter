@@ -59,7 +59,8 @@ h1 a {
 h2, h3, h4, h5, h6 {
   font-family: 'PT Serif Caption', serif;
   font-weight: normal;
-  color: #343434
+  color: #343434;
+  padding: 10px 0 5px;
 }
 
 h3 {
@@ -96,6 +97,10 @@ h4 {
   color: #d53827;
 }
 
+h4 span {
+  color: #343434;
+}
+
 h5 {
   color: #fff;
   font-size: 15px;
@@ -113,7 +118,7 @@ h6 {
 }
 
 .padd-1 {
-  padding-top: 11px
+  /*padding-top: 11px*/
 }
 
 .padd-2 {
@@ -192,7 +197,7 @@ header {
 
 .overflow {
   overflow: hidden;
-  padding-top: 18px;
+  /*padding-top: 18px;*/
 }
 
 /*----- other -----*/
@@ -439,6 +444,14 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
   color: #d53827;
 }
 
+.list-dropcap .box-img img {
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  width: 171px;
+  height: 133px;
+}
+
 .dropcap {
   float: left;
   width: 54px;
@@ -529,6 +542,11 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
 .list-teachers li figure {
   float: left;
   margin-right: 30px
+}
+
+.list-teachers li h4 {
+  font-size: 26px;
+  padding-bottom: 20px;
 }
 
 .list-recipes {
@@ -844,4 +862,47 @@ footer {
 
 .soc-list li a:hover {
   opacity: 0.7
+}
+
+.pagination {
+  clear:both;
+  padding-top:33px;
+  font-size:16px;
+  text-align: center;
+}
+
+.pagination a {
+  color: #6c6c6c;
+  padding:7px;
+  margin-left: 7px;
+  cursor: pointer;
+}
+
+.pagination a:hover, .pagination .active {
+  border-bottom:1px solid #6c6c6c;
+}
+
+.course h4 {
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+.course ul li {
+  font-size: 18px;
+  line-height: 24px;
+  margin-left: 17px;
+  list-style-type: disc;
+}
+
+.course .unit div {
+  margin: 0;
+}
+
+.course .unit .file img {
+  width: 240px;
+}
+
+.course .unit .disc {
+  padding-left: 20px;
+  font-size: 18px;
 }

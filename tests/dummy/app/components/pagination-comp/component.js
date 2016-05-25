@@ -3,6 +3,7 @@ import layout from './template';
 
 export default Ember.Component.extend({
   layout,
+  classNames: ["pagination"],
   pagination : null,
   didReceiveAttrs() {
     this._super(...arguments);
@@ -19,8 +20,7 @@ export default Ember.Component.extend({
       pagination[i] = {
         skip       : start,
         limit      : limit,
-        index      : i+1,
-        activeClass: (i === start) ? true : false
+        index      : i+1
       }
     }
     this.set("pagination",pagination);

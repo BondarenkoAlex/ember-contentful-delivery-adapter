@@ -14,6 +14,11 @@
 	margin-right: auto;
 	width: 960px;
 }
+.container_8 {
+  margin-left: auto;
+  margin-right: auto;
+  width:620px;
+}
 
 /* Grid >> Global
 ----------------------------------------------------------------------------------------------------*/
@@ -97,6 +102,14 @@
 
 .container_12 .grid_12 {
 	width:940px;
+}
+
+.container_8 .grid_5 {
+  width:260px;
+}
+
+.container_8 .grid_7 {
+  width:340px;
 }
 
 

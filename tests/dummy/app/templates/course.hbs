@@ -10,23 +10,28 @@
                 a feel for our courses. These courses are included in our general membership plan.</p>
         </article>
         <article class="grid_8">
-            <h3>{{model.title}}</h3>
-            <figure class="box-img"><img src="{{model.image.file.url}}" alt=""></figure>
-
-            <p>{{model.description}}</p>
-            <h4>Objectives</h4>
-            <ul>
-              {{#each model.objectives as |objective|}}
-                  <li>{{objective}}</li>
-              {{/each}}
-            </ul>
-            <h4>Unit:</h4>
-
-            <p>title: {{model.unit.title}}</p>
-
-            <p>description: {{model.unit.description}}</p>
-
-            <p>image: <img src="{{model.unit.image.file.url}}" alt=""></p>
+            <div class="course">
+              <h3>{{model.title}}</h3>
+              <figure class="box-img"><img src="{{model.image.file.url}}" alt=""></figure>
+              <h4>Description</h4>
+              <p>{{model.description}}</p>
+              <h4>Objectives</h4>
+              <ul>
+                {{#each model.objectives as |objective|}}
+                    <li>{{objective}}</li>
+                {{/each}}
+              </ul>
+              <h4>Unit: {{model.unit.title}}</h4>
+              <div class="container_8 unit">
+                  <div class="grid_5 file">
+                      <figure class="box-img"><img src="{{model.unit.image.file.url}}" alt=""></figure>
+                  </div>
+                  <div class="grid_7 disc">
+                    {{model.unit.description}}
+                  </div>
+                  <div class="clear"></div>
+              </div>
+            </div>
         </article>
     </div>
     <div class="clear"></div>

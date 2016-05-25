@@ -48,6 +48,12 @@
                   </li>
               {{/each}}
             </ul>
+          {{#pagination-comp  total=model.meta.total
+                              skip=model.meta.skip
+                              limit=model.meta.limit
+                              as |pagination| }}
+            {{#link-to "recipes" (query-params limit=pagination.page.limit skip=pagination.page.skip) }} {{pagination.page.index}} {{/link-to}}
+          {{/pagination-comp}}
         </article>
         <div class="clear"></div>
     </div>

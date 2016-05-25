@@ -31,9 +31,8 @@
                                 skip=model.meta.skip
                                 limit=model.meta.limit
                                 as |pagination| }}
-              {{#link-to "courses" (query-params limit=pagination.page.limit skip=pagination.page.skip) class=(if pagination.page.activeClass "active") }} {{pagination.page.index}} {{/link-to}}
+              {{#link-to "courses" (query-params limit=pagination.page.limit skip=pagination.page.skip) }} {{pagination.page.index}} {{/link-to}}
             {{/pagination-comp}}
-
         </article>
         <div class="clear"></div>
     </div>

@@ -6,10 +6,10 @@
             <nav>
                 <ul class="sf-menu">
                     <li>{{#link-to "home" }}Home{{/link-to}}</li>
-                    <li>{{#link-to "courses" }}Courses{{/link-to}}</li>
-                    <li>{{#link-to "recipes" }}Recipes{{/link-to}}</li>
+                    <li>{{#link-to "courses"  (query-params limit=3 skip=0) }}Courses{{/link-to}}</li>
+                    <li>{{#link-to "recipes"  (query-params limit=3 skip=0) }}Recipes{{/link-to}}</li>
                     <li>{{#link-to "calendar" }}Calendar{{/link-to}}</li>
-                    <li>{{#link-to "chefs" }}Chefs{{/link-to}}</li>
+                    <li>{{#link-to "chefs"    (query-params limit=3 skip=0) }}Chefs{{/link-to}}</li>
                     <li>{{#link-to "contacts" }}Contacts{{/link-to}}</li>
                 </ul>
             </nav>

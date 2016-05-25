@@ -34,14 +34,14 @@
             <figure class="box-img"><img src="{{model.image.file.url}}" alt=""></figure>
             <div class="overflow">
                 <p>{{model.description}}</p>
-                <p>Cooking time:{{model.preparationTime}}</p>
-                <h4>Ingredients</h4>
+                <h4>Cooking time: <span>{{model.preparationTime}}</span></h4>
+                <h4>Ingredients:</h4>
                 <ul>
                   {{#each model.ingredients as |ingredient|}}
                       <li>{{ingredient}}</li>
                   {{/each}}
                 </ul>
-                <h4>Preparation</h4>
+                <h4>Preparation:</h4>
                 <p>{{model.preparation}}</p>
                 <div>{{{model.video}}}</div>
             </div>
