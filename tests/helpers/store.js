@@ -5,10 +5,10 @@ import Owner from './owner';
 import ContentfulDeliveryAdapter from 'ember-contentful-delivery-adapter/adapters/contentful-delivery';
 import ContentfulDeliverySerializer from 'ember-contentful-delivery-adapter/serializers/contentful-delivery';
 
-import Asset from 'ember-contentful-delivery-adapter/models/asset';
-import ContentType from 'ember-contentful-delivery-adapter/models/content-type';
-import Entry from 'ember-contentful-delivery-adapter/models/entry';
-import Space from 'ember-contentful-delivery-adapter/models/space';
+import Asset        from 'ember-contentful-delivery-adapter/models/asset';
+import ContentType  from 'ember-contentful-delivery-adapter/models/content-type';
+import Entry        from 'ember-contentful-delivery-adapter/models/entry';
+import Space        from 'ember-contentful-delivery-adapter/models/space';
 
 export default function setupStore(options) {
   var container, registry, owner;
@@ -55,15 +55,15 @@ export default function setupStore(options) {
 
   registry.optionsForType('serializer', { singleton: false });
   registry.optionsForType('adapter', { singleton: false });
-  registry.register('adapter:-default', DS.Adapter);
-
-  registry.register('serializer:-default', DS.JSONSerializer);
-  registry.register('serializer:-rest', DS.RESTSerializer);
-
-  registry.register('adapter:-rest', DS.RESTAdapter);
-
-  registry.register('adapter:-json-api', DS.JSONAPIAdapter);
-  registry.register('serializer:-json-api', DS.JSONAPISerializer);
+  //registry.register('adapter:-default', DS.Adapter);
+  //
+  //registry.register('serializer:-default', DS.JSONSerializer);
+  //registry.register('serializer:-rest', DS.RESTSerializer);
+  //
+  //registry.register('adapter:-rest', DS.RESTAdapter);
+  //
+  //registry.register('adapter:-json-api', DS.JSONAPIAdapter);
+  //registry.register('serializer:-json-api', DS.JSONAPISerializer);
 
   registry.register('transform:date', DS.DateTransform);
   registry.register('transform:boolean', DS.BooleanTransform);
@@ -73,16 +73,21 @@ export default function setupStore(options) {
   registry.register('adapter:-contentful-delivery', ContentfulDeliveryAdapter);
   registry.register('serializer:-contentful-delivery', ContentfulDeliverySerializer);
 
-  env.restSerializer = container.lookup('serializer:-rest');
+  //env.restSerializer = container.lookup('serializer:-rest');
   env.store = container.lookup('service:store');
-  env.serializer = env.store.serializerFor('-default');
-  env.adapter = env.store.get('defaultAdapter');
-
+  //env.serializer = env.store.serializerFor('-default');
+  //env.adapter = env.store.get('defaultAdapter');
+  env.serializer = env.store.serializerFor('-contentful-delivery');
+  env.adapter = env.store.adapterFor('-contentful-delivery');
   //env.container = container;
   //env.registry = registry;
 
   env.contentfulDeliveryAdapter = container.lookup('adapter:-contentful-delivery');
   env.contentfulDeliverySerializer = container.lookup('serializer:-contentful-delivery');
+
+  env.serializer = env.contentfulDeliveryAdapter;
+  env.adapter = env.contentfulDeliverySerializer;
+
   env.contentfulDeliveryAdapter.reopen({
     access_token: '0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb',
     namespace   : 'spaces/m21hvnsjmt8a'

@@ -8,7 +8,7 @@ mark, rp, rt, ruby, summary, time {
 }
 
 /* Global properties ======================================================== */
-body {
+body.app {
   font-family: 'PT Serif Caption', serif;
   font-size: 14px;
   line-height: 24px;
@@ -35,35 +35,35 @@ html, body {
   overflow: hidden
 }
 
-p {
+body.app p {
   padding-bottom: 18px;
   font-size: 18px;
 }
 
-a {
+body.app a {
   /*color:#fff;*/
   text-decoration: none;
 }
 
-h1 {
+body.app h1 {
   float: left;
   display: block;
   position: relative;
   z-index: 10;
 }
 
-h1 a {
+body.app h1 a {
   display: block;
 }
 
-h2, h3, h4, h5, h6 {
+body.app h2, body.app h3, body.app h4, body.app h5, body.app h6 {
   font-family: 'PT Serif Caption', serif;
   font-weight: normal;
   color: #343434;
   padding: 10px 0 5px;
 }
 
-h3 {
+body.app h3 {
   font-size: 35px;
   line-height: 38px;
   padding: 33px 0 18px;
@@ -71,18 +71,18 @@ h3 {
 
 }
 
-h3 span {
+body.app h3 span {
   color: #D53827;
   display: block;
   margin-bottom: -9px;
 }
 
-h3 strong {
+body.app h3 strong {
   font-weight: normal;
   color: #d53827
 }
 
-h3 em {
+body.app h3 em {
   color: #999;
   font-size: 20px;
   line-height: 24px;
@@ -90,18 +90,18 @@ h3 em {
   font-style: normal
 }
 
-h4 {
+body.app h4 {
   font-size: 20px;
   line-height: 28px;
   display: block;
   color: #d53827;
 }
 
-h4 span {
+body.app h4 span {
   color: #343434;
 }
 
-h5 {
+body.app h5 {
   color: #fff;
   font-size: 15px;
   line-height: 18px;
@@ -109,7 +109,7 @@ h5 {
   font-weight: normal;
 }
 
-h6 {
+body.app h6 {
   color: #2d2f38;
   font-size: 20px;
   line-height: 20px;
