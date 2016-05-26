@@ -14,6 +14,7 @@ module.exports = function(defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
+app.import("bower_components/chai-as-promised/lib/chai-as-promised.js" );
 
   //app.import("vendor/javascripts/jquery.flexslider-min.js");
   //app.import('vendor/javascripts/gmaps.js');
@@ -39,6 +40,7 @@ module.exports = function(defaults) {
   //}
   //
   if (app.env === 'test') {
+    //app.import("bower_components/chai-as-promised/lib/chai-as-promised.js", { type: 'test' });
     //app.import("node_modules/chai-as-promised/lib/chai-as-promised.js", { type: 'test' });
     //exclude: ["vendor/styles/style.css"]
     //app.import("vendor/styles/reset.css", { type: 'test' });
