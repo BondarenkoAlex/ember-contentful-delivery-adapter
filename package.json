@@ -12,7 +12,10 @@
     "test": "ember try:testall",
     "nodetest": "mocha node-tests --recursive"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BondarenkoAlex/ember-contentful-delivery-adapter.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -20,6 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
     "ember-ajax": "0.7.1",
     "ember-cli": "2.4.3",
     "ember-cli-app-version": "^1.0.0",

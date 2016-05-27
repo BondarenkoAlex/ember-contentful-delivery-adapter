@@ -21,7 +21,11 @@
     "andThen",
     "currentURL",
     "currentPath",
-    "currentRouteName"
+    "currentRouteName",
+    "describe",
+    "expect",
+    "beforeEach",
+    "afterEach"
   ],
   "node": false,
   "browser": false,

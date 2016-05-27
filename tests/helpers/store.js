@@ -85,8 +85,8 @@ export default function setupStore(options) {
   env.contentfulDeliveryAdapter = container.lookup('adapter:-contentful-delivery');
   env.contentfulDeliverySerializer = container.lookup('serializer:-contentful-delivery');
 
-  env.serializer = env.contentfulDeliveryAdapter;
-  env.adapter = env.contentfulDeliverySerializer;
+  //env.serializer = env.contentfulDeliveryAdapter;
+  //env.adapter = env.contentfulDeliverySerializer;
 
   env.contentfulDeliveryAdapter.reopen({
     access_token: '0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb',

@@ -12,6 +12,6 @@ export default Ember.Component.extend({
       prevText: "",
       nextText: "",
       controlNav: false
-    })
+    });
   }
 });

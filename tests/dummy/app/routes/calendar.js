@@ -6,6 +6,6 @@ export default Ember.Route.extend({
       news              : this.store.query( 'news', { limit:5 } ),
       calendarEvent     : this.store.findAll('calendar-event'),
       educationCalendar :this.store.query('education-calendar', { limit:2 } )
-    })
+    });
   }
 });

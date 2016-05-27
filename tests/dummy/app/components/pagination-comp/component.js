@@ -21,7 +21,7 @@ export default Ember.Component.extend({
         skip       : start,
         limit      : limit,
         index      : i+1
-      }
+      };
     }
     this.set("pagination",pagination);
   }

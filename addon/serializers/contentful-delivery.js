@@ -2,7 +2,7 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 import coerceId from "ember-data/-private/system/coerce-id";
-import normalizeModelName from "ember-data/-private/system/normalize-model-name";
+//import normalizeModelName from "ember-data/-private/system/normalize-model-name";
 //import { modelHasAttributeOrRelationshipNamedType } from "ember-data/-private/utils";
 
 
@@ -21,7 +21,7 @@ export default DS.JSONSerializer.extend({
       case 'findRecord':
         return this.normalizeFindRecordResponse(...arguments);
       case 'findAll':
-        return this.normalizeFindAllResponse(...arguments)
+        return this.normalizeFindAllResponse(...arguments);
       case 'query':
         return this.normalizeQueryResponse(...arguments);
     }
@@ -110,7 +110,6 @@ export default DS.JSONSerializer.extend({
       let sys = payload['sys'];
       if (sys.hasOwnProperty('type')) {
         let type = sys['type'];
-        let payloadNew = {};
         if (type === 'Array' ) {
           meta.limit = payload.limit;
           meta.skip = payload.skip;
@@ -125,7 +124,7 @@ export default DS.JSONSerializer.extend({
    * */
   normalize(modelClass, resourceHash) {
     let data = null;
-    
+
     let responseObjNormalize = this._normalizeResourceHash(modelClass, resourceHash);
 
     if (responseObjNormalize) {
@@ -145,10 +144,10 @@ export default DS.JSONSerializer.extend({
   _normalizeResourceHash(modelClass, resourceHash) {
     let keys = ['sys', 'fields', 'other'];
     let attributes = {};
-    
+
     for (let value of keys) {
       let attributesByVal = this._extractAttributesByKey(modelClass, resourceHash, value);
-      attributes = Ember.$.extend(attributes, attributesByVal)
+      attributes = Ember.$.extend(attributes, attributesByVal);
     }
     return attributes;
   },
@@ -160,20 +159,20 @@ export default DS.JSONSerializer.extend({
         let sys = resourceHash[key];
         attributes = this._renameSys(sys);
       }
-    } 
+    }
     else if ( key === 'fields' ) {
       if ( resourceHash.hasOwnProperty(key) ) {
-        if ( modelClass.modelName == 'content-type' ){
+        if ( modelClass.modelName === 'content-type' ){
           attributes = {
             fields: resourceHash[key]
-          }
+          };
         }
         else {
           attributes = resourceHash[key];
         }
-        
+
       }
-    }   
+    }
     else if ( key === 'other' ){
       for(let k in resourceHash) {
         if ( k !== 'sys' && k !== 'fields' ){
@@ -196,14 +195,14 @@ export default DS.JSONSerializer.extend({
    * @override
    * */
   extractId(modelClass, responseObjNormalize) {
-    let primaryKey = Ember.get(this, 'primaryKey');  
+    let primaryKey = Ember.get(this, 'primaryKey');
     let id = responseObjNormalize[primaryKey];
     return coerceId(id);
   },
 
   extractType(modelClass, responseObjNormalize) {
     let type;
-    let typeKey = Ember.get(this, 'typeKey'); 
+    let typeKey = Ember.get(this, 'typeKey');
     //let sys = resourceHash['sys'];
     //let typeKey = Ember.get(this, 'typeKey');
     if ( responseObjNormalize[typeKey] !== 'Entry' ){
@@ -238,11 +237,6 @@ export default DS.JSONSerializer.extend({
     return key;
   },
 
-
-
-
-
-
  /*
    * @override
    * */
@@ -257,10 +251,10 @@ export default DS.JSONSerializer.extend({
       if (responseObjNormalize.hasOwnProperty(relationshipKey)) {
         let data = null;
         let relationshipHash = responseObjNormalize[relationshipKey];
-        
+
         if (relationshipMeta.kind === 'belongsTo') {
           data = this.extractRelationship(relationshipMeta.type, relationshipHash);
-        } 
+        }
         else if (relationshipMeta.kind === 'hasMany') {
           if (!Ember.isNone(relationshipHash)) {
             data = new Array(relationshipHash.length);
@@ -288,7 +282,7 @@ export default DS.JSONSerializer.extend({
 
     if ( relationshipHash.hasOwnProperty('sys') ) {
       let sys = relationshipHash['sys'];
-      if ( sys['type'] == 'Link' ) {
+      if ( sys['type'] === 'Link' ) {
         if ( sys['linkType'] === "Entry" ){
           sys['type'] = relationshipModelName;
         }
@@ -300,7 +294,7 @@ export default DS.JSONSerializer.extend({
       relationshipHash = relationshipHash['sys'];
       delete relationshipHash['sys'];
     }
-    return this._super(relationshipModelName, relationshipHash);
+    return relationshipHash;//this._super(relationshipModelName, relationshipHash);
   },
     /*
    * @override

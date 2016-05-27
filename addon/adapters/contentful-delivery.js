@@ -23,7 +23,7 @@ export default RESTAdapter.extend({
       id = null;
     }
     else if ( modelName.toLowerCase() === 'Entry'.toLowerCase() ){
-     throw new Ember.Error("You may not call `findRecord` for model 'Entry'. Use 'id' Content-type as model name");
+     throw new Ember.Error("You may not call 'findRecord' for model 'Entry'. Use 'id' Content-type as model name");
     }
     else if ( modelName.toLowerCase() !== 'Asset'.toLowerCase() &&
               modelName.toLowerCase() !== 'Content-type'.toLowerCase()) {
@@ -48,10 +48,10 @@ export default RESTAdapter.extend({
     let query = {};
 
     if ( modelName.toLowerCase() === 'Space'.toLowerCase() ){
-      throw new Ember.Error("You may not call `findAll` for model 'Space'. Use 'findRecord'");
+      throw new Ember.Error("You may not call 'findAll' for model 'Space'. Use 'findRecord'");
     }
     else if ( modelName.toLowerCase() === 'Entry'.toLowerCase() ){
-     throw new Ember.Error("You may not call `findAll` for model 'Entry'");
+     throw new Ember.Error("You may not call 'findAll' for model 'Entry'");
     }
     else if (modelName.toLowerCase() !== 'Asset'.toLowerCase() &&
               modelName.toLowerCase() !== 'Content-type'.toLowerCase() /*&&
@@ -110,7 +110,7 @@ export default RESTAdapter.extend({
    @overrade
    * */
   queryRecord(store, type, query) {
-    throw new Ember.Error("You may not call `queryRecord` on a store. Use 'query'.");
+    throw new Ember.Error("You may not call 'queryRecord' on a store. Use 'query'.");
   },
   /**
    @overrade
@@ -131,21 +131,21 @@ export default RESTAdapter.extend({
    @overrade
    */
   createRecord(store, type, snapshot) {
-    throw new Ember.Error("You may not call `createRecord` on a store.");
+    throw new Ember.Error("You may not call 'createRecord' on a store.");
   },
 
   /**
    @overrade
    */
   updateRecord(store, type, snapshot) {
-    throw new Ember.Error("You may not call `updateRecord` on a store.");
+    throw new Ember.Error("You may not call 'updateRecord' on a store.");
   },
 
   /**
    @overrade
    * */
   deleteRecord(store, type, snapshot) {
-    throw new Ember.Error("You may not call `deleteRecord` on a store.");
+    throw new Ember.Error("You may not call 'deleteRecord' on a store.");
   },
 
   addTokenToQuery(query) {

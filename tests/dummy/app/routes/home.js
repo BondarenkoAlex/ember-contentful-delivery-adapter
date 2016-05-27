@@ -7,6 +7,6 @@ export default Ember.Route.extend({
       recipes		: this.store.query( 'recipe', { limit:3, skip:0, order:"sys.updatedAt" } ),
       courses   : this.store.query('course', { limit:3, skip:1 } ),
       news      : this.store.query( 'news', { limit:2 } )
-    })
+    });
   }
 });
