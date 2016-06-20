@@ -8,6 +8,15 @@ import {
   it
   } from 'ember-mocha';
 
+//var chai = require("chai");
+//var { chaiAsPromised } = require("chai-as-promised");
+//var { chaiAsPromised } = require("bower_components/chai-as-promised/lib/chai-as-promised");
+//import {chaiAsPromised} from "npm:chai-as-promised";
+//var fgd = chaiAsPromised;
+//import {chaiAsPromised} from "bower_components/chai-as-promised/lib/chai-as-promised";
+//chai.use(chaiAsPromised);
+//D:\Users\Alexey\Documents\Ember\Project\ember-contentful-delivery-adapter\bower_components\chai-as-promised\lib\chai-as-promised.js
+
 var store, env, adapter;
 
 describeModule('adapter:contentful-delivery', 'Adapter',

@@ -92,7 +92,6 @@ describeModule('serializer:contentful-delivery', 'Serializer',
         let modelClass = store.modelFor('post');
 
         let result = serializer._normalizeResourceHash(modelClass, resourceHash);
-        debugger;
         expect(result).to.have.property('sysSpace');
         expect(result).to.have.property('sysId');
         expect(result).to.have.property('sysType');
@@ -138,7 +137,6 @@ describeModule('serializer:contentful-delivery', 'Serializer',
         let modelClass = store.modelFor('content-type');
 
         let result = serializer._normalizeResourceHash(modelClass, resourceHash);
-        debugger;
         expect(result).to.have.property('sysSpace');
         expect(result).to.have.property('sysId');
         expect(result).to.have.property('sysType');
@@ -160,7 +158,6 @@ describeModule('serializer:contentful-delivery', 'Serializer',
           "locale":"en-US"
         };
         let result = serializer._renameSys(sys);
-        //debugger;
         expect(result).deep.equal({
           sysSpace: {},
           sysId: "id",
@@ -170,7 +167,7 @@ describeModule('serializer:contentful-delivery', 'Serializer',
           sysRevision: 2,
           sysContentType: {},
           sysLocale: "en-US"
-        })
+        });
       });
 
       it('method extractId()', function () {
@@ -178,7 +175,6 @@ describeModule('serializer:contentful-delivery', 'Serializer',
           sysId: "id"
         };
         let result = serializer.extractId(null, sys);
-        //debugger;
         expect(result).to.equal("id");
       });
 
@@ -196,7 +192,6 @@ describeModule('serializer:contentful-delivery', 'Serializer',
           }
         };
         let result = serializer.extractType(null, sys);
-        //debugger;
         expect(result).to.equal("post");
       });
 
@@ -209,7 +204,6 @@ describeModule('serializer:contentful-delivery', 'Serializer',
           sysUpdatedAt: "string"
         };
         let result = serializer.extractType(null, sys);
-        //debugger;
         expect(result).to.equal("Asset");
       });
 
@@ -241,11 +235,10 @@ describeModule('serializer:contentful-delivery', 'Serializer',
         let modelClass = store.modelFor('post');
 
         let result = serializer.extractAttributes(modelClass, responseObjNormalize);
-        //debugger;
         expect(result).deep.equal({
           descriptions: "string",
           title: "string"
-        })
+        });
       });
 
       it('method extractRelationship() when "linkType" not equal "Entry"', function () {
@@ -257,11 +250,10 @@ describeModule('serializer:contentful-delivery', 'Serializer',
           }
         };
         let result = serializer.extractRelationship('asset', relationshipHash);
-        //debugger;
         expect(result).deep.equal({
           id: "idAsset",
           type: "Asset"
-        })
+        });
       });
 
       it('method extractRelationship() when "linkType" equal "Entry". Model name is "post"', function () {
@@ -273,11 +265,10 @@ describeModule('serializer:contentful-delivery', 'Serializer',
           }
         };
         let result = serializer.extractRelationship('post', relationshipHash);
-        //debugger;
         expect(result).deep.equal({
           id: "AAA",
           type: "post"
-        })
+        });
       });
 
       it('method extractRelationship() when "linkType" equal "Entry". Model name is "other"', function () {
@@ -289,11 +280,10 @@ describeModule('serializer:contentful-delivery', 'Serializer',
           }
         };
         let result = serializer.extractRelationship('other', relationshipHash);
-        //debugger;
         expect(result).deep.equal({
           id: "AAA",
           type: "other"
-        })
+        });
       });
 
       it('method extractRelationships()', function () {
@@ -345,7 +335,6 @@ describeModule('serializer:contentful-delivery', 'Serializer',
         let modelClass = store.modelFor('post');
 
         let result = serializer.extractRelationships(modelClass, relationshipHash);
-        debugger;
         expect(result).deep.equal({
           "asset"   : {
             "data": {

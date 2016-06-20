@@ -6,7 +6,6 @@ export default DS.Model.extend({
   sysRevision : DS.attr('number'),
 
   sysLocale: DS.attr('string'),
-  sysSpace: DS.belongsTo('space'),/*,
-  sysContentType: DS.belongsTo('content-type')*/
-  title: DS.attr('string')
+  sysSpace: DS.belongsTo('space')/*,
+  title: DS.attr('string')*/
 });

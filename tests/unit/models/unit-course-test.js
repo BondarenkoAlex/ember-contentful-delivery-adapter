@@ -3,11 +3,11 @@ import { expect } from 'chai';
 import { describeModel, it } from 'ember-mocha';
 
 describeModel(
-  'course',
-  'Unit | Model | course',
+  'unit-course',
+  'Unit | Model | unit course',
   {
     // Specify the other units that are required for this test.
-    needs: ['model:unit-course','model:asset','model:space']
+      needs: ['model:asset','model:space']
   },
   function() {
     // Replace this with your real tests.

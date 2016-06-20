@@ -6,8 +6,8 @@ import {
 } from 'ember-mocha';
 
 describeModule(
-  'route:courses',
-  'CoursesRoute',
+  'route:education-calendar',
+  'EducationCalendarRoute',
   {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']

@@ -10,7 +10,6 @@ export default DS.Model.extend({
   description : DS.attr('string'),
   fields      : DS.attr(),
 
-  //sysFields      : DS.attr('array'), // не нужен
   sysSpace       : DS.belongsTo('space')
 });
 /*
