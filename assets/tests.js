@@ -1,37 +1,49 @@
 define('dummy/tests/app.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - app.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'app.js should pass jshint.');
+  describe('JSHint - app.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('app.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/components/google-map/component.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - components/google-map/component.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(false, 'components/google-map/component.js should pass jshint.\ncomponents/google-map/component.js: line 14, col 15, \'google\' is not defined.\ncomponents/google-map/component.js: line 17, col 22, \'google\' is not defined.\ncomponents/google-map/component.js: line 21, col 26, \'google\' is not defined.\ncomponents/google-map/component.js: line 25, col 5, \'google\' is not defined.\n\n4 errors');
+  describe('JSHint - components/google-map/component.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('components/google-map/component.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/components/header-site/component.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - components/header-site/component.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(false, 'components/header-site/component.js should pass jshint.\ncomponents/header-site/component.js: line 15, col 7, Missing semicolon.\n\n1 error');
+  describe('JSHint - components/header-site/component.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('components/header-site/component.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/components/pagination-comp/component.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - components/pagination-comp/component.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(false, 'components/pagination-comp/component.js should pass jshint.\ncomponents/pagination-comp/component.js: line 24, col 8, Missing semicolon.\n\n1 error');
+  describe('JSHint - components/pagination-comp/component.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('components/pagination-comp/component.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
@@ -44,10 +56,13 @@ define('dummy/tests/helpers/destroy-app', ['exports', 'ember'], function (export
 define('dummy/tests/helpers/destroy-app.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/destroy-app.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/destroy-app.js should pass jshint.');
+  describe('JSHint - helpers/destroy-app.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/destroy-app.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/module-for-acceptance', ['exports', 'qunit', 'dummy/tests/helpers/start-app', 'dummy/tests/helpers/destroy-app'], function (exports, _qunit, _dummyTestsHelpersStartApp, _dummyTestsHelpersDestroyApp) {
@@ -76,10 +91,13 @@ define('dummy/tests/helpers/module-for-acceptance', ['exports', 'qunit', 'dummy/
 define('dummy/tests/helpers/module-for-acceptance.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/module-for-acceptance.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/module-for-acceptance.js should pass jshint.');
+  describe('JSHint - helpers/module-for-acceptance.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/module-for-acceptance.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/owner', ['exports', 'ember'], function (exports, _ember) {
@@ -97,19 +115,13 @@ define('dummy/tests/helpers/owner', ['exports', 'ember'], function (exports, _em
 define('dummy/tests/helpers/owner.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/owner.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/owner.js should pass jshint.');
-  });
-});
-define('dummy/tests/helpers/pagination.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - helpers/pagination.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(false, 'helpers/pagination.js should pass jshint.\nhelpers/pagination.js: line 23, col 3, \'options\' is not defined.\n\n1 error');
+  describe('JSHint - helpers/owner.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/owner.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/resolver', ['exports', 'dummy/resolver', 'dummy/config/environment'], function (exports, _dummyResolver, _dummyConfigEnvironment) {
@@ -126,10 +138,13 @@ define('dummy/tests/helpers/resolver', ['exports', 'dummy/resolver', 'dummy/conf
 define('dummy/tests/helpers/resolver.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/resolver.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/resolver.js should pass jshint.');
+  describe('JSHint - helpers/resolver.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/resolver.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/response/asset', ['exports', 'ember'], function (exports, _ember) {
@@ -146,10 +161,13 @@ define('dummy/tests/helpers/response/asset', ['exports', 'ember'], function (exp
 define('dummy/tests/helpers/response/asset.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/response/asset.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/response/asset.js should pass jshint.');
+  describe('JSHint - helpers/response/asset.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/response/asset.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/response/assets', ['exports', 'ember'], function (exports, _ember) {
@@ -166,10 +184,13 @@ define('dummy/tests/helpers/response/assets', ['exports', 'ember'], function (ex
 define('dummy/tests/helpers/response/assets.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/response/assets.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/response/assets.js should pass jshint.');
+  describe('JSHint - helpers/response/assets.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/response/assets.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/response/content-type', ['exports', 'ember'], function (exports, _ember) {
@@ -193,10 +214,13 @@ define('dummy/tests/helpers/response/content-type', ['exports', 'ember'], functi
 define('dummy/tests/helpers/response/content-type.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/response/content-type.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/response/content-type.js should pass jshint.');
+  describe('JSHint - helpers/response/content-type.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/response/content-type.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/response/content-types', ['exports', 'ember'], function (exports, _ember) {
@@ -220,10 +244,13 @@ define('dummy/tests/helpers/response/content-types', ['exports', 'ember'], funct
 define('dummy/tests/helpers/response/content-types.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/response/content-types.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/response/content-types.js should pass jshint.');
+  describe('JSHint - helpers/response/content-types.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/response/content-types.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/response/entries', ['exports', 'ember'], function (exports, _ember) {
@@ -247,10 +274,13 @@ define('dummy/tests/helpers/response/entries', ['exports', 'ember'], function (e
 define('dummy/tests/helpers/response/entries.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/response/entries.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/response/entries.js should pass jshint.');
+  describe('JSHint - helpers/response/entries.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/response/entries.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/response/entry', ['exports', 'ember'], function (exports, _ember) {
@@ -274,10 +304,13 @@ define('dummy/tests/helpers/response/entry', ['exports', 'ember'], function (exp
 define('dummy/tests/helpers/response/entry.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/response/entry.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/response/entry.js should pass jshint.');
+  describe('JSHint - helpers/response/entry.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/response/entry.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/response/query-content-type', ['exports', 'ember'], function (exports, _ember) {
@@ -294,10 +327,13 @@ define('dummy/tests/helpers/response/query-content-type', ['exports', 'ember'], 
 define('dummy/tests/helpers/response/query-content-type.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/response/query-content-type.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/response/query-content-type.js should pass jshint.');
+  describe('JSHint - helpers/response/query-content-type.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/response/query-content-type.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/response/query-id', ['exports', 'ember'], function (exports, _ember) {
@@ -314,10 +350,13 @@ define('dummy/tests/helpers/response/query-id', ['exports', 'ember'], function (
 define('dummy/tests/helpers/response/query-id.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/response/query-id.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/response/query-id.js should pass jshint.');
+  describe('JSHint - helpers/response/query-id.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/response/query-id.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/response/space', ['exports', 'ember'], function (exports, _ember) {
@@ -335,10 +374,13 @@ define('dummy/tests/helpers/response/space', ['exports', 'ember'], function (exp
 define('dummy/tests/helpers/response/space.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/response/space.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/response/space.js should pass jshint.');
+  describe('JSHint - helpers/response/space.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/response/space.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/start-app', ['exports', 'ember', 'dummy/app', 'dummy/config/environment'], function (exports, _ember, _dummyApp, _dummyConfigEnvironment) {
@@ -362,10 +404,13 @@ define('dummy/tests/helpers/start-app', ['exports', 'ember', 'dummy/app', 'dummy
 define('dummy/tests/helpers/start-app.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/start-app.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/start-app.js should pass jshint.');
+  describe('JSHint - helpers/start-app.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/start-app.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/helpers/store', ['exports', 'ember', 'ember-data', 'dummy/tests/helpers/owner', 'ember-contentful-delivery-adapter/adapters/contentful-delivery', 'ember-contentful-delivery-adapter/serializers/contentful-delivery', 'ember-contentful-delivery-adapter/models/asset', 'ember-contentful-delivery-adapter/models/content-type', 'ember-contentful-delivery-adapter/models/entry', 'ember-contentful-delivery-adapter/models/space'], function (exports, _ember, _emberData, _dummyTestsHelpersOwner, _emberContentfulDeliveryAdapterAdaptersContentfulDelivery, _emberContentfulDeliveryAdapterSerializersContentfulDelivery, _emberContentfulDeliveryAdapterModelsAsset, _emberContentfulDeliveryAdapterModelsContentType, _emberContentfulDeliveryAdapterModelsEntry, _emberContentfulDeliveryAdapterModelsSpace) {
@@ -417,15 +462,15 @@ define('dummy/tests/helpers/store', ['exports', 'ember', 'ember-data', 'dummy/te
 
     registry.optionsForType('serializer', { singleton: false });
     registry.optionsForType('adapter', { singleton: false });
-    registry.register('adapter:-default', _emberData['default'].Adapter);
-
-    registry.register('serializer:-default', _emberData['default'].JSONSerializer);
-    registry.register('serializer:-rest', _emberData['default'].RESTSerializer);
-
-    registry.register('adapter:-rest', _emberData['default'].RESTAdapter);
-
-    registry.register('adapter:-json-api', _emberData['default'].JSONAPIAdapter);
-    registry.register('serializer:-json-api', _emberData['default'].JSONAPISerializer);
+    //registry.register('adapter:-default', DS.Adapter);
+    //
+    //registry.register('serializer:-default', DS.JSONSerializer);
+    //registry.register('serializer:-rest', DS.RESTSerializer);
+    //
+    //registry.register('adapter:-rest', DS.RESTAdapter);
+    //
+    //registry.register('adapter:-json-api', DS.JSONAPIAdapter);
+    //registry.register('serializer:-json-api', DS.JSONAPISerializer);
 
     registry.register('transform:date', _emberData['default'].DateTransform);
     registry.register('transform:boolean', _emberData['default'].BooleanTransform);
@@ -435,16 +480,21 @@ define('dummy/tests/helpers/store', ['exports', 'ember', 'ember-data', 'dummy/te
     registry.register('adapter:-contentful-delivery', _emberContentfulDeliveryAdapterAdaptersContentfulDelivery['default']);
     registry.register('serializer:-contentful-delivery', _emberContentfulDeliveryAdapterSerializersContentfulDelivery['default']);
 
-    env.restSerializer = container.lookup('serializer:-rest');
+    //env.restSerializer = container.lookup('serializer:-rest');
     env.store = container.lookup('service:store');
-    env.serializer = env.store.serializerFor('-default');
-    env.adapter = env.store.get('defaultAdapter');
-
+    //env.serializer = env.store.serializerFor('-default');
+    //env.adapter = env.store.get('defaultAdapter');
+    env.serializer = env.store.serializerFor('-contentful-delivery');
+    env.adapter = env.store.adapterFor('-contentful-delivery');
     //env.container = container;
     //env.registry = registry;
 
     env.contentfulDeliveryAdapter = container.lookup('adapter:-contentful-delivery');
     env.contentfulDeliverySerializer = container.lookup('serializer:-contentful-delivery');
+
+    //env.serializer = env.contentfulDeliveryAdapter;
+    //env.adapter = env.contentfulDeliverySerializer;
+
     env.contentfulDeliveryAdapter.reopen({
       access_token: '0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb',
       namespace: 'spaces/m21hvnsjmt8a'
@@ -489,877 +539,1724 @@ define('dummy/tests/helpers/store', ['exports', 'ember', 'ember-data', 'dummy/te
 define('dummy/tests/helpers/store.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - helpers/store.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'helpers/store.js should pass jshint.');
+  describe('JSHint - helpers/store.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('helpers/store.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/models/calendar-event.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - models/calendar-event.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'models/calendar-event.js should pass jshint.');
-  });
-});
-define('dummy/tests/models/calendar.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - models/calendar.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'models/calendar.js should pass jshint.');
+  describe('JSHint - models/calendar-event.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('models/calendar-event.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/models/contact.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - models/contact.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'models/contact.js should pass jshint.');
+  describe('JSHint - models/contact.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('models/contact.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/models/course.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - models/course.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'models/course.js should pass jshint.');
+  describe('JSHint - models/course.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('models/course.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/models/culinary-teacher.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - models/culinary-teacher.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'models/culinary-teacher.js should pass jshint.');
+  describe('JSHint - models/culinary-teacher.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('models/culinary-teacher.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/models/education-calendar.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - models/education-calendar.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'models/education-calendar.js should pass jshint.');
+  describe('JSHint - models/education-calendar.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('models/education-calendar.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/models/news.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - models/news.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'models/news.js should pass jshint.');
+  describe('JSHint - models/news.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('models/news.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/models/recipe.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - models/recipe.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'models/recipe.js should pass jshint.');
+  describe('JSHint - models/recipe.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('models/recipe.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/models/slider-rotator.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - models/slider-rotator.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'models/slider-rotator.js should pass jshint.');
+  describe('JSHint - models/slider-rotator.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('models/slider-rotator.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/models/unit-course.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - models/unit-course.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'models/unit-course.js should pass jshint.');
+  describe('JSHint - models/unit-course.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('models/unit-course.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/resolver.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - resolver.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'resolver.js should pass jshint.');
+  describe('JSHint - resolver.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('resolver.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/router.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - router.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'router.js should pass jshint.');
+  describe('JSHint - router.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('router.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/application.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/application.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/application.js should pass jshint.');
+  describe('JSHint - routes/application.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/application.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/calendar-event.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/calendar-event.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/calendar-event.js should pass jshint.');
+  describe('JSHint - routes/calendar-event.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/calendar-event.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/calendar.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/calendar.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(false, 'routes/calendar.js should pass jshint.\nroutes/calendar.js: line 9, col 7, Missing semicolon.\n\n1 error');
+  describe('JSHint - routes/calendar.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/calendar.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/chef.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/chef.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/chef.js should pass jshint.');
+  describe('JSHint - routes/chef.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/chef.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/chefs.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/chefs.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/chefs.js should pass jshint.');
+  describe('JSHint - routes/chefs.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/chefs.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/contacts.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/contacts.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/contacts.js should pass jshint.');
+  describe('JSHint - routes/contacts.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/contacts.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/course.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/course.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/course.js should pass jshint.');
+  describe('JSHint - routes/course.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/course.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/courses.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/courses.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/courses.js should pass jshint.');
+  describe('JSHint - routes/courses.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/courses.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/education-calendar.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/education-calendar.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/education-calendar.js should pass jshint.');
+  describe('JSHint - routes/education-calendar.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/education-calendar.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/home.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/home.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(false, 'routes/home.js should pass jshint.\nroutes/home.js: line 8, col 7, Missing semicolon.\n\n1 error');
+  describe('JSHint - routes/home.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/home.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/news.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/news.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/news.js should pass jshint.');
+  describe('JSHint - routes/news.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/news.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/recipe.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/recipe.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/recipe.js should pass jshint.');
+  describe('JSHint - routes/recipe.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/recipe.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 define('dummy/tests/routes/recipes.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - routes/recipes.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/recipes.js should pass jshint.');
+  describe('JSHint - routes/recipes.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('routes/recipes.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/test-helper', ['exports', 'dummy/tests/helpers/resolver', 'ember-qunit'], function (exports, _dummyTestsHelpersResolver, _emberQunit) {
+define('dummy/tests/test-helper', ['exports', 'dummy/tests/helpers/resolver', 'ember-mocha'], function (exports, _dummyTestsHelpersResolver, _emberMocha) {
 
-  (0, _emberQunit.setResolver)(_dummyTestsHelpersResolver['default']);
+  (0, _emberMocha.setResolver)(_dummyTestsHelpersResolver['default']);
 });
 define('dummy/tests/test-helper.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - test-helper.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'test-helper.js should pass jshint.');
+  describe('JSHint - test-helper.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('test-helper.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/adapters/contentful-delivery-test', ['exports', 'dummy/tests/helpers/store', 'ember', 'ember-qunit'], function (exports, _dummyTestsHelpersStore, _ember, _emberQunit) {
+define('dummy/tests/unit/adapters/contentful-delivery-test', ['exports', 'dummy/tests/helpers/store', 'ember', 'ember-data', 'ember-mocha'], function (exports, _dummyTestsHelpersStore, _ember, _emberData, _emberMocha) {
 
-  //import DS from 'ember-data';
-
-  //var get = Ember.get;
-  //var set = Ember.set;
-  var run = _ember['default'].run;
+  //var chai = require("chai");
+  //var { chaiAsPromised } = require("chai-as-promised");
+  //var { chaiAsPromised } = require("bower_components/chai-as-promised/lib/chai-as-promised");
+  //import {chaiAsPromised} from "npm:chai-as-promised";
+  //var fgd = chaiAsPromised;
+  //import {chaiAsPromised} from "bower_components/chai-as-promised/lib/chai-as-promised";
+  //chai.use(chaiAsPromised);
+  //D:\Users\Alexey\Documents\Ember\Project\ember-contentful-delivery-adapter\bower_components\chai-as-promised\lib\chai-as-promised.js
 
   var store, env, adapter;
 
-  (0, _emberQunit.moduleFor)('adapter:contentful-delivery', 'Adapter | contentful delivery', {
+  (0, _emberMocha.describeModule)('adapter:contentful-delivery', 'Adapter', {
     // Specify the other units that are required for this test.
-    // needs: ['serializer:foo']
-    beforeEach: function beforeEach() {
-      env = (0, _dummyTestsHelpersStore['default'])();
-      store = env.store;
-      adapter = env.contentfulDeliveryAdapter;
-    },
+    // needs: ['controller:foo']
+  }, function () {
 
-    afterEach: function afterEach() {
-      run(store, 'destroy');
-      run(env.container, 'destroy');
-      run(adapter, 'destroy');
-    }
-  });
+    describe('#init', function () {
+      (0, _emberMocha.it)('exists', function () {
+        var adapter = this.subject();
+        expect(adapter).to.be.an('object');
+      });
+    }); // #init
 
-  // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    assert.ok(adapter);
-  });
+    describe('#config', function () {
+      beforeEach(function () {
+        // runs before each test in this block
+        env = (0, _dummyTestsHelpersStore['default'])();
+        store = env.store;
+        adapter = env.contentfulDeliveryAdapter;
+      });
 
-  (0, _emberQunit.test)('host config override', function (assert) {
-    assert.equal(adapter.get('host'), 'https://cdn.contentful.com');
-  });
+      afterEach(function () {
+        // runs after each test in this block
+        _ember['default'].run(store, 'destroy');
+        _ember['default'].run(env.container, 'destroy');
+        _ember['default'].run(adapter, 'destroy');
+      });
 
-  (0, _emberQunit.test)('namespace config override', function (assert) {
-    assert.equal(adapter.get('namespace'), 'spaces/m21hvnsjmt8a');
-    assert.equal(adapter.get('access_token'), '0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb');
-  });
+      (0, _emberMocha.it)('host', function () {
+        var host = adapter.get('host');
+        expect(host).to.equal('https://cdn.contentful.com');
+      });
 
-  (0, _emberQunit.test)('headers config', function (assert) {
-    var headers = adapter.get('headers');
-    assert.equal(headers['Accept'], 'application/vnd.api+json');
-    assert.equal(headers['content-type'], 'application/vnd.contentful.delivery.v1+json');
-  });
+      (0, _emberMocha.it)('namespace', function () {
+        var namespace = adapter.get('namespace');
+        expect(namespace).to.equal('spaces/m21hvnsjmt8a');
+      });
 
-  (0, _emberQunit.test)('findRecord', function (assert) {
-    var type = undefined,
-        id = undefined;
+      (0, _emberMocha.it)('access_token', function () {
+        var accessToken = adapter.get('access_token');
+        expect(accessToken).to.equal('0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb');
+      });
 
-    type = store.modelFor('asset');
-    id = '2dNx7g19AokMyKq4e46guk';
-    adapter.ajax = function (url, type, options) {
-      assert.equal(url, 'https://cdn.contentful.com/spaces/m21hvnsjmt8a/assets/2dNx7g19AokMyKq4e46guk', 'URL - model:asset');
-      assert.deepEqual(options.data, {
-        'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
-      }, 'QUERY - model:asset');
-    };
-    adapter.findRecord(store, type, id, null);
+      (0, _emberMocha.it)('headers["Accept"]', function () {
+        var headers = adapter.get('headers');
+        expect(headers['Accept']).to.equal('application/vnd.api+json');
+      });
 
-    type = store.modelFor('content-type');
-    id = 'commentPost';
-    adapter.ajax = function (url, type, options) {
-      assert.equal(url, 'https://cdn.contentful.com/spaces/m21hvnsjmt8a/content_types/commentPost', 'URL - model:content-type');
-      assert.deepEqual(options.data, {
-        'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
-      }, 'QUERY - model:content-type');
-    };
-    adapter.findRecord(store, type, id, null);
+      (0, _emberMocha.it)('headers["content-type"]', function () {
+        var headers = adapter.get('headers');
+        expect(headers['content-type']).to.equal('application/vnd.contentful.delivery.v1+json');
+      });
+    });
 
-    type = store.modelFor('space');
-    id = 'commentPost';
-    adapter.ajax = function (url, type, options) {
-      assert.equal(url, 'https://cdn.contentful.com/spaces/m21hvnsjmt8a', 'URL - model:space');
-      assert.deepEqual(options.data, {
-        'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
-      }, 'QUERY - model:space');
-    };
-    adapter.findRecord(store, type, id, null);
+    /*###########################################################*/
 
-    type = store.modelFor('post');
-    id = '4iSgf7NFheISOgAYsuQAOO';
-    adapter.ajax = function (url, type, options) {
-      assert.equal(url, 'https://cdn.contentful.com/spaces/m21hvnsjmt8a/entries/4iSgf7NFheISOgAYsuQAOO', 'URL - model:post');
-      assert.deepEqual(options.data, {
-        'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
-      }, 'QUERY - model:post');
-    };
-    adapter.findRecord(store, type, id, null);
+    describe('#findRecord', function () {
+      beforeEach(function () {
+        // runs before each test in this block
+        env = (0, _dummyTestsHelpersStore['default'])();
+        store = env.store;
+        adapter = env.contentfulDeliveryAdapter;
+      });
 
-    type = store.modelFor('entry');
-    id = '3eOlNEHDpmgsgMmMwgKo2K';
-    assert.throws(function () {
-      adapter.findRecord(store, type, id, null);
-    }, new _ember['default'].Error("You may not call `findRecord` for model 'Entry'. Use 'id' Content-type as model name"), "You may not call `findRecord` for model 'entry'. Use 'id' Content-type as model name");
-  });
+      afterEach(function () {
+        // runs after each test in this block
+        _ember['default'].run(store, 'destroy');
+        _ember['default'].run(env.container, 'destroy');
+        _ember['default'].run(adapter, 'destroy');
+      });
 
-  (0, _emberQunit.test)('findAll', function (assert) {
-    var type = undefined;
+      describe('#model "asset"', function () {
 
-    type = store.modelFor('asset');
-    adapter.ajax = function (url, type, options) {
-      assert.equal(url, 'https://cdn.contentful.com/spaces/m21hvnsjmt8a/assets', 'URL - model:asset');
-      assert.deepEqual(options.data, {
-        'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
-      }, 'QUERY - model:asset');
-    };
-    adapter.findAll(store, type, null, null);
+        (0, _emberMocha.it)('test url', function () {
+          var type = undefined,
+              id = undefined;
 
-    type = store.modelFor('content-type');
-    adapter.ajax = function (url, type, options) {
-      assert.equal(url, 'https://cdn.contentful.com/spaces/m21hvnsjmt8a/content_types', 'URL - model:content-type');
-      assert.deepEqual(options.data, {
-        'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
-      }, 'QUERY - model:content-type');
-    };
-    adapter.findAll(store, type, null, null);
+          type = store.modelFor('asset');
+          id = 'idAsset';
 
-    type = store.modelFor('space');
-    assert.throws(function () {
-      adapter.findAll(store, type, null, null);
-    }, new _ember['default'].Error("You may not call `findAll` for model 'Space'. Use 'findRecord'"), "You may not call `findAll` for model 'space'");
+          adapter.ajax = function (url, type, options) {
+            expect(url).to.equal('https://cdn.contentful.com/spaces/m21hvnsjmt8a/assets/idAsset');
+          };
+          adapter.findRecord(store, type, id, null);
+        });
 
-    type = store.modelFor('post');
-    adapter.ajax = function (url, type, options) {
-      assert.equal(url, 'https://cdn.contentful.com/spaces/m21hvnsjmt8a/entries', 'URL - model:post');
-      assert.deepEqual(options.data, {
-        'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb",
-        'content_type': "post"
-      }, 'QUERY - model:post');
-    };
-    adapter.findAll(store, type, null, null);
+        (0, _emberMocha.it)('test query', function () {
+          var type = undefined,
+              id = undefined;
 
-    type = store.modelFor('entry');
-    assert.throws(function () {
-      adapter.findAll(store, type, null, null);
-    }, new _ember['default'].Error("You may not call `findAll` for model 'Entry'"), "You may not call `findAll` for model 'entry'");
-  });
+          type = store.modelFor('asset');
+          id = 'idAsset';
 
-  (0, _emberQunit.test)('query', function (assert) {
-    var type = undefined,
-        query = undefined;
+          adapter.ajax = function (url, type, options) {
+            expect(options.data).deep.equal({
+              'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
+            });
+          };
+          adapter.findRecord(store, type, id, null);
+        });
+      });
 
-    type = store.modelFor('asset');
-    query = {};
-    assert.throws(function () {
-      adapter.query(store, type, query);
-    }, new _ember['default'].Error("For all models besides 'asset', 'content-type', 'space'"), "You may use 'query' for all models besides 'asset', 'content-type', 'space'");
+      describe('#model "content-type"', function () {
 
-    type = store.modelFor('entry');
-    query = { 'sys.id': '3eOlNEHDpmgsgMmMwgKo2K' };
-    adapter.ajax = function (url, type, options) {
-      assert.equal(url, 'https://cdn.contentful.com/spaces/m21hvnsjmt8a/entries', 'URL - model:entry');
-      assert.deepEqual(options.data, {
-        'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb",
-        'sys.id': "3eOlNEHDpmgsgMmMwgKo2K"
-      }, 'QUERY - model:entry');
-    };
-    adapter.query(store, type, query);
+        (0, _emberMocha.it)('test url', function () {
+          var type = undefined,
+              id = undefined;
+
+          type = store.modelFor('content-type');
+          id = 'idContentType';
+
+          adapter.ajax = function (url, type, options) {
+            expect(url).to.equal('https://cdn.contentful.com/spaces/m21hvnsjmt8a/content_types/idContentType');
+          };
+          adapter.findRecord(store, type, id, null);
+        });
+
+        (0, _emberMocha.it)('test query', function () {
+          var type = undefined,
+              id = undefined;
+
+          type = store.modelFor('content-type');
+          id = 'idContentType';
+
+          adapter.ajax = function (url, type, options) {
+            expect(options.data).deep.equal({
+              'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
+            });
+          };
+          adapter.findRecord(store, type, id, null);
+        });
+      });
+
+      describe('#model "space"', function () {
+
+        (0, _emberMocha.it)('test url', function () {
+          var type = undefined,
+              id = undefined;
+
+          type = store.modelFor('space');
+          id = 'null';
+
+          adapter.ajax = function (url, type, options) {
+            expect(url).to.equal('https://cdn.contentful.com/spaces/m21hvnsjmt8a');
+          };
+          adapter.findRecord(store, type, id, null);
+        });
+
+        (0, _emberMocha.it)('test query', function () {
+          var type = undefined,
+              id = undefined;
+
+          type = store.modelFor('content-type');
+          id = 'null';
+
+          adapter.ajax = function (url, type, options) {
+            expect(options.data).deep.equal({
+              'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
+            });
+          };
+          adapter.findRecord(store, type, id, null);
+        });
+      });
+
+      describe('#model "entry"', function () {
+
+        (0, _emberMocha.it)('test', function () {
+          var type = undefined,
+              id = undefined;
+
+          env.registry.register('model:entry', _emberData['default'].Model.extend());
+
+          type = store.modelFor('entry');
+          id = 'idEntry';
+
+          expect(function () {
+            adapter.findRecord(store, type, id, null);
+          }).to['throw'](_ember['default'].Error);
+        });
+      });
+
+      describe('#model "post"', function () {
+
+        (0, _emberMocha.it)('test url', function () {
+          var type = undefined,
+              id = undefined;
+
+          //env.registry.register( 'model:post', DS.Model.extend() );
+          type = store.modelFor('post');
+          id = 'idPost';
+
+          adapter.ajax = function (url, type, options) {
+            expect(url).to.equal('https://cdn.contentful.com/spaces/m21hvnsjmt8a/entries/idPost');
+          };
+          adapter.findRecord(store, type, id, null);
+        });
+
+        (0, _emberMocha.it)('test query', function () {
+          var type = undefined,
+              id = undefined;
+
+          //env.registry.register( 'model:post', DS.Model.extend());
+          type = store.modelFor('post');
+          id = 'idPost';
+
+          adapter.ajax = function (url, type, options) {
+            expect(options.data).deep.equal({
+              'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
+            });
+          };
+          adapter.findRecord(store, type, id, null);
+        });
+      });
+    });
+
+    /*###########################################################*/
+
+    describe('#findAll', function () {
+      beforeEach(function () {
+        // runs before each test in this block
+        env = (0, _dummyTestsHelpersStore['default'])();
+        store = env.store;
+        adapter = env.contentfulDeliveryAdapter;
+      });
+
+      afterEach(function () {
+        // runs after each test in this block
+        _ember['default'].run(store, 'destroy');
+        _ember['default'].run(env.container, 'destroy');
+        _ember['default'].run(adapter, 'destroy');
+      });
+
+      describe('#model "asset"', function () {
+        (0, _emberMocha.it)('test url', function () {
+          var type = undefined;
+          type = store.modelFor('asset');
+          adapter.ajax = function (url, type, options) {
+            expect(url).to.equal('https://cdn.contentful.com/spaces/m21hvnsjmt8a/assets');
+          };
+          adapter.findAll(store, type, null, null);
+        });
+
+        (0, _emberMocha.it)('test query', function () {
+          var type = undefined;
+          type = store.modelFor('asset');
+          adapter.ajax = function (url, type, options) {
+            expect(options.data).deep.equal({
+              'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
+            });
+          };
+          adapter.findAll(store, type, null, null);
+        });
+      });
+
+      describe('#model "content-type"', function () {
+        (0, _emberMocha.it)('test url', function () {
+          var type = undefined;
+          type = store.modelFor('content-type');
+          adapter.ajax = function (url, type, options) {
+            expect(url).to.equal('https://cdn.contentful.com/spaces/m21hvnsjmt8a/content_types');
+          };
+          adapter.findAll(store, type, null, null);
+        });
+
+        (0, _emberMocha.it)('test query', function () {
+          var type = undefined;
+          type = store.modelFor('content-type');
+          adapter.ajax = function (url, type, options) {
+            expect(options.data).deep.equal({
+              'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb"
+            });
+          };
+          adapter.findAll(store, type, null, null);
+        });
+      });
+
+      describe('#model "space"', function () {
+        (0, _emberMocha.it)('test', function () {
+          var type = undefined;
+          type = store.modelFor('space');
+          expect(function () {
+            adapter.findAll(store, type, null, null);
+          }).to['throw'](_ember['default'].Error);
+        });
+      });
+
+      describe('#model "entry"', function () {
+        (0, _emberMocha.it)('test', function () {
+          var type = undefined;
+          type = store.modelFor('entry');
+          expect(function () {
+            adapter.findAll(store, type, null, null);
+          }).to['throw'](_ember['default'].Error);
+        });
+      });
+
+      describe('#model "post"', function () {
+        (0, _emberMocha.it)('test url', function () {
+          var type = undefined;
+          type = store.modelFor('post');
+          adapter.ajax = function (url, type, options) {
+            expect(url).to.equal('https://cdn.contentful.com/spaces/m21hvnsjmt8a/entries');
+          };
+          adapter.findAll(store, type, null, null);
+        });
+
+        (0, _emberMocha.it)('test query', function () {
+          var type = undefined;
+          type = store.modelFor('post');
+          adapter.ajax = function (url, type, options) {
+            expect(options.data).deep.equal({
+              'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb",
+              'content_type': "post"
+            });
+          };
+          adapter.findAll(store, type, null, null);
+        });
+      });
+    });
+
+    /*###########################################################*/
+
+    describe('#query', function () {
+      beforeEach(function () {
+        // runs before each test in this block
+        env = (0, _dummyTestsHelpersStore['default'])();
+        store = env.store;
+        adapter = env.contentfulDeliveryAdapter;
+      });
+
+      afterEach(function () {
+        // runs after each test in this block
+        _ember['default'].run(store, 'destroy');
+        _ember['default'].run(env.container, 'destroy');
+        _ember['default'].run(adapter, 'destroy');
+      });
+
+      describe('#model "asset"', function () {
+        (0, _emberMocha.it)('test', function () {
+          var type = undefined,
+              query = undefined;
+          type = store.modelFor('asset');
+          query = { 'sys.id': 'id' };
+          expect(function () {
+            adapter.query(store, type, query);
+          }).to['throw'](_ember['default'].Error);
+        });
+      });
+
+      describe('#model "content-type"', function () {
+        (0, _emberMocha.it)('test', function () {
+          var type = undefined,
+              query = undefined;
+          type = store.modelFor('content-type');
+          query = { 'sys.id': 'id' };
+          expect(function () {
+            adapter.query(store, type, query);
+          }).to['throw'](_ember['default'].Error);
+        });
+      });
+
+      describe('#model "space"', function () {
+        (0, _emberMocha.it)('test', function () {
+          var type = undefined,
+              query = undefined;
+          type = store.modelFor('space');
+          query = { 'sys.id': 'id' };
+          expect(function () {
+            adapter.query(store, type, query);
+          }).to['throw'](_ember['default'].Error);
+        });
+      });
+
+      describe('#model "entry"', function () {
+        (0, _emberMocha.it)('test url', function () {
+          var type = undefined,
+              query = undefined;
+          type = store.modelFor('entry');
+          query = { 'sys.id': 'idEntry' };
+          adapter.ajax = function (url, type, options) {
+            expect(url).to.equal('https://cdn.contentful.com/spaces/m21hvnsjmt8a/entries');
+          };
+          adapter.query(store, type, query);
+        });
+
+        (0, _emberMocha.it)('test query', function () {
+          var type = undefined,
+              query = undefined;
+          type = store.modelFor('entry');
+          query = { 'sys.id': 'idEntry' };
+          adapter.ajax = function (url, type, options) {
+            expect(options.data).deep.equal({
+              'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb",
+              'content_type': 'entry',
+              'sys.id': "idEntry"
+            });
+          };
+          adapter.query(store, type, query);
+        });
+      });
+
+      describe('#model "post"', function () {
+        (0, _emberMocha.it)('test url', function () {
+          var type = undefined,
+              query = undefined;
+          type = store.modelFor('post');
+          query = { 'sys.id': 'idPost' };
+          adapter.ajax = function (url, type, options) {
+            expect(url).to.equal('https://cdn.contentful.com/spaces/m21hvnsjmt8a/entries');
+          };
+          adapter.query(store, type, query);
+        });
+
+        (0, _emberMocha.it)('test query', function () {
+          var type = undefined,
+              query = undefined;
+          type = store.modelFor('post');
+          query = { 'sys.id': 'idPost' };
+          adapter.ajax = function (url, type, options) {
+            expect(options.data).deep.equal({
+              'access_token': "0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb",
+              'content_type': 'post',
+              'sys.id': "idPost"
+            });
+          };
+          adapter.query(store, type, query);
+        });
+      });
+    });
   });
 });
 /* jshint unused: vars */
 define('dummy/tests/unit/adapters/contentful-delivery-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/adapters/contentful-delivery-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/adapters/contentful-delivery-test.js should pass jshint.');
+  describe('JSHint - unit/adapters/contentful-delivery-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/adapters/contentful-delivery-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/initializers/contentful-delivery-test', ['exports', 'ember', 'dummy/initializers/contentful-delivery', 'qunit'], function (exports, _ember, _dummyInitializersContentfulDelivery, _qunit) {
+define('dummy/tests/unit/initializers/contentful-delivery-test', ['exports', 'chai', 'mocha', 'ember', 'ember-contentful-delivery-adapter/initializers/contentful-delivery'], function (exports, _chai, _mocha, _ember, _emberContentfulDeliveryAdapterInitializersContentfulDelivery) {
 
-  var application = undefined;
+  (0, _mocha.describe)('InitialInitializer', function () {
+    var container = undefined,
+        application = undefined;
 
-  (0, _qunit.module)('Unit | Initializer | contentful delivery', {
-    beforeEach: function beforeEach() {
+    (0, _mocha.beforeEach)(function () {
       _ember['default'].run(function () {
         application = _ember['default'].Application.create();
+        container = application.__container__;
         application.deferReadiness();
         application.set('contentful', {
           namespace: 'spaces/m21hvnsjmt8a',
           access_token: '0665901a5bc6c853e6533535301171e5e6004011e0e02aac23b03ad537986ffb'
         });
       });
-    }
-  });
+    });
 
-  // Replace this with your real tests.
-  (0, _qunit.test)('it works', function (assert) {
-    _dummyInitializersContentfulDelivery['default'].initialize(application);
+    // Replace this with your real tests.
+    (0, _mocha.it)('works', function () {
+      (0, _emberContentfulDeliveryAdapterInitializersContentfulDelivery.initialize)(application);
 
-    // you would normally confirm the results of the initializer here
-    assert.ok(true);
+      // you would normally confirm the results of the initializer here
+      (0, _chai.expect)(true).to.be.ok;
+    });
   });
 });
+/* jshint expr:true */
 define('dummy/tests/unit/initializers/contentful-delivery-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/initializers/contentful-delivery-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/initializers/contentful-delivery-test.js should pass jshint.');
+  describe('JSHint - unit/initializers/contentful-delivery-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/initializers/contentful-delivery-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/models/calendar-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/models/calendar-event-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleForModel)('calendar', 'Unit | Model | calendar', {
+  (0, _emberMocha.describeModel)('calendar-event', 'Unit | Model | calendar event', {
     // Specify the other units that are required for this test.
-    needs: []
-  });
+    needs: ['model:space']
+  }, function () {
+    // Replace this with your real tests.
+    beforeEach(function () {
+      // runs before each test in this block
 
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var model = this.subject();
-    // let store = this.store();
-    assert.ok(!!model);
+    });
+
+    afterEach(function () {
+      // runs after each test in this block
+
+    });
+
+    (0, _emberMocha.it)('exists', function () {
+      var model = this.subject();
+      // var store = this.store();
+      (0, _chai.expect)(model).to.be.ok;
+    });
   });
 });
-define('dummy/tests/unit/models/calendar-test.jshint', ['exports'], function (exports) {
+/* jshint expr:true */
+define('dummy/tests/unit/models/calendar-event-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/models/calendar-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/models/calendar-test.js should pass jshint.');
+  describe('JSHint - unit/models/calendar-event-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/models/calendar-event-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/models/chef-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/models/contact-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleForModel)('chef', 'Unit | Model | chef', {
+  (0, _emberMocha.describeModel)('contact', 'Unit | Model | contact', {
     // Specify the other units that are required for this test.
-    needs: []
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var model = this.subject();
-    // let store = this.store();
-    assert.ok(!!model);
-  });
-});
-define('dummy/tests/unit/models/chef-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/models/chef-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/models/chef-test.js should pass jshint.');
+    needs: ['model:space']
+  }, function () {
+    // Replace this with your real tests.
+    (0, _emberMocha.it)('exists', function () {
+      var model = this.subject();
+      // var store = this.store();
+      (0, _chai.expect)(model).to.be.ok;
+    });
   });
 });
-define('dummy/tests/unit/models/contact-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleForModel)('contact', 'Unit | Model | contact', {
-    // Specify the other units that are required for this test.
-    needs: []
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var model = this.subject();
-    // let store = this.store();
-    assert.ok(!!model);
-  });
-});
+/* jshint expr:true */
 define('dummy/tests/unit/models/contact-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/models/contact-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/models/contact-test.js should pass jshint.');
+  describe('JSHint - unit/models/contact-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/models/contact-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/models/course-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/models/course-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleForModel)('course', 'Unit | Model | course', {
+  (0, _emberMocha.describeModel)('course', 'Unit | Model | course', {
     // Specify the other units that are required for this test.
-    needs: []
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var model = this.subject();
-    // let store = this.store();
-    assert.ok(!!model);
+    needs: ['model:unit-course', 'model:asset', 'model:space']
+  }, function () {
+    // Replace this with your real tests.
+    (0, _emberMocha.it)('exists', function () {
+      var model = this.subject();
+      // var store = this.store();
+      (0, _chai.expect)(model).to.be.ok;
+    });
   });
 });
+/* jshint expr:true */
 define('dummy/tests/unit/models/course-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/models/course-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/models/course-test.js should pass jshint.');
+  describe('JSHint - unit/models/course-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/models/course-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/models/home-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/models/culinary-teacher-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleForModel)('home', 'Unit | Model | home', {
+  (0, _emberMocha.describeModel)('culinary-teacher', 'Unit | Model | culinary teacher', {
     // Specify the other units that are required for this test.
-    needs: []
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var model = this.subject();
-    // let store = this.store();
-    assert.ok(!!model);
+    needs: ['model:asset', 'model:space']
+  }, function () {
+    // Replace this with your real tests.
+    (0, _emberMocha.it)('exists', function () {
+      var model = this.subject();
+      // var store = this.store();
+      (0, _chai.expect)(model).to.be.ok;
+    });
   });
 });
-define('dummy/tests/unit/models/home-test.jshint', ['exports'], function (exports) {
+/* jshint expr:true */
+define('dummy/tests/unit/models/culinary-teacher-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/models/home-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/models/home-test.js should pass jshint.');
+  describe('JSHint - unit/models/culinary-teacher-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/models/culinary-teacher-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/models/recipe-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/models/education-calendar-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleForModel)('recipe', 'Unit | Model | recipe', {
+  (0, _emberMocha.describeModel)('education-calendar', 'Unit | Model | education calendar', {
     // Specify the other units that are required for this test.
-    needs: []
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var model = this.subject();
-    // let store = this.store();
-    assert.ok(!!model);
+    needs: ['model:asset', 'model:space']
+  }, function () {
+    // Replace this with your real tests.
+    (0, _emberMocha.it)('exists', function () {
+      var model = this.subject();
+      // var store = this.store();
+      (0, _chai.expect)(model).to.be.ok;
+    });
   });
 });
+/* jshint expr:true */
+define('dummy/tests/unit/models/education-calendar-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  describe('JSHint - unit/models/education-calendar-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/models/education-calendar-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
+  });
+});
+define('dummy/tests/unit/models/news-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
+
+  (0, _emberMocha.describeModel)('news', 'Unit | Model | news', {
+    // Specify the other units that are required for this test.
+    needs: ['model:asset', 'model:space']
+  }, function () {
+    // Replace this with your real tests.
+    (0, _emberMocha.it)('exists', function () {
+      var model = this.subject();
+      // var store = this.store();
+      (0, _chai.expect)(model).to.be.ok;
+    });
+  });
+});
+/* jshint expr:true */
+define('dummy/tests/unit/models/news-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  describe('JSHint - unit/models/news-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/models/news-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
+  });
+});
+define('dummy/tests/unit/models/recipe-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
+
+  (0, _emberMocha.describeModel)('recipe', 'Unit | Model | recipe', {
+    // Specify the other units that are required for this test.
+    needs: ['model:asset', 'model:space']
+  }, function () {
+    // Replace this with your real tests.
+    (0, _emberMocha.it)('exists', function () {
+      var model = this.subject();
+      // var store = this.store();
+      (0, _chai.expect)(model).to.be.ok;
+    });
+  });
+});
+/* jshint expr:true */
 define('dummy/tests/unit/models/recipe-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/models/recipe-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/models/recipe-test.js should pass jshint.');
+  describe('JSHint - unit/models/recipe-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/models/recipe-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/routes/calendar-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/models/slider-rotator-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleFor)('route:calendar', 'Unit | Route | calendar', {
+  (0, _emberMocha.describeModel)('slider-rotator', 'Unit | Model | slider rotator', {
+    // Specify the other units that are required for this test.
+    needs: ['model:asset', 'model:space']
+  }, function () {
+    // Replace this with your real tests.
+    (0, _emberMocha.it)('exists', function () {
+      var model = this.subject();
+      // var store = this.store();
+      (0, _chai.expect)(model).to.be.ok;
+    });
+  });
+});
+/* jshint expr:true */
+define('dummy/tests/unit/models/slider-rotator-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  describe('JSHint - unit/models/slider-rotator-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/models/slider-rotator-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
+  });
+});
+define('dummy/tests/unit/models/unit-course-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
+
+  (0, _emberMocha.describeModel)('unit-course', 'Unit | Model | unit course', {
+    // Specify the other units that are required for this test.
+    needs: ['model:asset', 'model:space']
+  }, function () {
+    // Replace this with your real tests.
+    (0, _emberMocha.it)('exists', function () {
+      var model = this.subject();
+      // var store = this.store();
+      (0, _chai.expect)(model).to.be.ok;
+    });
+  });
+});
+/* jshint expr:true */
+define('dummy/tests/unit/models/unit-course-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  describe('JSHint - unit/models/unit-course-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/models/unit-course-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
+  });
+});
+define('dummy/tests/unit/routes/calendar-event-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
+
+  (0, _emberMocha.describeModule)('route:calendar-event', 'CalendarEventRoute', {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
   });
 });
+/* jshint expr:true */
+define('dummy/tests/unit/routes/calendar-event-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  describe('JSHint - unit/routes/calendar-event-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/calendar-event-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
+  });
+});
+define('dummy/tests/unit/routes/calendar-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
+
+  (0, _emberMocha.describeModule)('route:calendar', 'CalendarRoute', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
+  });
+});
+/* jshint expr:true */
 define('dummy/tests/unit/routes/calendar-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/routes/calendar-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/calendar-test.js should pass jshint.');
+  describe('JSHint - unit/routes/calendar-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/calendar-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/routes/chefs-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/routes/chef-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleFor)('route:chefs', 'Unit | Route | chefs', {
+  (0, _emberMocha.describeModule)('route:chef', 'ChefRoute', {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
   });
 });
+/* jshint expr:true */
+define('dummy/tests/unit/routes/chef-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  describe('JSHint - unit/routes/chef-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/chef-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
+  });
+});
+define('dummy/tests/unit/routes/chefs-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
+
+  (0, _emberMocha.describeModule)('route:chefs', 'ChefsRoute', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
+  });
+});
+/* jshint expr:true */
 define('dummy/tests/unit/routes/chefs-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/routes/chefs-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/chefs-test.js should pass jshint.');
+  describe('JSHint - unit/routes/chefs-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/chefs-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/routes/contacts-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/routes/contacts-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleFor)('route:contacts', 'Unit | Route | contacts', {
+  (0, _emberMocha.describeModule)('route:contacts', 'ContactsRoute', {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
   });
 });
+/* jshint expr:true */
 define('dummy/tests/unit/routes/contacts-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/routes/contacts-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/contacts-test.js should pass jshint.');
+  describe('JSHint - unit/routes/contacts-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/contacts-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/routes/courses-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/routes/course-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleFor)('route:courses', 'Unit | Route | courses', {
+  (0, _emberMocha.describeModule)('route:course', 'CourseRoute', {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
   });
 });
+/* jshint expr:true */
+define('dummy/tests/unit/routes/course-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  describe('JSHint - unit/routes/course-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/course-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
+  });
+});
+define('dummy/tests/unit/routes/courses-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
+
+  (0, _emberMocha.describeModule)('route:courses', 'CoursesRoute', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
+  });
+});
+/* jshint expr:true */
 define('dummy/tests/unit/routes/courses-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/routes/courses-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/courses-test.js should pass jshint.');
+  describe('JSHint - unit/routes/courses-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/courses-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/routes/home-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/routes/education-calendar-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleFor)('route:home', 'Unit | Route | home', {
+  (0, _emberMocha.describeModule)('route:education-calendar', 'EducationCalendarRoute', {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
   });
 });
+/* jshint expr:true */
+define('dummy/tests/unit/routes/education-calendar-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  describe('JSHint - unit/routes/education-calendar-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/education-calendar-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
+  });
+});
+define('dummy/tests/unit/routes/home-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
+
+  (0, _emberMocha.describeModule)('route:home', 'HomeRoute', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
+  });
+});
+/* jshint expr:true */
 define('dummy/tests/unit/routes/home-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/routes/home-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/home-test.js should pass jshint.');
+  describe('JSHint - unit/routes/home-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/home-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/routes/recipes-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+define('dummy/tests/unit/routes/news-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
 
-  (0, _emberQunit.moduleFor)('route:recipes', 'Unit | Route | recipes', {
+  (0, _emberMocha.describeModule)('route:news', 'NewsRoute', {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
   });
 });
+/* jshint expr:true */
+define('dummy/tests/unit/routes/news-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  describe('JSHint - unit/routes/news-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/news-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
+  });
+});
+define('dummy/tests/unit/routes/recipe-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
+
+  (0, _emberMocha.describeModule)('route:recipe', 'RecipeRoute', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
+  });
+});
+/* jshint expr:true */
+define('dummy/tests/unit/routes/recipe-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  describe('JSHint - unit/routes/recipe-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/recipe-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
+  });
+});
+define('dummy/tests/unit/routes/recipes-test', ['exports', 'chai', 'ember-mocha'], function (exports, _chai, _emberMocha) {
+
+  (0, _emberMocha.describeModule)('route:recipes', 'RecipesRoute', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  }, function () {
+    (0, _emberMocha.it)('exists', function () {
+      var route = this.subject();
+      (0, _chai.expect)(route).to.be.ok;
+    });
+  });
+});
+/* jshint expr:true */
 define('dummy/tests/unit/routes/recipes-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/routes/recipes-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/recipes-test.js should pass jshint.');
+  describe('JSHint - unit/routes/recipes-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/routes/recipes-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
-define('dummy/tests/unit/serializers/contentful-delivery-test', ['exports', 'dummy/tests/helpers/store', 'ember', 'ember-qunit', 'dummy/tests/helpers/response/asset', 'dummy/tests/helpers/response/assets', 'dummy/tests/helpers/response/content-type', 'dummy/tests/helpers/response/content-types', 'dummy/tests/helpers/response/entry', 'dummy/tests/helpers/response/entries', 'dummy/tests/helpers/response/query-content-type', 'dummy/tests/helpers/response/query-id', 'dummy/tests/helpers/response/space'], function (exports, _dummyTestsHelpersStore, _ember, _emberQunit, _dummyTestsHelpersResponseAsset, _dummyTestsHelpersResponseAssets, _dummyTestsHelpersResponseContentType, _dummyTestsHelpersResponseContentTypes, _dummyTestsHelpersResponseEntry, _dummyTestsHelpersResponseEntries, _dummyTestsHelpersResponseQueryContentType, _dummyTestsHelpersResponseQueryId, _dummyTestsHelpersResponseSpace) {
-
-  //import DS from 'ember-data';
-
-  //var get = Ember.get;
-  //var set = Ember.set;
-  var run = _ember['default'].run;
+define('dummy/tests/unit/serializers/contentful-delivery-test', ['exports', 'dummy/tests/helpers/store', 'ember', 'ember-data', 'ember-mocha'], function (exports, _dummyTestsHelpersStore, _ember, _emberData, _emberMocha) {
 
   var store, env, serializer;
-  //var spaceResponse,
-  //    assetResponse,
-  //    assetsResponse,
-  //    contentTypeResponse,
-  //    contentTypeResponseApi,
-  //    contentTypesResponse,
-  //    contentTypesResponseApi,
-  //    entryResponse,
-  //    queryContentTypeResponse,
-  //    queryIdResponse;
 
-  (0, _emberQunit.moduleFor)('serializer:contentful-delivery', 'Serializer | contentful delivery', {
+  (0, _emberMocha.describeModule)('serializer:contentful-delivery', 'Serializer', {
     // Specify the other units that are required for this test.
-    //needs: ['serializer:contentful-delivery'],
-    beforeEach: function beforeEach() {
-      env = (0, _dummyTestsHelpersStore['default'])();
-      store = env.store;
-      serializer = env.contentfulDeliverySerializer;
+    // needs: ['controller:foo']
+  }, function () {
 
-      //assetResponse = asset();
-      //assetsResponse = assets();
-      //contentTypeResponse = contentTypeRes();
-      //contentTypeResponseApi = contentTypeResApi();
-      //contentTypesResponse = contentTypesRes();
-      //contentTypesResponseApi = contentTypesResApi();
-      //entryResponse = entry();
-      //queryContentTypeResponse = queryContentType();
-      //queryIdResponse = queryId();
-      //spaceResponse = space();
-    },
+    describe('#config', function () {
+      beforeEach(function () {
+        // runs before each test in this block
+        env = (0, _dummyTestsHelpersStore['default'])();
+        store = env.store;
+        serializer = env.contentfulDeliverySerializer;
+      });
 
-    afterEach: function afterEach() {
-      run(store, 'destroy');
-      run(env.container, 'destroy');
-      run(serializer, 'destroy');
-    }
-  });
+      afterEach(function (done) {
+        // runs after each test in this block
+        _ember['default'].run(store, 'destroy');
+        _ember['default'].run(env.container, 'destroy');
+        _ember['default'].run(serializer, 'destroy');
+        done();
+      });
 
-  // Replace this with your real tests.
-  //test('it serializes records', function(assert) {
-  //  //let serializedRecord = serializer.serialize();
-  //  //assert.ok(serializedRecord);
-  //  let spaceResponses = 54;
-  //  assert.ok(1);
-  //});
+      (0, _emberMocha.it)('exists', function () {
+        var serializer = this.subject();
+        expect(serializer).to.be.an('object');
+      });
 
-  /*test('normalizeMeta', function (assert) {
-    let rezult;
-    rezult = serializer.normalizeMeta( contentTypesResponse );
-    assert.deepEqual(rezult.meta, contentTypesResponseApi.meta,'contentTypesResponse');
-  
-    rezult = serializer.normalizeMeta(assetsResponse);
-    assert.deepEqual(rezult.meta, {
-      limit: 100,
-      skip : 0,
-      total: 1
-    },'assetsResponse');
-  
-    rezult = serializer.normalizeMeta(queryContentTypeResponse);
-    assert.deepEqual(rezult.meta, {
-      limit: 100,
-      skip : 0,
-      total: 2
-    },'queryContentTypeResponse');
-  
-    rezult = serializer.normalizeMeta(queryIdResponse);
-    assert.deepEqual(rezult.meta, {
-      limit: 100,
-      skip : 0,
-      total: 1
-    },'queryIdResponse');
-  });*/
+      (0, _emberMocha.it)('method extractMeta()', function () {
+        var payload = {
+          "sys": {
+            "type": "Array"
+          },
+          "total": 1,
+          "skip": 0,
+          "limit": 100,
+          "items": [],
+          "includes": {}
+        };
+        var result = serializer.extractMeta(store, null, payload);
+        //debugger;
+        expect(result).deep.equal({
+          "total": 1,
+          "skip": 0,
+          "limit": 100
+        });
+      });
 
-  (0, _emberQunit.test)('_normalizeResponse - findAll for model:content-type', function (assert) {
-    var rezult = undefined,
-        payload = undefined,
-        primaryModelClass = undefined,
-        id = undefined,
-        requestType = undefined,
-        isSingle = undefined;
+      (0, _emberMocha.it)('method _normalizeResourceHash(). The "type" is not "ContentType"', function () {
+        env.registry.register('model:post', _emberData['default'].Model.extend({}));
 
-    payload = serializer.normalizeMeta(_dummyTestsHelpersResponseContentTypes.contentTypesResponse);
-    primaryModelClass = store.modelFor('content-type');
-    id = null; //'commentPost';
-    requestType = 'findAll';
-    isSingle = false;
-    rezult = serializer._normalizeResponse(store, primaryModelClass, payload, id, requestType, isSingle);
-    //QUnit.dump.maxDepth = 10;
-    assert.deepEqual(rezult.data.attribute, _dummyTestsHelpersResponseContentTypes.contentTypesResponseApi.data.attribute, 'attribute - model:content-type');
-  });
+        var resourceHash = {
+          "sys": {
+            "space": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Space",
+                "id": "crosqmsbfuzt"
+              }
+            },
+            "id": "5SZjfz4REc08awcE02cKog",
+            "type": "Entry",
+            "revision": 1,
+            "contentType": {
+              "sys": {
+                "type": "Link",
+                "linkType": "ContentType",
+                "id": "post"
+              }
+            },
+            "locale": "en-US"
+          },
+          "fields": {
+            "title": "string",
+            "description": "string",
+            "longDescription": "string"
+          }
+        };
 
-  (0, _emberQunit.test)('_normalizeResponse - findRecord for model:content-type', function (assert) {
-    var rezult = undefined,
-        payload = undefined,
-        primaryModelClass = undefined,
-        id = undefined,
-        requestType = undefined,
-        isSingle = undefined;
+        var modelClass = store.modelFor('post');
 
-    payload = serializer.normalizeMeta(_dummyTestsHelpersResponseContentType.contentTypeResponse);
-    primaryModelClass = store.modelFor('content-type');
-    id = 'commentPost';
-    requestType = 'findRecord';
-    isSingle = true;
-    rezult = serializer._normalizeResponse(store, primaryModelClass, payload, id, requestType, isSingle);
-    //QUnit.dump.maxDepth = 10;
-    assert.deepEqual(rezult.data.attributes.length, _dummyTestsHelpersResponseContentType.contentTypeResponseApi.data.attributes.length, 'attribute length');
-  });
+        var result = serializer._normalizeResourceHash(modelClass, resourceHash);
+        expect(result).to.have.property('sysSpace');
+        expect(result).to.have.property('sysId');
+        expect(result).to.have.property('sysType');
+        expect(result).to.have.property('sysRevision');
+        expect(result).to.have.property('sysContentType');
+        expect(result).to.have.property('sysLocale');
+        expect(result).to.have.property('title');
+        expect(result).to.have.property('description');
+        expect(result).to.have.property('longDescription');
+      });
 
-  (0, _emberQunit.test)('_normalizeResponse - findRecord for model:entry', function (assert) {
-    var rezult = undefined,
-        payload = undefined,
-        primaryModelClass = undefined,
-        id = undefined,
-        requestType = undefined,
-        isSingle = undefined;
+      (0, _emberMocha.it)('method _normalizeResourceHash(). The "type" is "ContentType"', function () {
+        env.registry.register('model:content-type', _emberData['default'].Model.extend({}));
 
-    payload = serializer.normalizeMeta(_dummyTestsHelpersResponseEntry.entryResponse);
-    primaryModelClass = store.modelFor('entry');
-    id = '3eOlNEHDpmgsgMmMwgKo2K';
-    requestType = 'findRecord';
-    isSingle = true;
-    rezult = serializer._normalizeResponse(store, primaryModelClass, payload, id, requestType, isSingle);
-    //QUnit.dump.maxDepth = 10;
-    assert.deepEqual(rezult.data.attributes.length, _dummyTestsHelpersResponseEntry.entryResponseApi.data.attributes.length, 'attributes length');
-  });
+        var resourceHash = {
+          "sys": {
+            "space": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Space",
+                "id": "crosqmsbfuzt"
+              }
+            },
+            "id": "5SZjfz4REc08awcE02cKog",
+            "type": "ContentType",
+            "revision": 1,
+            "contentType": {
+              "sys": {
+                "type": "Link",
+                "linkType": "ContentType",
+                "id": "news"
+              }
+            },
+            "locale": "en-US"
+          },
+          "fields": {
+            "title": "string",
+            "description": "string",
+            "longDescription": "string"
+          }
+        };
 
-  (0, _emberQunit.test)('_normalizeResponse - findAll for model:entry', function (assert) {
-    var rezult = undefined,
-        payload = undefined,
-        primaryModelClass = undefined,
-        id = undefined,
-        requestType = undefined,
-        isSingle = undefined;
+        var modelClass = store.modelFor('content-type');
 
-    payload = serializer.normalizeMeta(_dummyTestsHelpersResponseEntries.entriesResponse);
-    primaryModelClass = store.modelFor('entry');
-    id = null; //'3eOlNEHDpmgsgMmMwgKo2K';
-    requestType = 'findAll';
-    isSingle = false;
-    rezult = serializer._normalizeResponse(store, primaryModelClass, payload, id, requestType, isSingle);
-    //QUnit.dump.maxDepth = 10;
-    assert.deepEqual(rezult.data.length, _dummyTestsHelpersResponseEntries.entriesResponseApi.data.length, 'data length');
+        var result = serializer._normalizeResourceHash(modelClass, resourceHash);
+        expect(result).to.have.property('sysSpace');
+        expect(result).to.have.property('sysId');
+        expect(result).to.have.property('sysType');
+        expect(result).to.have.property('sysRevision');
+        expect(result).to.have.property('sysContentType');
+        expect(result).to.have.property('sysLocale');
+        expect(result).to.have.property('fields');
+      });
+
+      (0, _emberMocha.it)('method _renameSys()', function () {
+        var sys = {
+          "space": {},
+          "id": "id",
+          "type": "Entry",
+          "createdAt": "string",
+          "updatedAt": "string",
+          "revision": 2,
+          "contentType": {},
+          "locale": "en-US"
+        };
+        var result = serializer._renameSys(sys);
+        expect(result).deep.equal({
+          sysSpace: {},
+          sysId: "id",
+          sysType: "Entry",
+          sysCreatedAt: "string",
+          sysUpdatedAt: "string",
+          sysRevision: 2,
+          sysContentType: {},
+          sysLocale: "en-US"
+        });
+      });
+
+      (0, _emberMocha.it)('method extractId()', function () {
+        var sys = {
+          sysId: "id"
+        };
+        var result = serializer.extractId(null, sys);
+        expect(result).to.equal("id");
+      });
+
+      (0, _emberMocha.it)('method extractType() when "type" equal "Entry"', function () {
+        var sys = {
+          "sysSpace": {},
+          "sysId": "id",
+          "sysType": "Entry",
+          "sysContentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "post"
+            }
+          }
+        };
+        var result = serializer.extractType(null, sys);
+        expect(result).to.equal("post");
+      });
+
+      (0, _emberMocha.it)('method extractType() when "type" not equal "Entry"', function () {
+        var sys = {
+          "sysSpace": {},
+          "sysId": "id",
+          "sysType": "Asset",
+          sysCreatedAt: "string",
+          sysUpdatedAt: "string"
+        };
+        var result = serializer.extractType(null, sys);
+        expect(result).to.equal("Asset");
+      });
+
+      (0, _emberMocha.it)('method extractAttributes()', function () {
+        env.registry.register('model:post', _emberData['default'].Model.extend({
+          title: _emberData['default'].attr('string'),
+          descriptions: _emberData['default'].attr('string'),
+          asset: _emberData['default'].belongsTo('asset'),
+          comments: _emberData['default'].hasMany('comment')
+        }));
+
+        var responseObjNormalize = {
+          "sysSpace": {},
+          "sysId": "id",
+          "sysType": "Entry",
+          "sysContentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "post"
+            }
+          },
+          "title": "string",
+          "descriptions": "string",
+          "asset": {},
+          "comments": []
+        };
+
+        var modelClass = store.modelFor('post');
+
+        var result = serializer.extractAttributes(modelClass, responseObjNormalize);
+        expect(result).deep.equal({
+          descriptions: "string",
+          title: "string"
+        });
+      });
+
+      (0, _emberMocha.it)('method extractRelationship() when "linkType" not equal "Entry"', function () {
+        var relationshipHash = {
+          "sys": {
+            "type": "Link",
+            "linkType": "Asset",
+            "id": "idAsset"
+          }
+        };
+        var result = serializer.extractRelationship('asset', relationshipHash);
+        expect(result).deep.equal({
+          id: "idAsset",
+          type: "Asset"
+        });
+      });
+
+      (0, _emberMocha.it)('method extractRelationship() when "linkType" equal "Entry". Model name is "post"', function () {
+        var relationshipHash = {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "AAA"
+          }
+        };
+        var result = serializer.extractRelationship('post', relationshipHash);
+        expect(result).deep.equal({
+          id: "AAA",
+          type: "post"
+        });
+      });
+
+      (0, _emberMocha.it)('method extractRelationship() when "linkType" equal "Entry". Model name is "other"', function () {
+        var relationshipHash = {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "AAA"
+          }
+        };
+        var result = serializer.extractRelationship('other', relationshipHash);
+        expect(result).deep.equal({
+          id: "AAA",
+          type: "other"
+        });
+      });
+
+      (0, _emberMocha.it)('method extractRelationships()', function () {
+        env.registry.register('model:post', _emberData['default'].Model.extend({
+          title: _emberData['default'].attr('string'),
+          descriptions: _emberData['default'].attr('string'),
+          asset: _emberData['default'].belongsTo('asset'),
+          comments: _emberData['default'].hasMany('comment')
+        }));
+
+        var relationshipHash = {
+          "sysSpace": {},
+          "sysId": "id",
+          "sysType": "Entry",
+          "sysContentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "post"
+            }
+          },
+          "title": "string",
+          "descriptions": "string",
+          "asset": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "idAsset"
+            }
+          },
+          "comments": [{
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "AAA"
+            }
+          }, {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "BBB"
+            }
+          }]
+        };
+
+        var modelClass = store.modelFor('post');
+
+        var result = serializer.extractRelationships(modelClass, relationshipHash);
+        expect(result).deep.equal({
+          "asset": {
+            "data": {
+              "type": "Asset",
+              "id": "idAsset"
+            }
+          },
+          "comments": {
+            "data": [{
+              "type": "comment",
+              "id": "AAA"
+            }, {
+              "type": "comment",
+              "id": "BBB"
+            }]
+          }
+        });
+      });
+    });
   });
 });
 /* jshint unused: vars */
-/*moduleForModel,*/
-//import QUnit from 'qunit';
 define('dummy/tests/unit/serializers/contentful-delivery-test.jshint', ['exports'], function (exports) {
   'use strict';
 
-  QUnit.module('JSHint - unit/serializers/contentful-delivery-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(false, 'unit/serializers/contentful-delivery-test.js should pass jshint.\nunit/serializers/contentful-delivery-test.js: line 8, col 9, \'assetResponse\' is defined but never used.\nunit/serializers/contentful-delivery-test.js: line 9, col 9, \'assetsResponse\' is defined but never used.\nunit/serializers/contentful-delivery-test.js: line 14, col 9, \'queryContentTypeResponse\' is defined but never used.\nunit/serializers/contentful-delivery-test.js: line 15, col 9, \'queryIdResponse\' is defined but never used.\nunit/serializers/contentful-delivery-test.js: line 16, col 9, \'spaceResponse\' is defined but never used.\n\n5 errors');
+  describe('JSHint - unit/serializers/contentful-delivery-test.js', function () {
+    it('should pass jshint', function () {
+      if (!true) {
+        var error = new chai.AssertionError('unit/serializers/contentful-delivery-test.js should pass jshint.');
+        error.stack = undefined;throw error;
+      }
+    });
   });
 });
 /* jshint ignore:start */
