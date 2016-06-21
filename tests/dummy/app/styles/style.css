@@ -906,3 +906,7 @@ footer {
   padding-left: 20px;
   font-size: 18px;
 }
+
+.create {
+  text-align: right;
+}

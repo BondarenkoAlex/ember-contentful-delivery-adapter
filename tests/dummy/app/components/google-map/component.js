@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import layout from './template';
-import google from 'gmaps';
+//import google from 'gmaps';
 
 export default Ember.Component.extend({
   layout,
@@ -12,19 +12,20 @@ export default Ember.Component.extend({
       zoom: 18,
       center: {lat: lat, lng: lng}
     };
-    map = new google.maps.Map(document.getElementById('map'),
+    map = new window.google.maps.Map(document.getElementById('map'),
       mapOptions);
 
-    var marker = new google.maps.Marker({
+    var marker = new window.google.maps.Marker({
       position: {lat: lat, lng: lng},
       map: map
     });
-    var infowindow = new google.maps.InfoWindow({
+    var infowindow = new window.google.maps.InfoWindow({
       content: '<p>Marker Location:' + marker.getPosition() + '</p>'
     });
 
-    google.maps.event.addListener(marker, 'click', function() {
+    window.google.maps.event.addListener(marker, 'click', function() {
       infowindow.open(map, marker);
     });
+
   }
 });
