@@ -3,6 +3,7 @@ import setupStore from 'dummy/tests/helpers/store';
 import Ember from 'ember';
 import DS from 'ember-data';
 
+import { expect } from 'chai';
 import {
   describeModule,
   it

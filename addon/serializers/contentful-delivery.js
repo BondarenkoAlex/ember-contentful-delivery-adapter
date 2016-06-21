@@ -145,7 +145,8 @@ export default DS.JSONSerializer.extend({
     let keys = ['sys', 'fields', 'other'];
     let attributes = {};
 
-    for (let value of keys) {
+    for (let prop in keys) {
+      let value = keys[prop];
       let attributesByVal = this._extractAttributesByKey(modelClass, resourceHash, value);
       attributes = Ember.$.extend(attributes, attributesByVal);
     }

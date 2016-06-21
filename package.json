@@ -16,10 +16,11 @@
     "type": "git",
     "url": "https://github.com/BondarenkoAlex/ember-contentful-delivery-adapter.git"
   },
+  "homepage": "http://bondarenkoalex.github.io/ember-contentful-delivery-adapter/",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Bondarenko Alexey",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
@@ -47,12 +48,16 @@
     "mocha": "^2.5.3"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "adapter",
+    "serializer",
+    "contentful"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "http://bondarenkoalex.github.io/ember-contentful-delivery-adapter/"
   }
 }
