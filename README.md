@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/BondarenkoAlex/ember-contentful-delivery-adapter.svg?branch=master)](https://travis-ci.org/BondarenkoAlex/ember-contentful-delivery-adapter)
+
 in working!!!
 
 # DEMO
