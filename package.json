@@ -1,6 +1,6 @@
 {
   "name": "ember-contentful-delivery-adapter",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -51,7 +51,8 @@
     "ember-addon",
     "adapter",
     "serializer",
-    "contentful"
+    "contentful",
+    "ember-data"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6"
