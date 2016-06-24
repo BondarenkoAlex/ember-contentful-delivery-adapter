@@ -87,11 +87,12 @@ The new models names as ID "content model".
 `Contentful account -> APIs -> Content model explorer -> <content model (IDENTIFIER)>`
 
 Example:
-| content model (IDENTIFIER)  | Name model |
-| ------------- | ------------- |
-| course  | course  |
-| calendarEvent  | calendar-event  |
-| unitCourseSimple  | unit-course-simple  |
+
+| content model (IDENTIFIER)  | Name model          |
+| --------------------------- | ------------------- |
+| course                      | course              |
+| calendarEvent               | calendar-event      |
+| unitCourseSimple            | unit-course-simple  |
 
 ## Usage
 Your application should have configured setting `config/environment.js` and created models.
