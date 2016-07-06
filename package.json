@@ -60,5 +60,6 @@
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "demoURL": "http://bondarenkoalex.github.io/ember-contentful-delivery-adapter/"
-  }
+  },
+  "readmeFilename": "README.md"
 }
