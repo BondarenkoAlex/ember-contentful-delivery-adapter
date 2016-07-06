@@ -1,7 +1,7 @@
 {
   "name": "ember-contentful-delivery-adapter",
   "version": "0.1.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "This addons get data from service www.contentful.com",
   "directories": {
     "doc": "doc",
     "test": "tests"
