@@ -18,7 +18,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       contentful: {
-        namespace     : 'spaces/crosqmsbfuzt',
+        namespace     : 'crosqmsbfuzt',
         access_token  : 'e2788fcfd97fd700b173511ec2527ee8759a0421106319e8e2f8f4a8b6f46a0a'
       }
     }

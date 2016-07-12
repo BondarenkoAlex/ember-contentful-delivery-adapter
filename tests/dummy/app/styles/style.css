@@ -910,3 +910,7 @@ footer {
 .create {
   text-align: right;
 }
+
+.loading {
+  text-align: center;
+}

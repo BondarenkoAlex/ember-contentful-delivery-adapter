@@ -6,7 +6,7 @@ export function initialize( application ) {
   let config = application.get( 'contentful' );
   ContentfulDeliveryAdapter.reopen({
     access_token: config.access_token,
-    namespace   : config.namespace
+    namespace   : "spaces/" + config.namespace
   });
   application.register('adapter:application', ContentfulDeliveryAdapter);
   application.register('serializer:application', ContentfulDeliverySerializer);
